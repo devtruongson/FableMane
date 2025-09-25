@@ -1,0 +1,464 @@
+{% schema %}
+{
+  "name": "Video & Product Carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Real Results from Real People"
+    },
+    {
+      "type": "textarea",
+      "id": "section_description",
+      "label": "Section Description",
+      "default": "See how our customers transform their hair"
+    },
+    {
+      "type": "select",
+      "id": "items_per_view",
+      "label": "Items per view on desktop",
+      "options": [
+        { "value": "3", "label": "3 items" },
+        { "value": "4", "label": "4 items" },
+        { "value": "5", "label": "5 items" },
+        { "value": "6", "label": "6 items" }
+      ],
+      "default": "5"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Autoplay speed (seconds)",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 4
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video Item",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Upload Video"
+        },
+        {
+          "type": "text",
+          "id": "video_caption",
+          "label": "Video Caption",
+          "default": "Amazing results!"
+        }
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Product Item",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Video & Product Carousel",
+      "blocks": [
+        { "type": "video" },
+        { "type": "product" },
+        { "type": "video" },
+        { "type": "product" },
+        { "type": "video" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<section class="video-product-section py-12 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <div class="text-center mb-8">
+      {% if section.settings.section_title != blank %}
+        <div class="relative inline-block mb-4">
+          <div
+            class="absolute inset-0 pointer-events-none stars-field-video-title"
+            style="width: 150%; height: 150%; top: -25%; left: -25%;"
+          ></div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 relative z-10">
+            {{ section.settings.section_title }}
+          </h2>
+        </div>
+      {% endif %}
+
+      {% if section.settings.section_description != blank %}
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          {{ section.settings.section_description }}
+        </p>
+      {% endif %}
+    </div>
+
+    <!-- Carousel Container -->
+    <div class="video-product-carousel-container relative">
+      <div class="video-product-carousel overflow-hidden">
+        <div class="video-product-wrapper flex transition-transform duration-300 ease-in-out">
+          {% for block in section.blocks %}
+            <div
+              class="carousel-item flex-shrink-0 px-2"
+              style="width: calc(100% / {{ section.settings.items_per_view }});"
+            >
+              {% case block.type %}
+                {% when 'video' %}
+                  {% if block.settings.video != blank %}
+                    {% render 'video-item',
+                      video_url: block.settings.video.sources[0].url,
+                      caption: block.settings.video_caption
+                    %}
+                  {% else %}
+                    <!-- Video Placeholder -->
+                    <div
+                      class="video-placeholder bg-gray-200 rounded-2xl flex items-center justify-center"
+                      style="aspect-ratio: 9/16;"
+                    >
+                      <div class="text-center text-gray-500">
+                        <svg class="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                        </svg>
+                        <p class="text-sm">Add Video</p>
+                      </div>
+                    </div>
+                  {% endif %}
+
+                {% when 'product' %}
+                  {% if block.settings.product != blank %}
+                    {% assign selected_product = all_products[block.settings.product] %}
+                    {% render 'product-item', product: selected_product %}
+                  {% else %}
+                    <!-- Product Placeholder -->
+                    <div class="product-placeholder bg-white border-2 border-dashed border-gray-300 rounded-lg p-6 flex items-center justify-center min-h-[200px]">
+                      <div class="text-center text-gray-500">
+                        <svg class="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                        </svg>
+                        <p class="text-sm">Select Product</p>
+                      </div>
+                    </div>
+                  {% endif %}
+              {% endcase %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Navigation Arrows -->
+      <button class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors duration-200">
+        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+
+      <button class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors duration-200">
+        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+
+      <!-- Dots Indicators -->
+      <div class="carousel-dots flex justify-center mt-6 space-x-2"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .carousel-item {
+      width: calc(100% / 3) !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .carousel-item {
+      width: calc(100% / 2) !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .carousel-item {
+      width: 100% !important;
+    }
+  }
+
+  /* Stars animations for title */
+  .star-video {
+    position: absolute;
+    transition: all 0.3s ease;
+  }
+
+  .star-video-float {
+    animation: starVideoFloat 7s ease-in-out infinite;
+  }
+
+  .star-video-twinkle {
+    animation: starVideoTwinkle 3s ease-in-out infinite;
+  }
+
+  .star-video-pulse {
+    animation: starVideoPulse 5s ease-in-out infinite;
+  }
+
+  @keyframes starVideoFloat {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(-6px) rotate(120deg);
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes starVideoTwinkle {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(0.9);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes starVideoPulse {
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.1);
+    }
+  }
+
+  /* Carousel dots */
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #d1d5db;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .carousel-dot.active {
+    background-color: #374151;
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Star SVG for video section title
+  const starSVG = `
+    <svg viewBox="0 0 21 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20.1001 12.9001H15.6001C15.5001 12.9001 15.5001 12.9001 15.4001 12.9001H12.9001C12.8001 12.9001 12.7001 12.8001 12.6001 12.8001C11.7001 12.4001 11.4001 11.4001 11.1001 10.5001C10.9001 9.8001 10.7001 9.2001 10.6001 8.5001V0.200098C10.6001 -0.0999023 10.2001 -0.0999023 10.2001 0.200098V10.0001C10.1001 10.6001 10.0001 11.2001 9.6001 11.7001C9.5001 11.8001 9.4001 12.0001 9.3001 12.1001C8.6001 12.7001 7.5001 12.8001 6.6001 12.8001H6.5001H0.200098C-0.0999023 12.8001 -0.0999023 13.2001 0.200098 13.2001H7.3001H7.4001C9.3001 14.4001 10.0001 16.7001 10.2001 18.9001V26.9001C10.2001 27.2001 10.6001 27.2001 10.6001 26.9001V18.7001C11.0001 17.1001 11.5001 15.5001 12.6001 14.3001L12.7001 14.2001C13.2001 13.8001 13.8001 13.5001 14.5001 13.3001H20.2001C20.4001 13.3001 20.4001 12.9001 20.1001 12.9001Z" fill="black"></path>
+    </svg>
+  `;
+
+  // Create stars around video section title
+  function createVideoTitleStars() {
+    const containers = document.querySelectorAll('.stars-field-video-title');
+    containers.forEach(container => {
+      container.innerHTML = '';
+      
+      const numberOfStars = Math.floor(Math.random() * 4) + 6; // 6-10 stars
+      
+      for (let i = 0; i < numberOfStars; i++) {
+        const star = document.createElement('div');
+        star.className = 'star-video';
+        
+        const size = Math.random() * 10 + 6; // 6px to 16px
+        star.style.width = size + 'px';
+        star.style.height = (size * 1.33) + 'px';
+        
+        let left, top;
+        do {
+          left = Math.random() * 100;
+          top = Math.random() * 100;
+        } while (left > 25 && left < 75 && top > 25 && top < 75);
+        
+        star.style.left = left + '%';
+        star.style.top = top + '%';
+        star.style.opacity = Math.random() * 0.5 + 0.3;
+        
+        const animations = ['star-video-float', 'star-video-twinkle', 'star-video-pulse'];
+        star.classList.add(animations[Math.floor(Math.random() * animations.length)]);
+        star.style.animationDelay = (Math.random() * 2) + 's';
+        
+        star.innerHTML = starSVG;
+        container.appendChild(star);
+      }
+    });
+  }
+
+  // Initialize stars
+  createVideoTitleStars();
+  setInterval(createVideoTitleStars, 5000);
+
+  // Carousel functionality
+  const carousels = document.querySelectorAll('.video-product-carousel-container');
+  
+  carousels.forEach(carousel => {
+    const wrapper = carousel.querySelector('.video-product-wrapper');
+    const items = carousel.querySelectorAll('.carousel-item');
+    const prevBtn = carousel.querySelector('.carousel-prev');
+    const nextBtn = carousel.querySelector('.carousel-next');
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+    
+    if (!wrapper || !items.length) return;
+    
+    const itemsPerView = parseInt('{{ section.settings.items_per_view }}') || 5;
+    const autoplay = {{ section.settings.autoplay | json }};
+    const autoplaySpeed = ({{ section.settings.autoplay_speed }} || 4) * 1000;
+    
+    let currentIndex = 0;
+    let maxIndex = Math.max(0, items.length - itemsPerView);
+    let autoplayInterval;
+    
+    // Create dots
+    for (let i = 0; i <= maxIndex; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot';
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
+    
+    const dots = carousel.querySelectorAll('.carousel-dot');
+    
+    function updateCarousel() {
+      const translateX = -(currentIndex * (100 / itemsPerView));
+      wrapper.style.transform = `translateX(${translateX}%)`;
+      
+      // Update dots
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+      
+      // Update button states
+      prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+      nextBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
+    }
+    
+    function goToSlide(index) {
+      currentIndex = Math.max(0, Math.min(index, maxIndex));
+      updateCarousel();
+      resetAutoplay();
+    }
+    
+    function nextSlide() {
+      if (currentIndex < maxIndex) {
+        currentIndex++;
+      } else {
+        currentIndex = 0; // Loop back to start
+      }
+      updateCarousel();
+    }
+    
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = maxIndex; // Loop to end
+      }
+      updateCarousel();
+    }
+    
+    function startAutoplay() {
+      if (autoplay) {
+        autoplayInterval = setInterval(nextSlide, autoplaySpeed);
+      }
+    }
+    
+    function resetAutoplay() {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        startAutoplay();
+      }
+    }
+    
+    // Event listeners
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    
+    // Pause autoplay on hover
+    carousel.addEventListener('mouseenter', () => {
+      if (autoplayInterval) clearInterval(autoplayInterval);
+    });
+    
+    carousel.addEventListener('mouseleave', startAutoplay);
+    
+    // Touch/swipe support
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+    
+    carousel.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+      if (autoplayInterval) clearInterval(autoplayInterval);
+    });
+    
+    carousel.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      currentX = e.touches[0].clientX;
+    });
+    
+    carousel.addEventListener('touchend', () => {
+      if (!isDragging) return;
+      const diffX = startX - currentX;
+      
+      if (Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+      
+      isDragging = false;
+      startAutoplay();
+    });
+    
+    // Initialize
+    updateCarousel();
+    startAutoplay();
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      // Recalculate maxIndex for responsive design
+      const newItemsPerView = window.innerWidth < 480 ? 1 : 
+                             window.innerWidth < 768 ? 2 : 
+                             window.innerWidth < 1024 ? 3 : itemsPerView;
+      maxIndex = Math.max(0, items.length - newItemsPerView);
+      currentIndex = Math.min(currentIndex, maxIndex);
+      updateCarousel();
+    });
+  });
+});
+</script>

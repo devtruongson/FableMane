@@ -1,0 +1,61 @@
+:root {
+    --body-background-color: #fff5ec;
+}
+
+body {
+    font-family: QuincyCF;
+}
+
+body {
+    background-color: var(--body-background-color);
+}
+
+.hero {
+    background-color: var(--hero-background-color);
+    display         : flex;
+    flex-wrap       : wrap;
+    overflow        : hidden;
+    position        : relative
+}
+
+@media screen and (min-width: 750px) {
+    .hero {
+        height: 550px
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .hero {
+        height: 779px
+    }
+}
+
+
+.sparkles {
+    height        : 100%;
+    left          : 0;
+    pointer-events: none;
+    top           : 0;
+    width         : 100%;
+    z-index       : 0
+}
+
+.sparkles,
+.sparkles>span {
+    display : block;
+    position: absolute
+}
+
+.sparkles>span {
+    animation      : sparkling 1s ease-in-out infinite alternate;
+    animation-delay: 0.3s;
+}
+
+.sparkles svg {
+    display       : block;
+    pointer-events: none
+}
+
+.sparkles svg path {
+    fill: #000
+}
