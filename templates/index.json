@@ -8,149 +8,205 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "main": {
-      "type": "hero-image",
-      "blocks": {
-        "slide_XmmBhE": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/DESKTOP_sz_3024x_c0a2d9f7-ed87-48b7-ad16-ca81ff11de45.webp",
-            "title": "20% OFF SITEWIDE!",
-            "subtitle": "Because your hair deserves this… enjoy our Friends & Family event with code: FF20  Ends 09/29",
-            "button_label": "Shop",
-            "button_link": "shopify://collections/all"
-          }
+    "sections": {
+        "main": {
+            "type": "hero-image",
+            "blocks": {
+                "slide_XmmBhE": {
+                    "type": "slide",
+                    "settings": {
+                        "image": "shopify://shop_images/DESKTOP_sz_3024x_c0a2d9f7-ed87-48b7-ad16-ca81ff11de45.webp",
+                        "title": "20% OFF SITEWIDE!",
+                        "subtitle": "Because your hair deserves this… enjoy our Friends & Family event with code: FF20  Ends 09/29",
+                        "button_label": "Shop",
+                        "button_link": "shopify://collections/all"
+                    }
+                },
+                "slide_LpyAPp": {
+                    "type": "slide",
+                    "settings": {
+                        "image": "shopify://shop_images/newallureseal.webp",
+                        "title": "HoliRoots Wins Allure Best of Beauty",
+                        "subtitle": "Inspired by the timeless Indian ritual of hair oiling.",
+                        "button_label": "Shop Now",
+                        "button_link": "shopify://collections/all"
+                    }
+                }
+            },
+            "block_order": ["slide_XmmBhE", "slide_LpyAPp"],
+            "settings": {
+                "section_title": "Our Hero Slides"
+            }
         },
-        "slide_LpyAPp": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/newallureseal.webp",
-            "title": "HoliRoots Wins Allure Best of Beauty",
-            "subtitle": "Inspired by the timeless Indian ritual of hair oiling.",
-            "button_label": "Shop Now",
-            "button_link": "shopify://collections/all"
-          }
+        "product_carousel_NNMErw": {
+            "type": "product-carousel",
+            "blocks": {
+                "product_KNdBhe": {
+                    "type": "product",
+                    "settings": {
+                        "product": "ampixjet"
+                    }
+                },
+                "product_gHrhLH": {
+                    "type": "product",
+                    "settings": {
+                        "product": "cranovib-1"
+                    }
+                },
+                "product_Y8y6Nm": {
+                    "type": "product",
+                    "settings": {
+                        "product": "cranovib-v2"
+                    }
+                },
+                "product_q7MU98": {
+                    "type": "product",
+                    "settings": {
+                        "product": "proomisty"
+                    }
+                },
+                "product_CnWeCR": {
+                    "type": "product",
+                    "settings": {
+                        "product": "relaxoar"
+                    }
+                }
+            },
+            "block_order": [
+                "product_KNdBhe",
+                "product_gHrhLH",
+                "product_Y8y6Nm",
+                "product_q7MU98",
+                "product_CnWeCR"
+            ],
+            "name": "Product Carousel",
+            "settings": {
+                "section_title": "Discover Hair Nirvana"
+            }
+        },
+        "product_carousel_7AVPhw": {
+            "type": "product-carousel",
+            "blocks": {
+                "product_jKbtnL": {
+                    "type": "product",
+                    "settings": {
+                        "product": "ampixjet"
+                    }
+                },
+                "product_YpB6b7": {
+                    "type": "product",
+                    "settings": {
+                        "product": "cranovib-1"
+                    }
+                },
+                "product_nC637E": {
+                    "type": "product",
+                    "settings": {
+                        "product": "cranovib-v2"
+                    }
+                },
+                "product_MEKXN7": {
+                    "type": "product",
+                    "settings": {
+                        "product": "proomisty"
+                    }
+                },
+                "product_rbK66D": {
+                    "type": "product",
+                    "settings": {
+                        "product": "relaxoar"
+                    }
+                }
+            },
+            "block_order": [
+                "product_jKbtnL",
+                "product_YpB6b7",
+                "product_nC637E",
+                "product_MEKXN7",
+                "product_rbK66D"
+            ],
+            "name": "Product Carousel",
+            "settings": {
+                "section_title": "Give the gift of great hair"
+            }
+        },
+        "video_section_iGPCkf": {
+            "type": "video-section",
+            "blocks": {
+                "item_EGe9Vm": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1751020258830_wid_Njg1ZTcyZGM5MWZmYmYwMDU4MGQwOGUz_h264cmobile_q10.mp4"
+                    }
+                },
+                "item_pQQmfY": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4"
+                    }
+                },
+                "item_iiAbdr": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4"
+                    }
+                },
+                "item_PdDxJV": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4"
+                    }
+                },
+                "item_XVNEMQ": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4"
+                    }
+                },
+                "item_jk3Ydh": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4"
+                    }
+                },
+                "item_mjUNxf": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4"
+                    }
+                },
+                "item_erFFPU": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4"
+                    }
+                },
+                "item_UJyEPx": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1751020258830_wid_Njg1ZTcyZGM5MWZmYmYwMDU4MGQwOGUz_h264cmobile_q10.mp4"
+                    }
+                }
+            },
+            "block_order": [
+                "item_EGe9Vm",
+                "item_pQQmfY",
+                "item_iiAbdr",
+                "item_PdDxJV",
+                "item_XVNEMQ",
+                "item_jk3Ydh",
+                "item_mjUNxf",
+                "item_erFFPU",
+                "item_UJyEPx"
+            ],
+            "name": "Video Product Carousel",
+            "settings": {}
         }
-      },
-      "block_order": [
-        "slide_XmmBhE",
-        "slide_LpyAPp"
-      ],
-      "settings": {
-        "section_title": "Our Hero Slides"
-      }
     },
-    "product_carousel_NNMErw": {
-      "type": "product-carousel",
-      "blocks": {
-        "product_KNdBhe": {
-          "type": "product",
-          "settings": {
-            "product": "ampixjet"
-          }
-        },
-        "product_gHrhLH": {
-          "type": "product",
-          "settings": {
-            "product": "cranovib-1"
-          }
-        },
-        "product_Y8y6Nm": {
-          "type": "product",
-          "settings": {
-            "product": "cranovib-v2"
-          }
-        },
-        "product_q7MU98": {
-          "type": "product",
-          "settings": {
-            "product": "proomisty"
-          }
-        },
-        "product_CnWeCR": {
-          "type": "product",
-          "settings": {
-            "product": "relaxoar"
-          }
-        }
-      },
-      "block_order": [
-        "product_KNdBhe",
-        "product_gHrhLH",
-        "product_Y8y6Nm",
-        "product_q7MU98",
-        "product_CnWeCR"
-      ],
-      "name": "Product Carousel",
-      "settings": {
-        "section_title": "Discover Hair Nirvana"
-      }
-    },
-    "video_section_BHCfmE": {
-      "type": "video-section",
-      "blocks": {
-        "video_VUwpCb": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/1751020258830_wid_Njg1ZTcyZGM5MWZmYmYwMDU4MGQwOGUz_h264cmobile_q10.mp4",
-            "video_caption": "Amazing results!"
-          }
-        },
-        "product_7Mkf7K": {
-          "type": "product",
-          "settings": {
-            "product": "cranovib-2"
-          }
-        },
-        "video_Cgpwaq": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/1746797928288_wid_NjgxZTA1NWJmZWI3ZWQwMDU4ZGExZjYy.mp4",
-            "video_caption": "Amazing results!"
-          }
-        },
-        "product_PyjRcY": {
-          "type": "product",
-          "settings": {
-            "product": "cranovib-nl"
-          }
-        },
-        "video_J6UqqU": {
-          "type": "video",
-          "settings": {
-            "video": "shopify://files/videos/1746535903300_wid_NjgxYTA1Y2ZiZmQxYjMwMDU3MzBlODBk_h264cmobile_q10.mp4",
-            "video_caption": "Amazing results!"
-          }
-        },
-        "product_Jjp9x3": {
-          "type": "product",
-          "settings": {
-            "product": "lingubuds"
-          }
-        }
-      },
-      "block_order": [
-        "video_VUwpCb",
-        "product_7Mkf7K",
-        "video_Cgpwaq",
-        "product_PyjRcY",
-        "video_J6UqqU",
-        "product_Jjp9x3"
-      ],
-      "name": "Video & Product Carousel",
-      "settings": {
-        "section_title": "Real Results from Real People",
-        "section_description": "See how our customers transform their hair",
-        "items_per_view": "5",
-        "autoplay": true,
-        "autoplay_speed": 4
-      }
-    }
-  },
-  "order": [
-    "main",
-    "product_carousel_NNMErw",
-    "video_section_BHCfmE"
-  ]
+    "order": [
+        "main",
+        "product_carousel_NNMErw",
+        "video_section_iGPCkf",
+        "product_carousel_7AVPhw"
+    ]
 }
