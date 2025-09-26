@@ -1,0 +1,54 @@
+<div>
+  <div class="flex justify-center gap-4 mt-8 {{ section.settings.custom_class }}">
+    {% for block in section.blocks %}
+      <a
+        href="{{ block.settings.link }}"
+        class="px-6 py-3 text-white font-semibold transition-colors rounded-full"
+      >
+        {% if block.settings.image != blank %}
+          <img src="{{ block.settings.image | img_url: '200x' }}" alt="badge" class="max-h-[60px]">
+        {% endif %}
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Badge list",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS classes",
+      "default": "bg-white"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Badge image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Badge link",
+          "default": "/collections/all"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Badge list",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

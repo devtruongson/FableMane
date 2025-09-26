@@ -62,7 +62,7 @@
       <div class="swiper-slide relative w-full hero" id="slide-{{ block.id }}">
         {% if block.settings.image != blank %}
           <img
-            class="w-full"
+            class="w-full h-full object-cover"
             src="{{ block.settings.image | image_url: width: 1600 }}"
             alt="{{ block.settings.title }}"
           >

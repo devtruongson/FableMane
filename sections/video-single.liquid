@@ -1,0 +1,49 @@
+{% schema %}
+{
+  "name": "Video Single",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Video Single",
+      "settings": [
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video URL (YouTube, Vimeo, or MP4)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Single"
+    }
+  ]
+}
+{% endschema %}
+{% for block in section.blocks %}
+  <div class="video-item transition-all duration-300" {{ block.shopify_attributes }}>
+    <!-- Video -->
+    <div class="video-wrapper mb-4  transition-all duration-300">
+      {% if block.settings.video_url contains 'youtube' or block.settings.video_url contains 'vimeo' %}
+        <iframe
+          class="w-full h-[100%] object-cover"
+          src="{{ block.settings.video_url }}"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      {% else %}
+        <video
+          class="w-full h-[100%] aspect-video object-cover"
+          muted
+          autoplay
+          playsinline
+          data-video-src="{{ block.settings.video_url }}"
+        >
+          <source src="{{ block.settings.video_url }}" type="video/mp4">
+        </video>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}

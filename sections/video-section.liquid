@@ -1,9 +1,9 @@
-<div class="video-product-carousel py-8">
+<div class="video-product-carousel bg-transparent py-14 overflow-hidden video-section">
   <div class="carousel-wrapper">
     {% for block in section.blocks %}
       <div class="video-item px-4 h-[420px] transition-all duration-300" {{ block.shopify_attributes }}>
         <!-- Video -->
-        <div class="video-wrapper mb-4  h-[420px] rounded-xl  transition-all duration-300">
+        <div class="video-wrapper h-[420px] rounded-xl  transition-all duration-300">
           {% if block.settings.video_url contains 'youtube' or block.settings.video_url contains 'vimeo' %}
             <iframe
               class="w-full h-[100%] object-cover rounded-xl"
@@ -22,6 +22,10 @@
             </video>
           {% endif %}
         </div>
+        <div
+          class="product-list_{{block.id}}"
+          data-product-video-section="{{ block.settings.product_list | json  | escape}}"
+        ></div>
       </div>
     {% endfor %}
   </div>
@@ -33,11 +37,12 @@
 
     // Initialize Slick carousel
     $carousel.slick({
-      slidesToShow: 8,
+      slidesToShow: 4,
       slidesToScroll: 1,
       arrows: true,
-      infinite: false,
+      infinite: true,
       centerMode: true,
+      autoPlay: true,
       centerPadding: '60px',
       focusOnSelect: true,
       prevArrow: `<button type="button" class="bg-[#fff] w-[40px] h-[40px] rounded-[50%] flex justify-center items-center slick-prev cursor-pointer absolute left-[10px] hover:shadow-md  top-1/2 transform -translate-y-1/2 z-10">
@@ -66,8 +71,9 @@
       // Remove active styling from all items
       $allItems.removeClass('active-video');
 
-      // Get current active slide
-      const $activeSlide = $carousel.find('.slick-slide').eq(slideIndex);
+      // Get current active slide using slick's currentSlide
+      const currentSlide = $carousel.slick('slickCurrentSlide');
+      const $activeSlide = $carousel.find('.slick-slide[data-slick-index="' + currentSlide + '"]').not('.slick-cloned');
       const $activeVideo = $activeSlide.find('video');
       const $activeItem = $activeSlide.find('.video-item');
 
@@ -79,28 +85,42 @@
     }
 
     // Handle slide change
-    $carousel.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-      handleVideoChange(nextSlide);
+    $carousel.on('afterChange', function (event, slick, currentSlide) {
+      handleVideoChange(currentSlide);
     });
 
     // Handle click on video items
     $carousel.on('click', '.video-item', function () {
       const slideIndex = $(this).closest('.slick-slide').data('slick-index');
-      $carousel.slick('slickGoTo', slideIndex);
+      if (slideIndex !== undefined) {
+        $carousel.slick('slickGoTo', slideIndex);
+      }
     });
 
-    // Initialize first video (center slide)
+    // Initialize first video after carousel is ready
+    $carousel.on('init', function (event, slick) {
+      setTimeout(() => {
+        handleVideoChange(slick.currentSlide);
+      }, 200);
+    });
+
+    // Also handle after carousel initialization is complete
     setTimeout(() => {
-      const centerSlideIndex = Math.floor($carousel.slick('getSlick').slideCount / 2);
-      handleVideoChange(centerSlideIndex);
-      $carousel.slick('slickGoTo', centerSlideIndex);
-    }, 100);
+      if ($carousel.hasClass('slick-initialized')) {
+        const currentSlide = $carousel.slick('slickCurrentSlide');
+        handleVideoChange(currentSlide);
+      }
+    }, 300);
   });
 </script>
 
 <style>
   .product-list[data-collapsed='true'] .product-card:not(.first-product) {
     display: none;
+  }
+
+  .video-section .slick-track {
+    align-items: flex-start !important;
   }
 
   /* Video carousel styling */
@@ -114,12 +134,10 @@
 
   .video-product-carousel .slick-track {
     display: flex !important;
-    align-items: center;
   }
 
   .video-product-carousel .slick-slide {
     transition: all 0.3s ease;
-    opacity: 0.7;
     padding: 0 10px;
   }
 
@@ -128,11 +146,12 @@
   }
 
   .video-product-carousel .slick-center .video-wrapper {
-    transform: scale(1.2);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-    margin: 0 20px;
     z-index: 10;
     position: relative;
+  }
+
+  .video-product-carousel .slick-center .video-wrapper video {
+    transform: scaleY(1.05);
   }
 
   .video-item {
@@ -181,6 +200,11 @@
           "type": "url",
           "id": "video_url",
           "label": "Video URL (YouTube, Vimeo, or MP4)"
+        },
+        {
+          "type": "product_list",
+          "id": "product_list",
+          "label": "Select products"
         }
       ]
     }
