@@ -198,45 +198,6 @@
       "name": "Video Product Carousel",
       "settings": {}
     },
-    "badge_list_jqAAK8": {
-      "type": "badge-list",
-      "blocks": {
-        "badge_nmyqME": {
-          "type": "badge",
-          "settings": {
-            "link": "shopify://collections/all"
-          }
-        },
-        "badge_fweEex": {
-          "type": "badge",
-          "settings": {
-            "link": "shopify://collections/all"
-          }
-        },
-        "badge_LPHcRL": {
-          "type": "badge",
-          "settings": {
-            "link": "shopify://collections/all"
-          }
-        },
-        "badge_tfAqbD": {
-          "type": "badge",
-          "settings": {
-            "link": "shopify://collections/all"
-          }
-        }
-      },
-      "block_order": [
-        "badge_nmyqME",
-        "badge_fweEex",
-        "badge_LPHcRL",
-        "badge_tfAqbD"
-      ],
-      "name": "Badge list",
-      "settings": {
-        "custom_class": "bg-white"
-      }
-    },
     "feature_shop_9HDerR": {
       "type": "feature-shop",
       "name": "Text with image + button",
@@ -496,8 +457,8 @@
             "text_color": "#202020",
             "button_background_color": "#fff5ec",
             "button_label_color": "#0c0505",
-            "links_color": "#1878B9",
-            "errors_color": "#E02229",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
             "text_alignment": "left",
             "form_alignment": "center",
             "padding_top": 0,
@@ -511,14 +472,36 @@
         "forms_inline_twf7f7"
       ],
       "name": "Footer",
-      "settings": {}
+      "settings": {
+        "shop_all_url": "/collections/all",
+        "best_sellers_url_string": "/collections/best-sellers",
+        "gift_sets_url": "/collections/gift-sets-bundles",
+        "accessories_url": "/collections/accessories",
+        "tiger_tribe_url": "/pages/tyb",
+        "affiliates_url": "/pages/affiliates",
+        "our_journey_url": "/pages/our-story",
+        "fable_fund_url": "/pages/fable-fund",
+        "mane_monocle_url": "/blogs/mane-monocle",
+        "faq_url": "/pages/faq",
+        "shipping_url": "/policies/shipping-policy",
+        "returns_url": "/policies/refund-policy",
+        "contact_url": "/pages/contact-us",
+        "stockists_url": "/pages/find-us",
+        "tiktok_url": "https://www.tiktok.com/@fableandmane",
+        "instagram_url": "https://www.instagram.com/fableandmane",
+        "pinterest_url": "https://www.pinterest.co.uk/fableandmane",
+        "youtube_url": "https://www.youtube.com/c/fableandmane",
+        "facebook_url": "https://www.facebook.com/fableandmane",
+        "privacy_policy_url": "/policies/privacy-policy",
+        "terms_url": "/policies/terms-of-service",
+        "copyright_text": "© Akita Brands, INC 2025"
+      }
     }
   },
   "order": [
     "main",
     "product_carousel_NNMErw",
     "video_section_iGPCkf",
-    "badge_list_jqAAK8",
     "feature_shop_9HDerR",
     "marquee_qizEYN",
     "product_carousel_7AVPhw",

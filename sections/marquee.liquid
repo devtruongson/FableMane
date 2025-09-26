@@ -3,7 +3,7 @@
     display: flex;
     overflow: hidden;
     white-space: nowrap;
-    animation: marquee 15s linear infinite;
+    animation: marquee 20s linear infinite;
   }
   .marquee-content {
     display: flex;
@@ -21,11 +21,11 @@
 </style>
 <div class="bg-[#f9423a] max-w-full overflow-hidden">
   <div class="marquee h-20 flex items-center">
-    <div class="marquee-content text-white flex items-center gap-6 text-xl font-bold font-[SofiaPro-Regular]">
+    <div class="marquee-content text-white flex items-center gap-6 font-[SofiaPro-Regular]">
       {% for block in section.blocks %}
-        <div class="block">
+        <span class="block !font-[SofiaPro-Regular] !font-[400] text-xl whitespace-nowrap tracking-[.3em]">
           {{ block.settings.text }}
-        </div>
+        </span>
       {% endfor %}
     </div>
   </div>

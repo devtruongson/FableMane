@@ -1,3 +1,4 @@
+
 window.formatCurrency = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: Shopify.currency.active || "USD",
@@ -131,6 +132,11 @@ async function addToCart(event, idVariant, buttonElement) {
     }
 }
 
+function handleProductClick(handle) {
+    if (!handle) return;
+    window.location.href = `/products/${handle}`;
+}
+
 const productListInVideoSection = document.querySelectorAll('[data-product-video-section]');
 productListInVideoSection.forEach((product) => {
     const config = product.getAttribute('data-product-video-section');
@@ -143,7 +149,7 @@ productListInVideoSection.forEach((product) => {
           <div class="flex items-start gap-4">
             <img src="${item.featured_image}" alt="${item.title}" class="max-h-[60px] max-w-[70px] object-cover rounded"/>
             <div class="flex-1">
-                <h3 class="font-[SofiaPro-Regular] pt-1 text-sm">${item.title}</h3>
+                <h3 class="font-[SofiaPro-Regular] pt-1 text-sm line-clamp-2" onclick="handleProductClick('${item.handle}')">${item.title}</h3>
                 <p class="text-sm text-black text-md">${window.formatCurrency.format(item.price)}</p>
             </div>
           </div>
@@ -189,9 +195,6 @@ productListInVideoSection.forEach((product) => {
     const expandToggle = product.querySelector('.expand-toggle');
     const videoElment = product.parentElement.querySelector('.video-wrapper');
     const parentElement = videoElment.parentElement.parentElement.parentElement;
-    console.log("parentElement: ", parentElement)
-
-    console.log({ videoElment, parentElement });
     if (expandToggle) {
         let isAnimating = false;
 
