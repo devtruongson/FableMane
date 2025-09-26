@@ -188,6 +188,10 @@ productListInVideoSection.forEach((product) => {
     // Add expand/collapse functionality
     const expandToggle = product.querySelector('.expand-toggle');
     const videoElment = product.parentElement.querySelector('.video-wrapper');
+    const parentElement = videoElment.parentElement.parentElement.parentElement;
+    console.log("parentElement: ", parentElement)
+
+    console.log({ videoElment, parentElement });
     if (expandToggle) {
         let isAnimating = false;
 

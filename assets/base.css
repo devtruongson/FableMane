@@ -6,6 +6,10 @@ body {
     font-family: QuincyCF;
 }
 
+[data-sizing="form-wrapper"] button {
+    border: 1px solid #333;
+}
+
 body {
     background-color: var(--body-background-color);
 }

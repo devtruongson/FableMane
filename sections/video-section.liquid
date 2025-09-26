@@ -1,26 +1,18 @@
 <div class="video-product-carousel bg-transparent py-14 overflow-hidden video-section">
   <div class="carousel-wrapper">
     {% for block in section.blocks %}
-      <div class="video-item px-4 h-[420px] transition-all duration-300" {{ block.shopify_attributes }}>
+      <div class="video-item px-4 transition-all duration-300" {{ block.shopify_attributes }}>
         <!-- Video -->
-        <div class="video-wrapper h-[420px] rounded-xl  transition-all duration-300">
-          {% if block.settings.video_url contains 'youtube' or block.settings.video_url contains 'vimeo' %}
-            <iframe
-              class="w-full h-[100%] object-cover rounded-xl"
-              src="{{ block.settings.video_url }}"
-              frameborder="0"
-              allowfullscreen
-            ></iframe>
-          {% else %}
-            <video
-              class="w-full h-[100%] object-cover rounded-xl"
-              muted
-              playsinline
-              data-video-src="{{ block.settings.video_url }}"
-            >
-              <source src="{{ block.settings.video_url }}" type="video/mp4">
-            </video>
-          {% endif %}
+        <div class="video-wrapper overflow-hidden bg-[#ccc] !rounded-3xl transition-all duration-300 flex items-center justify-center">
+          <video
+            class="max-w-full max-h-full !rounded-3xl object-contain"
+            muted
+            playsinline
+            data-video-src="{{ block.settings.video_url }}"
+            style="width: auto; height: auto;"
+          >
+            <source src="{{ block.settings.video_url }}" type="video/mp4">
+          </video>
         </div>
         <div
           class="product-list_{{block.id}}"
@@ -37,7 +29,7 @@
 
     // Initialize Slick carousel
     $carousel.slick({
-      slidesToShow: 4,
+      slidesToShow: 5,
       slidesToScroll: 1,
       arrows: true,
       infinite: true,
@@ -141,17 +133,12 @@
     padding: 0 10px;
   }
 
+  .video-product-carousel .video-item {
+  }
+
   .video-product-carousel .slick-center {
     opacity: 1;
-  }
-
-  .video-product-carousel .slick-center .video-wrapper {
-    z-index: 10;
-    position: relative;
-  }
-
-  .video-product-carousel .slick-center .video-wrapper video {
-    transform: scaleY(1.05);
+    transform: scaleY(1.06);
   }
 
   .video-item {
@@ -159,12 +146,28 @@
     transition: all 0.3s ease;
   }
 
-  .video-wrapper {
-    transition: all 0.3s ease;
+  .video-section .video-wrapper video {
+    aspect-ratio: 9 / 16;
   }
 
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
+  /* Center active video with subtle scale */
+  .video-product-carousel .slick-center .video-wrapper {
+    z-index: 10;
+    position: relative;
+  }
+  .video-product-carousel .slick-center .video-wrapper video {
+    transform: none;
+  }
+
+  .video-section .video-wrapper {
+    max-height: 394px;
+  }
+
+  .video-section .slick-center .video-wrapper {
+    max-height: 500px;
+  }
+
+  .vide @media (max-width: 768px) {
     .video-product-carousel .carousel-wrapper {
       .slick-list {
         overflow: visible;
@@ -172,7 +175,6 @@
     }
 
     .video-product-carousel .slick-center .video-wrapper {
-      /* transform: scale(1.2); */
       margin: 0 10px;
     }
   }
