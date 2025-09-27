@@ -2,6 +2,9 @@
   .product-media-container {
     display: flex;
     max-width: 100%;
+    height: fit-content;
+    position: sticky;
+    top: 0;
   }
 
   .product-thumbnails {
@@ -247,41 +250,13 @@
     font-size: 14px;
     line-height: 1.4;
   }
-
-  /* Sticky Product Info */
-  .product-info {
-    position: sticky;
-    top: 2rem;
-    height: fit-content;
-    max-height: calc(100vh - 4rem);
-    overflow-y: auto;
-  }
-
-  /* Hide scrollbar for product info */
-  .product-info::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-  }
-
-  .product-info {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  @media (max-width: 1023px) {
-    .product-info {
-      position: static;
-      max-height: none;
-      overflow-y: visible;
-    }
-  }
 </style>
 
 <section class="product-main py-8">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:grid-cols-[55%_45%]">
       <!-- Product Media Gallery -->
-      <div class="product-media">
+      <div class="product-media sticky top-0">
         <div class="product-media-container gap-8">
           <!-- Thumbnails -->
           <div class="product-thumbnails">
@@ -396,111 +371,275 @@
 
       <!-- Product Info -->
       <div class="product-info">
-        <h1 class="text-6xl mb-4 leading-tight">{{ product.title }}</h1>
-
-        <!-- Reviews -->
-        {% if product.metafields.reviews.rating %}
-          <div class="product-reviews mb-4 flex items-center gap-2">
-            <div class="stars flex">
-              {% assign rating = product.metafields.reviews.rating | plus: 0 %}
-              {% for i in (1..5) %}
-                <span class="star {% if i <= rating %}filled{% endif %}">★</span>
-              {% endfor %}
-            </div>
-            <span class="review-count text-sm">({{ product.metafields.reviews.count | default: 2 }})</span>
-          </div>
-        {% endif %}
-        {% if product.tags.size > 0 %}
-          <div class="product-tags mb-4 flex items-center gap-2">
-            <div class="tags flex gap-3">
-              {% for tag in product.tags %}
-                <span class="tag bg-[#e9dbc0] px-2 py-1 font-[SofiaPro-Regular] text-sm rounded-full flex items-center justify-center">
-                  {{- tag -}}
-                </span>
-              {% endfor %}
-            </div>
-          </div>
-        {% endif %}
-
-        <div class="product-description font-[SofiaPro-Regular] mb-6 text-gray-700">
-          {{ product.description }}
-        </div>
-
-        <div class="product-price mb-8">
-          <span class="text-3xl font-bold">{{ product.price | money }}</span>
-          {% if product.compare_at_price > product.price %}
-            <span class="text-xl text-gray-500 line-through ml-3">{{ product.compare_at_price | money }}</span>
-          {% endif %}
-        </div>
-
-        {% assign current_variant = product.selected_or_first_available_variant %}
-        <form
-          action="{{ routes.cart_add_url }}"
-          data-id="{{ current_variant.id }}"
-          method="post"
-          enctype="multipart/form-data"
-          class="product-form"
-        >
-          {% unless product.has_only_default_variant %}
-            <div class="product-variants mb-6">
-              {% for option in product.options_with_values %}
-                <div class="variant-option mb-6">
-                  <label class="!hidden text-lg font-medium mb-3">{{ option.name }}</label>
-                  <div class="variant-buttons flex flex-wrap gap-2">
-                    {% for value in option.values %}
-                      <button
-                        type="button"
-                        class="variant-btn font-[SofiaPro-Regular] {% if forloop.first %}active{% endif %} px-4 py-2 border border-gray-300 rounded-lg hover:border-black transition-colors"
-                        data-option-index="{{ forloop.parentloop.index }}"
-                        data-option-value="{{ value | escape }}"
-                      >
-                        {{ value }}
-                      </button>
-                    {% endfor %}
-                  </div>
+        {% if section.blocks.size > 0 %}
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'product_title' %}
+                <div class="product-title-block mb-4" {{ block.shopify_attributes }}>
+                  <h1 class="text-6xl leading-tight">{{ product.title }}</h1>
                 </div>
-              {% endfor %}
-            </div>
-          {% endunless %}
 
-          <div class="quantity-and-cart flex items-center gap-4 mb-8">
-            <div class="quantity-selector">
-              <div class="flex items-center bg-white rounded-full h-full">
-                <button type="button" class="font-[SofiaPro-Regular] quantity-btn minus w-12 h-12 transition-colors">
-                  -
-                </button>
-                <input
-                  type="number"
-                  name="quantity"
-                  value="1"
-                  min="1"
-                  class="font-[SofiaPro-Regular] quantity-input w-16 h-12 text-center border-0"
+              {% when 'product_reviews' %}
+                {% if product.metafields.reviews.rating %}
+                  <div class="product-reviews-block mb-4 flex items-center gap-2" {{ block.shopify_attributes }}>
+                    <div class="stars flex">
+                      {% assign rating = product.metafields.reviews.rating | plus: 0 %}
+                      {% for i in (1..5) %}
+                        <span class="star {% if i <= rating %}filled{% endif %}">★</span>
+                      {% endfor %}
+                    </div>
+                    <span class="review-count text-sm">({{ product.metafields.reviews.count | default: 2 }})</span>
+                  </div>
+                {% endif %}
+
+              {% when 'product_tags' %}
+                {% if product.tags.size > 0 %}
+                  <div class="product-tags-block mb-4 flex items-center gap-2" {{ block.shopify_attributes }}>
+                    <div class="tags flex gap-3">
+                      {% for tag in product.tags %}
+                        <span class="tag bg-[#e9dbc0] px-2 py-1 font-[SofiaPro-Regular] text-sm rounded-full flex items-center justify-center">
+                          {{- tag -}}
+                        </span>
+                      {% endfor %}
+                    </div>
+                  </div>
+                {% endif %}
+
+              {% when 'product_description' %}
+                <div
+                  class="product-description-block font-[SofiaPro-Regular] mb-6 text-gray-700"
+                  {{ block.shopify_attributes }}
                 >
-                <button
-                  type="button"
-                  class="font-[SofiaPro-Regular] quantity-btn plus w-12 h-12 transition-colors"
-                >
-                  +
-                </button>
+                  {{ product.description }}
+                </div>
+
+              {% when 'product_price' %}
+                <div class="product-price-block mb-8" {{ block.shopify_attributes }}>
+                  <span class="text-3xl font-bold">{{ product.price | money }}</span>
+                  {% if product.compare_at_price > product.price %}
+                    <span class="text-xl text-gray-500 line-through ml-3">{{ product.compare_at_price | money }}</span>
+                  {% endif %}
+                </div>
+
+              {% when 'product_form' %}
+                <div class="product-form-block" {{ block.shopify_attributes }}>
+                  {% assign current_variant = product.selected_or_first_available_variant %}
+                  <form
+                    action="{{ routes.cart_add_url }}"
+                    data-id="{{ current_variant.id }}"
+                    method="post"
+                    enctype="multipart/form-data"
+                    class="product-form"
+                  >
+                    {% unless product.has_only_default_variant %}
+                      <div class="product-variants mb-6">
+                        {% for option in product.options_with_values %}
+                          <div class="variant-option mb-6">
+                            <label class="!hidden text-lg font-medium mb-3">{{ option.name }}</label>
+                            <div class="variant-buttons flex flex-wrap gap-2">
+                              {% for value in option.values %}
+                                <button
+                                  type="button"
+                                  class="variant-btn font-[SofiaPro-Regular] {% if forloop.first %}active{% endif %} px-4 py-2 border border-gray-300 rounded-lg hover:border-black transition-colors"
+                                  data-option-index="{{ forloop.parentloop.index }}"
+                                  data-option-value="{{ value | escape }}"
+                                >
+                                  {{ value }}
+                                </button>
+                              {% endfor %}
+                            </div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    {% endunless %}
+
+                    <div class="quantity-and-cart flex items-center gap-4 mb-8">
+                      <div class="quantity-selector">
+                        <div class="flex items-center bg-white rounded-full h-full">
+                          <button
+                            type="button"
+                            class="font-[SofiaPro-Regular] quantity-btn minus w-12 h-12 transition-colors"
+                          >
+                            -
+                          </button>
+                          <input
+                            type="number"
+                            name="quantity"
+                            value="1"
+                            min="1"
+                            class="font-[SofiaPro-Regular] quantity-input w-16 h-12 text-center border-0"
+                          >
+                          <button
+                            type="button"
+                            class="font-[SofiaPro-Regular] quantity-btn plus w-12 h-12 transition-colors"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+
+                      <button
+                        type="submit"
+                        class="font-[SofiaPro-Regular] add-to-cart-btn flex-1 bg-red-500 text-white py-4 px-8 rounded-full hover:bg-red-600 transition-colors font-medium text-lg"
+                      >
+                        ADD TO BAG
+                      </button>
+                    </div>
+
+                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                  </form>
+                </div>
+
+              {% when 'custom_liquid' %}
+                <div class="custom-liquid-block mb-6" {{ block.shopify_attributes }}>
+                  {{ block.settings.custom_liquid }}
+                </div>
+
+              {% when 'love_it_section' %}
+                <div class="love-it-block" {{ block.shopify_attributes }}>
+                  {% render 'love-it' %}
+                </div>
+
+              {% when 'product_faq' %}
+                <div class="product-faq-block" {{ block.shopify_attributes }}>
+                  {% render 'product-faq' %}
+                </div>
+
+              {% when 'text_block' %}
+                <div class="text-block mb-6" {{ block.shopify_attributes }}>
+                  {% if block.settings.heading != blank %}
+                    <h3 class="text-lg font-medium mb-3">{{ block.settings.heading }}</h3>
+                  {% endif %}
+                  {% if block.settings.text != blank %}
+                    <div class="text-content">{{ block.settings.text }}</div>
+                  {% endif %}
+                </div>
+
+              {% when 'spacer' %}
+                <div
+                  class="spacer-block"
+                  style="height: {{ block.settings.height }}px;"
+                  {{ block.shopify_attributes }}
+                ></div>
+            {% endcase %}
+          {% endfor %}
+        {% else %}
+          <!-- Default/Fallback Content when no blocks are present -->
+          <h1 class="text-6xl mb-4 leading-tight">{{ product.title }}</h1>
+
+          <!-- Reviews -->
+          {% if product.metafields.reviews.rating %}
+            <div class="product-reviews mb-4 flex items-center gap-2">
+              <div class="stars flex">
+                {% assign rating = product.metafields.reviews.rating | plus: 0 %}
+                {% for i in (1..5) %}
+                  <span class="star {% if i <= rating %}filled{% endif %}">★</span>
+                {% endfor %}
+              </div>
+              <span class="review-count text-sm">({{ product.metafields.reviews.count | default: 2 }})</span>
+            </div>
+          {% endif %}
+
+          <!-- Tags -->
+          {% if product.tags.size > 0 %}
+            <div class="product-tags mb-4 flex items-center gap-2">
+              <div class="tags flex gap-3">
+                {% for tag in product.tags %}
+                  <span class="tag bg-[#e9dbc0] px-2 py-1 font-[SofiaPro-Regular] text-sm rounded-full flex items-center justify-center">
+                    {{- tag -}}
+                  </span>
+                {% endfor %}
               </div>
             </div>
+          {% endif %}
 
-            <button
-              type="submit"
-              class="font-[SofiaPro-Regular] add-to-cart-btn flex-1 bg-red-500 text-white py-4 px-8 rounded-full hover:bg-red-600 transition-colors font-medium text-lg"
-            >
-              ADD TO BAG
-            </button>
+          <!-- Description -->
+          <div class="product-description font-[SofiaPro-Regular] mb-6 text-gray-700">
+            {{ product.description }}
           </div>
 
-          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-          <div>
+          <!-- Price -->
+          <div class="product-price mb-8">
+            <span class="text-3xl font-bold">{{ product.price | money }}</span>
+            {% if product.compare_at_price > product.price %}
+              <span class="text-xl text-gray-500 line-through ml-3">{{ product.compare_at_price | money }}</span>
+            {% endif %}
+          </div>
+
+          <!-- Product Form -->
+          {% assign current_variant = product.selected_or_first_available_variant %}
+          <form
+            action="{{ routes.cart_add_url }}"
+            data-id="{{ current_variant.id }}"
+            method="post"
+            enctype="multipart/form-data"
+            class="product-form"
+          >
+            {% unless product.has_only_default_variant %}
+              <div class="product-variants mb-6">
+                {% for option in product.options_with_values %}
+                  <div class="variant-option mb-6">
+                    <label class="!hidden text-lg font-medium mb-3">{{ option.name }}</label>
+                    <div class="variant-buttons flex flex-wrap gap-2">
+                      {% for value in option.values %}
+                        <button
+                          type="button"
+                          class="variant-btn font-[SofiaPro-Regular] {% if forloop.first %}active{% endif %} px-4 py-2 border border-gray-300 rounded-lg hover:border-black transition-colors"
+                          data-option-index="{{ forloop.parentloop.index }}"
+                          data-option-value="{{ value | escape }}"
+                        >
+                          {{ value }}
+                        </button>
+                      {% endfor %}
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endunless %}
+
+            <div class="quantity-and-cart flex items-center gap-4 mb-8">
+              <div class="quantity-selector">
+                <div class="flex items-center bg-white rounded-full h-full">
+                  <button type="button" class="font-[SofiaPro-Regular] quantity-btn minus w-12 h-12 transition-colors">
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    name="quantity"
+                    value="1"
+                    min="1"
+                    class="font-[SofiaPro-Regular] quantity-input w-16 h-12 text-center border-0"
+                  >
+                  <button
+                    type="button"
+                    class="font-[SofiaPro-Regular] quantity-btn plus w-12 h-12 transition-colors"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="font-[SofiaPro-Regular] add-to-cart-btn flex-1 bg-red-500 text-white py-4 px-8 rounded-full hover:bg-red-600 transition-colors font-medium text-lg"
+              >
+                ADD TO BAG
+              </button>
+            </div>
+
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          </form>
+
+          <!-- Love It Section -->
+          <div class="mb-6">
             {% render 'love-it' %}
           </div>
-          <div>
+
+          <!-- Product FAQ -->
+          <div class="mb-6">
             {% render 'product-faq' %}
           </div>
-        </form>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -733,25 +872,6 @@ function updateScrollButtons() {
     $('.scroll-down').addClass('visible');
   }
 }
-
-// Enhanced sticky behavior
-$(window).on('scroll', function() {
-  if ($(window).width() >= 1024) {
-    const windowHeight = $(window).height();
-    const productInfo = $('.product-info');
-    const productInfoHeight = productInfo[0].scrollHeight;
-    
-    // If product info is taller than viewport, allow internal scrolling
-    if (productInfoHeight > windowHeight - 64) {
-      productInfo.css('overflow-y', 'auto');
-    } else {
-      productInfo.css('overflow-y', 'visible');
-    }
-  }
-});
-
-// Initialize on page load
-$(window).trigger('scroll');
 </script>
 
 {% schema %}
@@ -793,9 +913,123 @@ $(window).trigger('scroll');
       "default": "left"
     }
   ],
+  "blocks": [
+    {
+      "type": "product_title",
+      "name": "Product Title",
+      "limit": 1
+    },
+    {
+      "type": "product_reviews",
+      "name": "Product Reviews",
+      "limit": 1
+    },
+    {
+      "type": "product_tags",
+      "name": "Product Tags",
+      "limit": 1
+    },
+    {
+      "type": "product_description",
+      "name": "Product Description",
+      "limit": 1
+    },
+    {
+      "type": "product_price",
+      "name": "Product Price",
+      "limit": 1
+    },
+    {
+      "type": "product_form",
+      "name": "Product Form",
+      "limit": 1
+    },
+    {
+      "type": "love_it_section",
+      "name": "Love It Section",
+      "limit": 1
+    },
+    {
+      "type": "product_faq",
+      "name": "Product FAQ",
+      "limit": 1
+    },
+    {
+      "type": "text_block",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Custom Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text Content",
+          "default": "<p>Add your custom text here.</p>"
+        }
+      ]
+    },
+    {
+      "type": "custom_liquid",
+      "name": "Custom Liquid",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "Custom Liquid Code",
+          "info": "Add custom Liquid code here"
+        }
+      ]
+    },
+    {
+      "type": "spacer",
+      "name": "Spacer",
+      "settings": [
+        {
+          "type": "range",
+          "id": "height",
+          "label": "Spacer Height",
+          "min": 10,
+          "max": 200,
+          "step": 10,
+          "default": 40,
+          "unit": "px"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Product Main"
+      "name": "Product Main",
+      "blocks": [
+        {
+          "type": "product_title"
+        },
+        {
+          "type": "product_reviews"
+        },
+        {
+          "type": "product_tags"
+        },
+        {
+          "type": "product_description"
+        },
+        {
+          "type": "product_price"
+        },
+        {
+          "type": "product_form"
+        },
+        {
+          "type": "love_it_section"
+        },
+        {
+          "type": "product_faq"
+        }
+      ]
     }
   ]
 }

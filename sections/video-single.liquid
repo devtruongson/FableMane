@@ -25,7 +25,7 @@
 {% for block in section.blocks %}
   <div class="video-item transition-all duration-300" {{ block.shopify_attributes }}>
     <!-- Video -->
-    <div class="video-wrapper mb-4  transition-all duration-300 max-h-[80vh]">
+    <div class="video-wrapper transition-all duration-300 max-h-[80vh]">
       {% if block.settings.video_url contains 'youtube' or block.settings.video_url contains 'vimeo' %}
         <iframe
           class="w-full h-[100%] object-cover max-h-[80vh]"

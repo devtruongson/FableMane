@@ -48,6 +48,57 @@
     },
     "main": {
       "type": "main-product",
+      "blocks": {
+        "product_title_69hGjX": {
+          "type": "product_title",
+          "settings": {}
+        },
+        "product_reviews_tXiJpM": {
+          "type": "product_reviews",
+          "settings": {}
+        },
+        "product_price_EzeqaM": {
+          "type": "product_price",
+          "settings": {}
+        },
+        "product_tags_idT3Yg": {
+          "type": "product_tags",
+          "settings": {}
+        },
+        "product_description_fA6KE3": {
+          "type": "product_description",
+          "settings": {}
+        },
+        "product_form_aq4ja7": {
+          "type": "product_form",
+          "settings": {}
+        },
+        "love_it_section_tYxKwQ": {
+          "type": "love_it_section",
+          "settings": {}
+        },
+        "product_faq_ar8JGH": {
+          "type": "product_faq",
+          "settings": {}
+        },
+        "custom_liquid_3CWjMK": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div id=\"render-ft-list-product-detail\" class=\"\">123</div>"
+          }
+        }
+      },
+      "block_order": [
+        "product_title_69hGjX",
+        "product_reviews_tXiJpM",
+        "product_price_EzeqaM",
+        "product_tags_idT3Yg",
+        "product_description_fA6KE3",
+        "product_form_aq4ja7",
+        "love_it_section_tYxKwQ",
+        "product_faq_ar8JGH",
+        "custom_liquid_3CWjMK"
+      ],
       "settings": {
         "enable_zoom": true,
         "enable_video_autoplay": true,
@@ -96,6 +147,86 @@
       ],
       "name": "Video & Product Related",
       "settings": {}
+    },
+    "faq_text_image_nzwGRE": {
+      "type": "faq-text-image",
+      "blocks": {
+        "faq_item_DKGhJi": {
+          "type": "faq_item",
+          "settings": {
+            "question": "01. How do I use the Hair Oil?",
+            "answer": "<p>Apply a few drops to your scalp and hair, then massage gently. Use 2-3 times per week for best results.</p>"
+          }
+        },
+        "faq_item_8qiMpa": {
+          "type": "faq_item",
+          "settings": {
+            "question": "02. Can I use it as a leave-in treatment?",
+            "answer": "<p>Yes, you can use it as a leave-in treatment. Apply a small amount to damp hair before styling.</p>"
+          }
+        },
+        "faq_item_fA8tk3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "03. Will it leave my hair greasy?",
+            "answer": "<p>No, when used as directed, it absorbs quickly without leaving a greasy residue.</p>"
+          }
+        },
+        "faq_item_iqUHxT": {
+          "type": "faq_item",
+          "settings": {
+            "question": "04. What is the difference between all the hair oils?",
+            "answer": "<p>Each oil is formulated for different hair types and concerns. Check the product descriptions for specific benefits.</p>"
+          }
+        },
+        "faq_item_RCkkBL": {
+          "type": "faq_item",
+          "settings": {
+            "question": "05. Can I use it on my hair lengths?",
+            "answer": "<p>For best results, we recommend using the HoliRoots Hair Oil only on the scalp.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_DKGhJi",
+        "faq_item_8qiMpa",
+        "faq_item_fA8tk3",
+        "faq_item_iqUHxT",
+        "faq_item_RCkkBL"
+      ],
+      "name": "FAQ with Image",
+      "settings": {
+        "image": "shopify://shop_images/0edc997c839a--FAQ.webp",
+        "title": "FAQ",
+        "open_first_item": false,
+        "show_load_more": false,
+        "load_more_text": "Load More"
+      }
+    },
+    "video_single_yBjBfK": {
+      "type": "video-single",
+      "blocks": {
+        "item_EQzbAQ": {
+          "type": "item",
+          "settings": {
+            "video_url": "https://cdn2.videowise.com/converted/videos/1747409633129_wid_NjgyNzVhZGE3ZWIzODMwMDU2MGI3Yjk5_h264c.mp4"
+          }
+        }
+      },
+      "block_order": [
+        "item_EQzbAQ"
+      ],
+      "name": "Video Single",
+      "settings": {}
+    },
+    "faq_text_sticky_YwFFfi": {
+      "type": "faq-text-sticky",
+      "name": "The Scent Section",
+      "settings": {
+        "title": "The Scent",
+        "description": "<p>A divine fresh, floral scent that blends Indian jasmine sambac, precious red champaca flowers and an unforgettably rich, warm base of cedarwood and tonka beans, transporting you to the divine city of Madurai in India.</p>",
+        "product_image": "shopify://shop_images/ba4d8fab29bd--BLOCKS2.webp"
+      }
     },
     "1758882042b26aa4f5": {
       "type": "apps",
@@ -200,30 +331,17 @@
         "terms_url": "/policies/terms-of-service",
         "copyright_text": "© Akita Brands, INC 2025"
       }
-    },
-    "17588820341bb95d1a": {
-      "type": "apps",
-      "blocks": {
-        "okendo_star_rating_9fyeRe": {
-          "type": "shopify://apps/okendo/blocks/star-rating/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
-          "settings": {
-            "product": "{{product}}"
-          }
-        }
-      },
-      "block_order": [
-        "okendo_star_rating_9fyeRe"
-      ],
-      "settings": {}
     }
   },
   "order": [
     "marquee_aGrBdz",
     "main",
     "1758880556c5879e36",
+    "faq_text_image_nzwGRE",
+    "video_single_yBjBfK",
+    "faq_text_sticky_YwFFfi",
     "1758882042b26aa4f5",
     "marquee_yEPK4n",
-    "footer_YWPb3K",
-    "17588820341bb95d1a"
+    "footer_YWPb3K"
   ]
 }

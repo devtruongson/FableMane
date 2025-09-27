@@ -1,0 +1,347 @@
+<style>
+  .faq-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .faq-image-content {
+    position: relative;
+  }
+
+  .faq-image {
+    width: 100%;
+    max-height: 800px;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    overflow: hidden;
+  }
+
+  .faq-title {
+    font-size: 48px;
+    font-weight: bold;``
+    margin-bottom: 40px;
+    line-height: 1.2;
+    color: #000;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 0;
+  }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 24px 0;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  .faq-question:hover {
+    color: #ed4026;
+  }
+
+  .faq-question.active {
+    color: #ed4026;
+  }
+
+  .faq-icon {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+    color: #666;
+  }
+
+  .faq-question.active .faq-icon {
+    transform: rotate(45deg);
+    color: #ed4026;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: transparent;
+  }
+
+  .faq-answer.active {
+    max-height: 300px;
+  }
+
+  .faq-answer-content {
+    padding: 0 0 24px 0;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .faq-load-more {
+    margin-top: 30px;
+  }
+
+  .faq-load-more-btn {
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+    transition: color 0.3s ease;
+  }
+
+  .faq-load-more-btn:hover {
+    color: #ed4026;
+  }
+
+  @media (max-width: 768px) {
+    .faq-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .faq-image {
+      height: 400px;
+    }
+
+    .faq-title {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .faq-question {
+      padding: 20px 0;
+      font-size: 15px;
+    }
+  }
+</style>
+
+<section class="faq-section">
+  <div class="">
+    <div class="faq-container">
+      <!-- Image Side -->
+      <div class="faq-image-content">
+        {% if section.settings.image != blank %}
+          <img
+            src="{{ section.settings.image | image_url: width: 800 }}"
+            alt="{{ section.settings.image.alt | escape }}"
+            class="faq-image"
+            width="800"
+            height="600"
+            loading="lazy"
+          >
+        {% else %}
+          <div
+            class="faq-image"
+            style="background: #f5f5f5; display: flex; align-items: center; justify-content: center; color: #999;"
+          >
+            <span>Add FAQ Image</span>
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- FAQ Content -->
+      <div class="faq-text-content p-20">
+        {% if section.settings.title != blank %}
+          <h2 class="faq-title">{{ section.settings.title }}</h2>
+        {% endif %}
+
+        <div class="faq-list">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'faq_item' %}
+                <div class="faq-item" {{ block.shopify_attributes }}>
+                  <button class="faq-question font-second-semibold" onclick="toggleFAQ(this)">
+                    <span>{{ block.settings.question }}</span>
+                    <span class="faq-icon">+</span>
+                  </button>
+                  <div class="faq-answer">
+                    <div class="faq-answer-content font-first text-[#333] text-lg">
+                      {{ block.settings.answer }}
+                    </div>
+                  </div>
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+
+        {% if section.settings.show_load_more %}
+          <div class="faq-load-more">
+            <button class="faq-load-more-btn" onclick="loadMoreFAQ()">
+              {{ section.settings.load_more_text | default: 'Load More' }}
+            </button>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function toggleFAQ(button) {
+    const faqItem = button.parentElement;
+    const answer = faqItem.querySelector('.faq-answer');
+    const isActive = button.classList.contains('active');
+
+    // Close all other FAQ items
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.classList.remove('active');
+      q.parentElement.querySelector('.faq-answer').classList.remove('active');
+    });
+
+    // Toggle current item
+    if (!isActive) {
+      button.classList.add('active');
+      answer.classList.add('active');
+    }
+  }
+
+  function loadMoreFAQ() {
+    // This function can be extended to load more FAQ items via AJAX
+    // For now, it's a placeholder
+    console.log('Load more FAQ items');
+
+    // Example: Show hidden FAQ items
+    const hiddenItems = document.querySelectorAll('.faq-item[style*="display: none"]');
+    hiddenItems.forEach((item, index) => {
+      if (index < 3) { // Show 3 more items
+        item.style.display = 'block';
+      }
+    });
+
+    // Hide load more button if no more items
+    if (hiddenItems.length <= 3) {
+      document.querySelector('.faq-load-more').style.display = 'none';
+    }
+  }
+
+  // Initialize FAQ - close all answers by default
+  document.addEventListener('DOMContentLoaded', function() {
+    // Optionally open first FAQ item by default
+    {% if section.settings.open_first_item %}
+      const firstQuestion = document.querySelector('.faq-question');
+      if (firstQuestion) {
+        toggleFAQ(firstQuestion);
+      }
+    {% endif %}
+  });
+</script>
+
+{% schema %}
+{
+  "name": "FAQ with Image",
+  "tag": "section",
+  "class": "faq-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "FAQ Section Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "FAQ Image",
+      "info": "Recommended size: 800x600px"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "FAQ"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_first_item",
+      "label": "Open first FAQ item by default",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Load More Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_load_more",
+      "label": "Show Load More Button",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "load_more_text",
+      "label": "Load More Button Text",
+      "default": "Load More"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Your question here?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Your detailed answer goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ with Image",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "01. How do I use the Hair Oil?",
+            "answer": "<p>Apply a few drops to your scalp and hair, then massage gently. Use 2-3 times per week for best results.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "02. Can I use it as a leave-in treatment?",
+            "answer": "<p>Yes, you can use it as a leave-in treatment. Apply a small amount to damp hair before styling.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "03. Will it leave my hair greasy?",
+            "answer": "<p>No, when used as directed, it absorbs quickly without leaving a greasy residue.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "04. What is the difference between all the hair oils?",
+            "answer": "<p>Each oil is formulated for different hair types and concerns. Check the product descriptions for specific benefits.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "05. Can I use it on my hair lengths?",
+            "answer": "<p>For best results, we recommend using the HoliRoots Hair Oil only on the scalp.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
