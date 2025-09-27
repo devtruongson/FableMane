@@ -2,6 +2,10 @@
     --body-background-color: #fff5ec;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: QuincyCF;
 }
@@ -12,6 +16,22 @@ body {
 
 body {
     background-color: var(--body-background-color);
+}
+
+.font-second {
+    font-family: SofiaPro-Regular;
+}
+
+.font-second-bold {
+    font-family: SofiaPro-Bold;
+}
+
+.font-second-semibold {
+    font-family: SofiaPro-SemiBold;
+}
+
+.oke-reviewsTab {
+    display: none !important;
 }
 
 .leaves {

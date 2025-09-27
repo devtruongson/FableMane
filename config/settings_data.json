@@ -39,6 +39,13 @@
         "type": "shopify://apps/videowise-video-commerce/blocks/script_embed/b48d6c0c-3e3f-4791-a9ab-a5ab7ec82f4d",
         "disabled": true,
         "settings": {}
+      },
+      "733389323033596483": {
+        "type": "shopify://apps/okendo/blocks/theme-settings/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+        "disabled": false,
+        "settings": {
+          "show_preview_data": true
+        }
       }
     }
   }
