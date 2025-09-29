@@ -1,58 +1,146 @@
 <style>
-  .marquee {
-    display: flex;
+  .marquee-section {
+    background-color: #f9423a;
+    width: 100%;
     overflow: hidden;
-    white-space: nowrap;
-    animation: marquee 20s linear infinite;
   }
-  .marquee-content {
+
+  .marquee {
+    height: 80px;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
   }
-  @keyframes marquee {
+
+  .marquee-content {
+    display: inline-flex;
+    align-items: center;
+    gap: 3rem;
+    white-space: nowrap;
+  }
+
+  .marquee-content span {
+    font-family: var(--font-second, inherit);
+    font-size: 1.5rem;
+    letter-spacing: 0.3em;
+    color: white;
+    white-space: nowrap;
+  }
+
+  /* Fallback animation nếu jQuery không hoạt động */
+  @keyframes marqueeAnimation {
     0% {
-      transform: translateX(-100%);
-    }
-    100% {
       transform: translateX(100%);
     }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .marquee-fallback {
+    animation: marqueeAnimation 30s linear infinite;
+  }
+
+  .marquee-content * {
+    font-family: var(--font-second);
+  }
+
+  .marquee > div {
+    display: flex !important;
+    align-items: center !important;
   }
 </style>
-<div class="bg-[#f9423a] max-w-full overflow-hidden">
-  <div class="marquee h-20 flex items-center">
-    <div class="marquee-content text-white flex items-center gap-6 font-[SofiaPro-Regular]">
+
+<div class="marquee-section">
+  <div class="marquee" id="marquee-{{ section.id }}">
+    <div class="marquee-content">
       {% for block in section.blocks %}
-        <span class="block !font-[SofiaPro-Regular] !font-[400] text-xl whitespace-nowrap tracking-[.3em]">
-          {{ block.settings.text }}
-        </span>
+        <span>{{ block.settings.text }}</span>
+        {% unless forloop.last %}
+        {% endunless %}
       {% endfor %}
     </div>
   </div>
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof jQuery !== 'undefined' && jQuery.fn.marquee) {
+      try {
+        $('#marquee-{{ section.id }}').marquee({
+          duration: 30000,
+          delayBeforeStart: 0,
+          direction: 'right',
+          duplicated: true,
+          pauseOnHover: true,
+          startVisible: true,
+        });
+      } catch (error) {
+        document.querySelector('#marquee-{{ section.id }} .marquee-content').classList.add('marquee-fallback');
+      }
+    } else {
+      document.querySelector('#marquee-{{ section.id }} .marquee-content').classList.add('marquee-fallback');
+    }
+  });
+</script>
+
 {% schema %}
 {
   "name": "Marquee text",
-  "settings": [],
+  "settings": [
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Animation Speed (seconds)",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "default": 30
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "Direction",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left to Right"
+        },
+        {
+          "value": "right",
+          "label": "Right to Left"
+        }
+      ],
+      "default": "left"
+    }
+  ],
   "blocks": [
     {
       "type": "item",
-      "name": "Text item",
+      "name": "Marquee Item",
       "settings": [
         {
-          "type": "text",
+          "type": "richtext",
           "id": "text",
-          "label": "Text",
-          "default": "✨ I LET MY INNER LIGHT SHINE ✨"
+          "label": "Content",
+          "default": "<p>✨ <strong>I LET MY INNER LIGHT SHINE</strong> ✨</p>"
         }
       ]
     }
   ],
-  "max_blocks": 10,
+  "max_blocks": 20,
   "presets": [
     {
-      "name": "Marquee text"
+      "name": "Marquee text",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "text": "<p>✨ <strong>I LET MY INNER LIGHT SHINE</strong> ✨</p>"
+          }
+        }
+      ]
     }
   ]
 }

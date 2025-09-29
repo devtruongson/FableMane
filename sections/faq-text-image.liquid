@@ -2,25 +2,25 @@
   .faq-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
   }
 
   .faq-image-content {
     position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    aspect-ratio: 1 / 1;
   }
 
   .faq-image {
-    width: 100%;
-    max-height: 800px;
-    aspect-ratio: 9 / 16;
     object-fit: cover;
     overflow: hidden;
+    width: 100%;
   }
 
   .faq-title {
     font-size: 48px;
-    font-weight: bold;``
+    font-weight: bold;
     margin-bottom: 40px;
     line-height: 1.2;
     color: #000;
@@ -103,6 +103,10 @@
     color: #ed4026;
   }
 
+  .faq-container {
+    align-items: center;
+  }
+
   @media (max-width: 768px) {
     .faq-container {
       grid-template-columns: 1fr;
@@ -160,7 +164,7 @@
             {% case block.type %}
               {% when 'faq_item' %}
                 <div class="faq-item" {{ block.shopify_attributes }}>
-                  <button class="faq-question font-second-semibold" onclick="toggleFAQ(this)">
+                  <button class="faq-question font-second-semibold">
                     <span>{{ block.settings.question }}</span>
                     <span class="faq-icon">+</span>
                   </button>
@@ -176,7 +180,7 @@
 
         {% if section.settings.show_load_more %}
           <div class="faq-load-more">
-            <button class="faq-load-more-btn" onclick="loadMoreFAQ()">
+            <button class="faq-load-more-btn">
               {{ section.settings.load_more_text | default: 'Load More' }}
             </button>
           </div>
@@ -187,46 +191,49 @@
 </section>
 
 <script>
-  function toggleFAQ(button) {
-    const faqItem = button.parentElement;
-    const answer = faqItem.querySelector('.faq-answer');
-    const isActive = button.classList.contains('active');
-
-    // Close all other FAQ items
-    document.querySelectorAll('.faq-question').forEach(q => {
-      q.classList.remove('active');
-      q.parentElement.querySelector('.faq-answer').classList.remove('active');
-    });
-
-    // Toggle current item
-    if (!isActive) {
-      button.classList.add('active');
-      answer.classList.add('active');
-    }
-  }
-
-  function loadMoreFAQ() {
-    // This function can be extended to load more FAQ items via AJAX
-    // For now, it's a placeholder
-    console.log('Load more FAQ items');
-
-    // Example: Show hidden FAQ items
-    const hiddenItems = document.querySelectorAll('.faq-item[style*="display: none"]');
-    hiddenItems.forEach((item, index) => {
-      if (index < 3) { // Show 3 more items
-        item.style.display = 'block';
-      }
-    });
-
-    // Hide load more button if no more items
-    if (hiddenItems.length <= 3) {
-      document.querySelector('.faq-load-more').style.display = 'none';
-    }
-  }
-
-  // Initialize FAQ - close all answers by default
   document.addEventListener('DOMContentLoaded', function() {
-    // Optionally open first FAQ item by default
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    const loadMoreBtn = document.querySelector('.faq-load-more-btn');
+
+    function toggleFAQ(button) {
+      const faqItem = button.closest('.faq-item');
+      const answer = faqItem.querySelector('.faq-answer');
+      const isActive = button.classList.contains('active');
+
+      // Đóng tất cả item khác
+      faqQuestions.forEach(q => {
+        q.classList.remove('active');
+        q.closest('.faq-item').querySelector('.faq-answer').classList.remove('active');
+      });
+
+      // Mở item được click
+      if (!isActive) {
+        button.classList.add('active');
+        answer.classList.add('active');
+      }
+    }
+
+    faqQuestions.forEach(btn => {
+      btn.addEventListener('click', function() {
+        toggleFAQ(this);
+      });
+    });
+
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', function() {
+        const hiddenItems = document.querySelectorAll('.faq-item[style*="display: none"]');
+        hiddenItems.forEach((item, index) => {
+          if (index < 3) {
+            item.style.display = 'block';
+          }
+        });
+        if (hiddenItems.length <= 3) {
+          document.querySelector('.faq-load-more').style.display = 'none';
+        }
+      });
+    }
+
+    // Nếu bật tùy chọn "mở câu đầu tiên"
     {% if section.settings.open_first_item %}
       const firstQuestion = document.querySelector('.faq-question');
       if (firstQuestion) {

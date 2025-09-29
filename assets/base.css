@@ -1,5 +1,8 @@
 :root {
     --body-background-color: #fff5ec;
+    --font-second          : SofiaPro-Regular, sans-serif;
+    --font-second-semibold : SofiaPro-SemiBold, sans-serif;
+    --font-second-bold     : SofiaPro-Bold, sans-serif;
 }
 
 * {
@@ -243,4 +246,14 @@ body {
         right : -6%;
         width : 421px
     }
+}
+
+.product-image-card {
+    width : 350px;
+    height: 350px;
+}
+
+/* overwrite styles app subcription */
+.sealsubs-target-element {
+    font-family: var(--font-second) !important;
 }

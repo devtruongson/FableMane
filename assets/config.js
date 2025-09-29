@@ -149,7 +149,7 @@ productListInVideoSection.forEach((product) => {
           <div class="flex items-start gap-4">
             <img src="${item.featured_image}" alt="${item.title}" class="max-h-[60px] max-w-[70px] object-cover rounded"/>
             <div class="flex-1">
-                <h3 class="font-[SofiaPro-Regular] pt-1 text-sm line-clamp-2" onclick="handleProductClick('${item.handle}')">${item.title}</h3>
+                <h3 class="font-second pt-1 text-sm line-clamp-2" onclick="handleProductClick('${item.handle}')">${item.title}</h3>
                 <p class="text-sm text-black text-md">${window.formatCurrency.format(item.price)}</p>
             </div>
           </div>

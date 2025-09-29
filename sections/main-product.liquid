@@ -232,6 +232,8 @@
     padding: 2px 22px 0;
     border-radius: 9999px;
     cursor: pointer;
+    font-family: var(--font-second-semibold);
+    font-weight: 600;
   }
 
   .variant-btn:hover {
@@ -249,6 +251,15 @@
   .benefits-list li {
     font-size: 14px;
     line-height: 1.4;
+  }
+
+  .add-to-cart-btn {
+    font-family: var(--font-second-bold);
+    font-weight: 700;
+  }
+
+  .product-price-block * {
+    font-family: var(--font-second-bold) !important;
   }
 </style>
 
@@ -397,7 +408,7 @@
                   <div class="product-tags-block mb-4 flex items-center gap-2" {{ block.shopify_attributes }}>
                     <div class="tags flex gap-3">
                       {% for tag in product.tags %}
-                        <span class="tag bg-[#e9dbc0] px-2 py-1 font-[SofiaPro-Regular] text-sm rounded-full flex items-center justify-center">
+                        <span class="tag bg-[#e9dbc0] px-2 py-1 font-second text-sm rounded-full flex items-center justify-center">
                           {{- tag -}}
                         </span>
                       {% endfor %}
@@ -407,7 +418,7 @@
 
               {% when 'product_description' %}
                 <div
-                  class="product-description-block font-[SofiaPro-Regular] mb-6 text-gray-700"
+                  class="product-description-block font-second mb-6 text-gray-700"
                   {{ block.shopify_attributes }}
                 >
                   {{ product.description }}
@@ -440,7 +451,7 @@
                               {% for value in option.values %}
                                 <button
                                   type="button"
-                                  class="variant-btn font-[SofiaPro-Regular] {% if forloop.first %}active{% endif %} px-4 py-2 border border-gray-300 rounded-lg hover:border-black transition-colors"
+                                  class="variant-btn font-second {% if forloop.first %}active{% endif %} px-4 py-2 border border-gray-300 rounded-lg hover:border-black transition-colors"
                                   data-option-index="{{ forloop.parentloop.index }}"
                                   data-option-value="{{ value | escape }}"
                                 >
@@ -458,7 +469,7 @@
                         <div class="flex items-center bg-white rounded-full h-full">
                           <button
                             type="button"
-                            class="font-[SofiaPro-Regular] quantity-btn minus w-12 h-12 transition-colors"
+                            class="font-second quantity-btn minus w-12 h-12 transition-colors"
                           >
                             -
                           </button>
@@ -467,11 +478,11 @@
                             name="quantity"
                             value="1"
                             min="1"
-                            class="font-[SofiaPro-Regular] quantity-input w-16 h-12 text-center border-0"
+                            class="font-second quantity-input w-16 h-12 text-center border-0"
                           >
                           <button
                             type="button"
-                            class="font-[SofiaPro-Regular] quantity-btn plus w-12 h-12 transition-colors"
+                            class="font-second quantity-btn plus w-12 h-12 transition-colors"
                           >
                             +
                           </button>
@@ -480,7 +491,7 @@
 
                       <button
                         type="submit"
-                        class="font-[SofiaPro-Regular] add-to-cart-btn flex-1 bg-red-500 text-white py-4 px-8 rounded-full hover:bg-red-600 transition-colors font-medium text-lg"
+                        class="font-second add-to-cart-btn flex-1 bg-red-500 text-white py-4 px-8 rounded-full hover:bg-red-600 transition-colors font-medium text-lg"
                       >
                         ADD TO BAG
                       </button>
@@ -545,7 +556,7 @@
             <div class="product-tags mb-4 flex items-center gap-2">
               <div class="tags flex gap-3">
                 {% for tag in product.tags %}
-                  <span class="tag bg-[#e9dbc0] px-2 py-1 font-[SofiaPro-Regular] text-sm rounded-full flex items-center justify-center">
+                  <span class="tag bg-[#e9dbc0] px-2 py-1 font-second text-sm rounded-full flex items-center justify-center">
                     {{- tag -}}
                   </span>
                 {% endfor %}
@@ -554,7 +565,7 @@
           {% endif %}
 
           <!-- Description -->
-          <div class="product-description font-[SofiaPro-Regular] mb-6 text-gray-700">
+          <div class="product-description font-second mb-6 text-gray-700">
             {{ product.description }}
           </div>
 
@@ -584,7 +595,7 @@
                       {% for value in option.values %}
                         <button
                           type="button"
-                          class="variant-btn font-[SofiaPro-Regular] {% if forloop.first %}active{% endif %} px-4 py-2 border border-gray-300 rounded-lg hover:border-black transition-colors"
+                          class="variant-btn font-second {% if forloop.first %}active{% endif %} px-4 py-2 border border-gray-300 rounded-lg hover:border-black transition-colors"
                           data-option-index="{{ forloop.parentloop.index }}"
                           data-option-value="{{ value | escape }}"
                         >
@@ -600,19 +611,17 @@
             <div class="quantity-and-cart flex items-center gap-4 mb-8">
               <div class="quantity-selector">
                 <div class="flex items-center bg-white rounded-full h-full">
-                  <button type="button" class="font-[SofiaPro-Regular] quantity-btn minus w-12 h-12 transition-colors">
-                    -
-                  </button>
+                  <button type="button" class="font-second quantity-btn minus w-12 h-12 transition-colors">-</button>
                   <input
                     type="number"
                     name="quantity"
                     value="1"
                     min="1"
-                    class="font-[SofiaPro-Regular] quantity-input w-16 h-12 text-center border-0"
+                    class="font-second quantity-input w-16 h-12 text-center border-0"
                   >
                   <button
                     type="button"
-                    class="font-[SofiaPro-Regular] quantity-btn plus w-12 h-12 transition-colors"
+                    class="font-second quantity-btn plus w-12 h-12 transition-colors"
                   >
                     +
                   </button>
@@ -621,7 +630,7 @@
 
               <button
                 type="submit"
-                class="font-[SofiaPro-Regular] add-to-cart-btn flex-1 bg-red-500 text-white py-4 px-8 rounded-full hover:bg-red-600 transition-colors font-medium text-lg"
+                class="font-second add-to-cart-btn flex-1 bg-red-500 text-white py-4 px-8 rounded-full hover:bg-red-600 transition-colors font-medium text-lg"
               >
                 ADD TO BAG
               </button>

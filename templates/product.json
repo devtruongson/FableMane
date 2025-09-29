@@ -8,340 +8,332 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "marquee_aGrBdz": {
-      "type": "marquee",
-      "blocks": {
-        "item_jztcYQ": {
-          "type": "item",
-          "settings": {
-            "text": "⭐ 20% OFF SITEWIDE: FF20 ⭐"
-          }
+    "sections": {
+        "marquee_aGrBdz": {
+            "type": "marquee",
+            "blocks": {
+                "item_jztcYQ": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>⭐ 20% OFF SITEWIDE: FF20 ⭐</p>"
+                    }
+                },
+                "item_w8UMyE": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>⭐ 20% OFF SITEWIDE: FF20 ⭐</p>"
+                    }
+                },
+                "item_yHykYB": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>⭐ 20% OFF SITEWIDE: FF20 ⭐</p>"
+                    }
+                },
+                "item_7G9yB6": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>⭐ 20% OFF SITEWIDE: FF20 ⭐</p>"
+                    }
+                }
+            },
+            "block_order": [
+                "item_jztcYQ",
+                "item_w8UMyE",
+                "item_yHykYB",
+                "item_7G9yB6"
+            ],
+            "name": "Marquee text",
+            "settings": {}
         },
-        "item_w8UMyE": {
-          "type": "item",
-          "settings": {
-            "text": "⭐ 20% OFF SITEWIDE: FF20 ⭐"
-          }
+        "main": {
+            "type": "main-product",
+            "blocks": {
+                "product_title_69hGjX": {
+                    "type": "product_title",
+                    "settings": {}
+                },
+                "product_reviews_tXiJpM": {
+                    "type": "product_reviews",
+                    "settings": {}
+                },
+                "product_price_EzeqaM": {
+                    "type": "product_price",
+                    "settings": {}
+                },
+                "product_tags_idT3Yg": {
+                    "type": "product_tags",
+                    "settings": {}
+                },
+                "product_description_fA6KE3": {
+                    "type": "product_description",
+                    "settings": {}
+                },
+                "product_form_aq4ja7": {
+                    "type": "product_form",
+                    "settings": {}
+                },
+                "love_it_section_tYxKwQ": {
+                    "type": "love_it_section",
+                    "settings": {}
+                },
+                "product_faq_ar8JGH": {
+                    "type": "product_faq",
+                    "settings": {}
+                },
+                "custom_liquid_3CWjMK": {
+                    "type": "custom_liquid",
+                    "settings": {
+                        "custom_liquid": "<div id=\"render-ft-list-product-detail\" class=\"\">123</div>"
+                    }
+                }
+            },
+            "block_order": [
+                "product_title_69hGjX",
+                "product_reviews_tXiJpM",
+                "product_price_EzeqaM",
+                "product_tags_idT3Yg",
+                "product_description_fA6KE3",
+                "product_form_aq4ja7",
+                "love_it_section_tYxKwQ",
+                "product_faq_ar8JGH",
+                "custom_liquid_3CWjMK"
+            ],
+            "settings": {
+                "enable_zoom": true,
+                "enable_video_autoplay": true,
+                "thumbnail_position": "left"
+            }
         },
-        "item_yHykYB": {
-          "type": "item",
-          "settings": {
-            "text": "⭐ 20% OFF SITEWIDE: FF20 ⭐"
-          }
+        "1758880556c5879e36": {
+            "type": "apps",
+            "blocks": {
+                "spark_shoppable_video_mKt3dP": {
+                    "type": "shopify://apps/spark/blocks/shoppable-video/3eb8b961-42bd-4d42-a091-9b8e4c877d96",
+                    "settings": {
+                        "show_videos_dynamically": false,
+                        "auto_play_video": "always",
+                        "feed_title": "Our Tiger Tribe",
+                        "title_alignment": "center",
+                        "item_alignment": false,
+                        "show_play_button": false,
+                        "show_views": false,
+                        "show_arrow_buttons": true,
+                        "product_card_status": "outside_video",
+                        "show_video_title": false,
+                        "border_radius": 16,
+                        "padding_top": 20,
+                        "padding_bottom": 20,
+                        "player_type": "full_screen_player",
+                        "show_views_on_player": false,
+                        "player_border_radius": 16,
+                        "product_card_border_radius": 12,
+                        "product_card_image_border_radius": 8,
+                        "show_compare_at_price": true,
+                        "product_card_btn_actn": "add_to_cart",
+                        "product_card_btn_text": "Shop",
+                        "product_card_btn_background_color": "#000000",
+                        "product_card_btn_text_color": "#ffffff",
+                        "product_card_btn_border_radius": 24
+                    }
+                }
+            },
+            "block_order": ["spark_shoppable_video_mKt3dP"],
+            "custom_css": [
+                "h2 {font-size: 30px;}",
+                ".shopify-app-block {background: #e7ceb5;}"
+            ],
+            "name": "Video & Product Related",
+            "settings": {}
         },
-        "item_7G9yB6": {
-          "type": "item",
-          "settings": {
-            "text": "⭐ 20% OFF SITEWIDE: FF20 ⭐"
-          }
+        "faq_text_image_nzwGRE": {
+            "type": "faq-text-image",
+            "blocks": {
+                "faq_item_DKGhJi": {
+                    "type": "faq_item",
+                    "settings": {
+                        "question": "01. How do I use the Hair Oil?",
+                        "answer": "<p>Apply a few drops to your scalp and hair, then massage gently. Use 2-3 times per week for best results.</p>"
+                    }
+                },
+                "faq_item_8qiMpa": {
+                    "type": "faq_item",
+                    "settings": {
+                        "question": "02. Can I use it as a leave-in treatment?",
+                        "answer": "<p>Yes, you can use it as a leave-in treatment. Apply a small amount to damp hair before styling.</p>"
+                    }
+                },
+                "faq_item_fA8tk3": {
+                    "type": "faq_item",
+                    "settings": {
+                        "question": "03. Will it leave my hair greasy?",
+                        "answer": "<p>No, when used as directed, it absorbs quickly without leaving a greasy residue.</p>"
+                    }
+                },
+                "faq_item_iqUHxT": {
+                    "type": "faq_item",
+                    "settings": {
+                        "question": "04. What is the difference between all the hair oils?",
+                        "answer": "<p>Each oil is formulated for different hair types and concerns. Check the product descriptions for specific benefits.</p>"
+                    }
+                },
+                "faq_item_RCkkBL": {
+                    "type": "faq_item",
+                    "settings": {
+                        "question": "05. Can I use it on my hair lengths?",
+                        "answer": "<p>For best results, we recommend using the HoliRoots Hair Oil only on the scalp.</p>"
+                    }
+                }
+            },
+            "block_order": [
+                "faq_item_DKGhJi",
+                "faq_item_8qiMpa",
+                "faq_item_fA8tk3",
+                "faq_item_iqUHxT",
+                "faq_item_RCkkBL"
+            ],
+            "name": "FAQ with Image",
+            "settings": {
+                "image": "shopify://shop_images/0edc997c839a--FAQ.webp",
+                "title": "FAQ",
+                "open_first_item": false,
+                "show_load_more": false,
+                "load_more_text": "Load More"
+            }
+        },
+        "video_single_yBjBfK": {
+            "type": "video-single",
+            "blocks": {
+                "item_EQzbAQ": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1747409633129_wid_NjgyNzVhZGE3ZWIzODMwMDU2MGI3Yjk5_h264c.mp4"
+                    }
+                }
+            },
+            "block_order": ["item_EQzbAQ"],
+            "name": "Video Single",
+            "settings": {}
+        },
+        "faq_text_sticky_YwFFfi": {
+            "type": "faq-text-sticky",
+            "name": "The Scent Section",
+            "settings": {
+                "title": "The Scent",
+                "description": "<p>A divine fresh, floral scent that blends Indian jasmine sambac, precious red champaca flowers and an unforgettably rich, warm base of cedarwood and tonka beans, transporting you to the divine city of Madurai in India.</p>",
+                "product_image": "shopify://shop_images/ba4d8fab29bd--BLOCKS2.webp"
+            }
+        },
+        "1758882042b26aa4f5": {
+            "type": "apps",
+            "blocks": {
+                "okendo_reviews_widget_iHtEmM": {
+                    "type": "shopify://apps/okendo/blocks/reviews-widget/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
+                    "settings": {
+                        "product": "{{product}}",
+                        "widget_type": "reviews_widget"
+                    }
+                }
+            },
+            "block_order": ["okendo_reviews_widget_iHtEmM"],
+            "name": "Review Product Comment",
+            "settings": {}
+        },
+        "marquee_yEPK4n": {
+            "type": "marquee",
+            "blocks": {
+                "item_XwKjGB": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>⭐ 20% OFF SITEWIDE: FF20 ⭐</p>"
+                    }
+                },
+                "item_BHz7nU": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>⭐ 20% OFF SITEWIDE: FF20 ⭐</p>"
+                    }
+                },
+                "item_wjEVKd": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>⭐ 20% OFF SITEWIDE: FF20 ⭐</p>"
+                    }
+                },
+                "item_WieYni": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>⭐ 20% OFF SITEWIDE: FF20 ⭐</p>"
+                    }
+                }
+            },
+            "block_order": [
+                "item_XwKjGB",
+                "item_BHz7nU",
+                "item_wjEVKd",
+                "item_WieYni"
+            ],
+            "name": "Marquee text",
+            "settings": {}
+        },
+        "footer_YWPb3K": {
+            "type": "footer",
+            "blocks": {
+                "forms_inline_twf7f7": {
+                    "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+                    "settings": {
+                        "form_id": "673166",
+                        "text_color": "#202020",
+                        "button_background_color": "#fff5ec",
+                        "button_label_color": "#0c0505",
+                        "links_color": "#1878b9",
+                        "errors_color": "#e02229",
+                        "text_alignment": "left",
+                        "form_alignment": "center",
+                        "padding_top": 0,
+                        "padding_bottom": 24,
+                        "padding_right": 0,
+                        "padding_left": 0
+                    }
+                }
+            },
+            "block_order": ["forms_inline_twf7f7"],
+            "name": "Footer",
+            "settings": {
+                "shop_all_url": "/collections/all",
+                "best_sellers_url_string": "/collections/best-sellers",
+                "gift_sets_url": "/collections/gift-sets-bundles",
+                "accessories_url": "/collections/accessories",
+                "tiger_tribe_url": "/pages/tyb",
+                "affiliates_url": "/pages/affiliates",
+                "our_journey_url": "/pages/our-story",
+                "fable_fund_url": "/pages/fable-fund",
+                "mane_monocle_url": "/blogs/mane-monocle",
+                "faq_url": "/pages/faq",
+                "shipping_url": "/policies/shipping-policy",
+                "returns_url": "/policies/refund-policy",
+                "contact_url": "/pages/contact-us",
+                "stockists_url": "/pages/find-us",
+                "tiktok_url": "https://www.tiktok.com/@fableandmane",
+                "instagram_url": "https://www.instagram.com/fableandmane",
+                "pinterest_url": "https://www.pinterest.co.uk/fableandmane",
+                "youtube_url": "https://www.youtube.com/c/fableandmane",
+                "facebook_url": "https://www.facebook.com/fableandmane",
+                "privacy_policy_url": "/policies/privacy-policy",
+                "terms_url": "/policies/terms-of-service",
+                "copyright_text": "© Akita Brands, INC 2025"
+            }
         }
-      },
-      "block_order": [
-        "item_jztcYQ",
-        "item_w8UMyE",
-        "item_yHykYB",
-        "item_7G9yB6"
-      ],
-      "name": "Marquee text",
-      "settings": {}
     },
-    "main": {
-      "type": "main-product",
-      "blocks": {
-        "product_title_69hGjX": {
-          "type": "product_title",
-          "settings": {}
-        },
-        "product_reviews_tXiJpM": {
-          "type": "product_reviews",
-          "settings": {}
-        },
-        "product_price_EzeqaM": {
-          "type": "product_price",
-          "settings": {}
-        },
-        "product_tags_idT3Yg": {
-          "type": "product_tags",
-          "settings": {}
-        },
-        "product_description_fA6KE3": {
-          "type": "product_description",
-          "settings": {}
-        },
-        "product_form_aq4ja7": {
-          "type": "product_form",
-          "settings": {}
-        },
-        "love_it_section_tYxKwQ": {
-          "type": "love_it_section",
-          "settings": {}
-        },
-        "product_faq_ar8JGH": {
-          "type": "product_faq",
-          "settings": {}
-        },
-        "custom_liquid_3CWjMK": {
-          "type": "custom_liquid",
-          "settings": {
-            "custom_liquid": "<div id=\"render-ft-list-product-detail\" class=\"\">123</div>"
-          }
-        }
-      },
-      "block_order": [
-        "product_title_69hGjX",
-        "product_reviews_tXiJpM",
-        "product_price_EzeqaM",
-        "product_tags_idT3Yg",
-        "product_description_fA6KE3",
-        "product_form_aq4ja7",
-        "love_it_section_tYxKwQ",
-        "product_faq_ar8JGH",
-        "custom_liquid_3CWjMK"
-      ],
-      "settings": {
-        "enable_zoom": true,
-        "enable_video_autoplay": true,
-        "thumbnail_position": "left"
-      }
-    },
-    "1758880556c5879e36": {
-      "type": "apps",
-      "blocks": {
-        "spark_shoppable_video_mKt3dP": {
-          "type": "shopify://apps/spark/blocks/shoppable-video/3eb8b961-42bd-4d42-a091-9b8e4c877d96",
-          "settings": {
-            "show_videos_dynamically": false,
-            "auto_play_video": "always",
-            "feed_title": "Our Tiger Tribe",
-            "title_alignment": "center",
-            "item_alignment": false,
-            "show_play_button": false,
-            "show_views": false,
-            "show_arrow_buttons": true,
-            "product_card_status": "outside_video",
-            "show_video_title": false,
-            "border_radius": 16,
-            "padding_top": 20,
-            "padding_bottom": 20,
-            "player_type": "full_screen_player",
-            "show_views_on_player": false,
-            "player_border_radius": 16,
-            "product_card_border_radius": 12,
-            "product_card_image_border_radius": 8,
-            "show_compare_at_price": true,
-            "product_card_btn_actn": "add_to_cart",
-            "product_card_btn_text": "Shop",
-            "product_card_btn_background_color": "#000000",
-            "product_card_btn_text_color": "#ffffff",
-            "product_card_btn_border_radius": 24
-          }
-        }
-      },
-      "block_order": [
-        "spark_shoppable_video_mKt3dP"
-      ],
-      "custom_css": [
-        "h2 {font-size: 30px;}",
-        ".shopify-app-block {background: #e7ceb5;}"
-      ],
-      "name": "Video & Product Related",
-      "settings": {}
-    },
-    "faq_text_image_nzwGRE": {
-      "type": "faq-text-image",
-      "blocks": {
-        "faq_item_DKGhJi": {
-          "type": "faq_item",
-          "settings": {
-            "question": "01. How do I use the Hair Oil?",
-            "answer": "<p>Apply a few drops to your scalp and hair, then massage gently. Use 2-3 times per week for best results.</p>"
-          }
-        },
-        "faq_item_8qiMpa": {
-          "type": "faq_item",
-          "settings": {
-            "question": "02. Can I use it as a leave-in treatment?",
-            "answer": "<p>Yes, you can use it as a leave-in treatment. Apply a small amount to damp hair before styling.</p>"
-          }
-        },
-        "faq_item_fA8tk3": {
-          "type": "faq_item",
-          "settings": {
-            "question": "03. Will it leave my hair greasy?",
-            "answer": "<p>No, when used as directed, it absorbs quickly without leaving a greasy residue.</p>"
-          }
-        },
-        "faq_item_iqUHxT": {
-          "type": "faq_item",
-          "settings": {
-            "question": "04. What is the difference between all the hair oils?",
-            "answer": "<p>Each oil is formulated for different hair types and concerns. Check the product descriptions for specific benefits.</p>"
-          }
-        },
-        "faq_item_RCkkBL": {
-          "type": "faq_item",
-          "settings": {
-            "question": "05. Can I use it on my hair lengths?",
-            "answer": "<p>For best results, we recommend using the HoliRoots Hair Oil only on the scalp.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "faq_item_DKGhJi",
-        "faq_item_8qiMpa",
-        "faq_item_fA8tk3",
-        "faq_item_iqUHxT",
-        "faq_item_RCkkBL"
-      ],
-      "name": "FAQ with Image",
-      "settings": {
-        "image": "shopify://shop_images/0edc997c839a--FAQ.webp",
-        "title": "FAQ",
-        "open_first_item": false,
-        "show_load_more": false,
-        "load_more_text": "Load More"
-      }
-    },
-    "video_single_yBjBfK": {
-      "type": "video-single",
-      "blocks": {
-        "item_EQzbAQ": {
-          "type": "item",
-          "settings": {
-            "video_url": "https://cdn2.videowise.com/converted/videos/1747409633129_wid_NjgyNzVhZGE3ZWIzODMwMDU2MGI3Yjk5_h264c.mp4"
-          }
-        }
-      },
-      "block_order": [
-        "item_EQzbAQ"
-      ],
-      "name": "Video Single",
-      "settings": {}
-    },
-    "faq_text_sticky_YwFFfi": {
-      "type": "faq-text-sticky",
-      "name": "The Scent Section",
-      "settings": {
-        "title": "The Scent",
-        "description": "<p>A divine fresh, floral scent that blends Indian jasmine sambac, precious red champaca flowers and an unforgettably rich, warm base of cedarwood and tonka beans, transporting you to the divine city of Madurai in India.</p>",
-        "product_image": "shopify://shop_images/ba4d8fab29bd--BLOCKS2.webp"
-      }
-    },
-    "1758882042b26aa4f5": {
-      "type": "apps",
-      "blocks": {
-        "okendo_reviews_widget_iHtEmM": {
-          "type": "shopify://apps/okendo/blocks/reviews-widget/bb689e69-ea70-4661-8fb7-ad24a2e23c29",
-          "settings": {
-            "product": "{{product}}",
-            "widget_type": "reviews_widget"
-          }
-        }
-      },
-      "block_order": [
-        "okendo_reviews_widget_iHtEmM"
-      ],
-      "name": "Review Product Comment",
-      "settings": {}
-    },
-    "marquee_yEPK4n": {
-      "type": "marquee",
-      "blocks": {
-        "item_XwKjGB": {
-          "type": "item",
-          "settings": {
-            "text": "⭐ 20% OFF SITEWIDE: FF20 ⭐"
-          }
-        },
-        "item_BHz7nU": {
-          "type": "item",
-          "settings": {
-            "text": "⭐ 20% OFF SITEWIDE: FF20 ⭐"
-          }
-        },
-        "item_wjEVKd": {
-          "type": "item",
-          "settings": {
-            "text": "⭐ 20% OFF SITEWIDE: FF20 ⭐"
-          }
-        },
-        "item_WieYni": {
-          "type": "item",
-          "settings": {
-            "text": "⭐ 20% OFF SITEWIDE: FF20 ⭐"
-          }
-        }
-      },
-      "block_order": [
-        "item_XwKjGB",
-        "item_BHz7nU",
-        "item_wjEVKd",
-        "item_WieYni"
-      ],
-      "name": "Marquee text",
-      "settings": {}
-    },
-    "footer_YWPb3K": {
-      "type": "footer",
-      "blocks": {
-        "forms_inline_twf7f7": {
-          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
-          "settings": {
-            "form_id": "673166",
-            "text_color": "#202020",
-            "button_background_color": "#fff5ec",
-            "button_label_color": "#0c0505",
-            "links_color": "#1878b9",
-            "errors_color": "#e02229",
-            "text_alignment": "left",
-            "form_alignment": "center",
-            "padding_top": 0,
-            "padding_bottom": 24,
-            "padding_right": 0,
-            "padding_left": 0
-          }
-        }
-      },
-      "block_order": [
-        "forms_inline_twf7f7"
-      ],
-      "name": "Footer",
-      "settings": {
-        "shop_all_url": "/collections/all",
-        "best_sellers_url_string": "/collections/best-sellers",
-        "gift_sets_url": "/collections/gift-sets-bundles",
-        "accessories_url": "/collections/accessories",
-        "tiger_tribe_url": "/pages/tyb",
-        "affiliates_url": "/pages/affiliates",
-        "our_journey_url": "/pages/our-story",
-        "fable_fund_url": "/pages/fable-fund",
-        "mane_monocle_url": "/blogs/mane-monocle",
-        "faq_url": "/pages/faq",
-        "shipping_url": "/policies/shipping-policy",
-        "returns_url": "/policies/refund-policy",
-        "contact_url": "/pages/contact-us",
-        "stockists_url": "/pages/find-us",
-        "tiktok_url": "https://www.tiktok.com/@fableandmane",
-        "instagram_url": "https://www.instagram.com/fableandmane",
-        "pinterest_url": "https://www.pinterest.co.uk/fableandmane",
-        "youtube_url": "https://www.youtube.com/c/fableandmane",
-        "facebook_url": "https://www.facebook.com/fableandmane",
-        "privacy_policy_url": "/policies/privacy-policy",
-        "terms_url": "/policies/terms-of-service",
-        "copyright_text": "© Akita Brands, INC 2025"
-      }
-    }
-  },
-  "order": [
-    "marquee_aGrBdz",
-    "main",
-    "1758880556c5879e36",
-    "faq_text_image_nzwGRE",
-    "video_single_yBjBfK",
-    "faq_text_sticky_YwFFfi",
-    "1758882042b26aa4f5",
-    "marquee_yEPK4n",
-    "footer_YWPb3K"
-  ]
+    "order": [
+        "marquee_aGrBdz",
+        "main",
+        "1758880556c5879e36",
+        "faq_text_image_nzwGRE",
+        "faq_text_sticky_YwFFfi",
+        "video_single_yBjBfK",
+        "1758882042b26aa4f5",
+        "marquee_yEPK4n",
+        "footer_YWPb3K"
+    ]
 }

@@ -6,22 +6,22 @@
     style="position: relative;"
   {% endif %}
 >
-  <div class="flex items-center container mx-auto justify-between gap-[20px] px-20 {% if section.settings.background_image != blank %}relative z-10{% endif %}">
-    <div class="flex-1">
-      <h3 class="text-4xl {% if section.settings.background_image != blank %}text-white{% endif %}">
+  <div class="flex flex-col md:flex-row items-center container mx-auto justify-between gap-[20px] px-6 pt-4 md:pt-0 md:px-20 {% if section.settings.background_image != blank %}relative z-10{% endif %}">
+    <div class="flex-1 justify-center flex flex-col items-center md:items-start text-center md:text-left">
+      <h3 class="text-3xl md:text-6xl text-center md:text-left {% if section.settings.background_image != blank %}text-white{% endif %}">
         {{ section.settings.heading }}
       </h3>
       <a
         href="{{ section.settings.button_link }}"
-        class="mt-4 inline-block font-[SofiaPro-Regular] px-6 py-3 bg-black text-white font-semibold hover:bg-gray-800 transition-colors rounded-full"
+        class="mt-4 inline-block font-second px-6 py-3 bg-black text-white font-semibold hover:bg-gray-800 transition-colors rounded-full"
       >
         {{ section.settings.button_text }}
       </a>
     </div>
-    <div class="w-1/2">
+    <div class="w-full md:w-1/2 pb-4 md:pb-0">
       {% if section.settings.image != blank %}
         <img
-          class="max-h-[550px] object-contain"
+          class="max-h-[550px] object-contain mx-auto"
           src="{{ section.settings.image | image_url: width: 800 }}"
           alt="{{ section.settings.heading | escape }}"
           width="800"

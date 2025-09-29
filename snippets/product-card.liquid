@@ -5,7 +5,7 @@
         <img
           src="{{ product.featured_media | image_url: width: 600 }}"
           alt="{{ product.featured_media.alt | escape }}"
-          class="w-full h-70 scale-75 object-contain"
+          class=product-image-card scale-75 object-contain"
         >
       </a>
 
@@ -36,7 +36,7 @@
     </h3>
 
     <div class="text-center mb-4">
-      <p class="text-lg font-medium">
+      <p class="text-lg font-medium font-second-semibold">
         {% if product.price_varies %}
           From {{ product.price_min | money }}
         {% else %}
@@ -70,7 +70,7 @@
       <input type="hidden" name="id" value="{{ product.variants.first.id }}">
       <button
         type="submit"
-        class="mx-auto text-black border cursor-pointer border-gray-600 py-3 px-6 rounded-full font-semibold hover:bg-[#ffd2aa] hover:text-black transition-all duration-300 text-sm tracking-wide"
+        class="mx-auto text-base md:text-xl text-black border cursor-pointer border-gray-600 py-2 px-3 md:py-3 md:px-6 rounded-full font-second-semibold font-semibold hover:bg-[#ffd2aa] hover:text-black transition-all duration-300 text-sm tracking-wide"
       >
         ADD TO BAG
       </button>

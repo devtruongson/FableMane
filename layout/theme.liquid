@@ -3,17 +3,15 @@
   <head>
     <meta charset="UTF-8">
     <title>{{ page_title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     {{ content_for_header }}
     {{ 'font.css' | asset_url | stylesheet_tag }}
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"
-      integrity="sha512-nhY06wKras39lb9lRO76J4397CH1XpRSLfLJSftTeo3+q2vP7PaebILH9TqH+GRpnOhfAGjuYMVmVTOZJ+682w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    {{ 'jquery.min.js' | asset_url | script_tag }}
+    {{ 'jquery.marquee.min.js' | asset_url | script_tag }}
+    {{ 'slick.css' | asset_url | stylesheet_tag }}
+    {{ 'slick.min.js' | asset_url | script_tag }}
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    {% comment %} {{ 'tailwin.js' | asset_url | script_tag }} {% endcomment %}
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"

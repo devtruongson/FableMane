@@ -33,7 +33,7 @@
 }
 {% endschema %}
 
-<section class="product-carousel py-10 my-6">
+<section class="product-carousel py-5 my-6 md:py-10">
   <div class="container mx-auto text-center">
     <!-- Section title with stars -->
     <div class="relative inline-block mb-10">
@@ -41,7 +41,7 @@
         class="absolute inset-0 pointer-events-none stars-field-title"
         style="width: 120%; height: 120%; top: -10%; left: -10%;"
       ></div>
-      <h2 class="sm:texy-2xl md:text-3xl lg:text-6xl font-bold relative z-10 mb-6">
+      <h2 class="text-2xl md:text-3xl lg:text-6xl font-bold relative z-10 mb-6">
         {{ section.settings.section_title }}
       </h2>
     </div>
@@ -119,6 +119,14 @@
       transform: scale(1.1);
     }
   }
+
+  @media (max-width: 575.98px) {
+    .product-image-card {
+      width: 100%;
+      height: unset;
+      aspect-ratio: 1 / 1;
+    }
+  }
 </style>
 
 <script>
@@ -142,6 +150,29 @@
                  <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/>
                </svg>
             </button>`,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+          },
+        },
+      ],
     });
 
     // Star SVG for title

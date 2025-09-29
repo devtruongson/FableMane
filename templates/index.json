@@ -8,508 +8,512 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "main": {
-      "type": "hero-image",
-      "blocks": {
-        "slide_XmmBhE": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/newallureseal.webp",
-            "title": "20% OFF SITEWIDE!",
-            "subtitle": "Because your hair deserves this… enjoy our Friends & Family event with code: FF20  Ends 09/29",
-            "button_label": "Shop",
-            "button_link": "shopify://collections/all"
-          }
+    "sections": {
+        "main": {
+            "type": "hero-image",
+            "blocks": {
+                "slide_XmmBhE": {
+                    "type": "slide",
+                    "settings": {
+                        "image": "shopify://shop_images/DESKTOP_sz_5dba1fe9-a4c1-4fd3-b195-b1b83cec7a86_3024x_1.webp",
+                        "title": "20% OFF SITEWIDE!",
+                        "subtitle": "Because your hair deserves this… enjoy our Friends & Family event with code: FF20  Ends 09/29",
+                        "button_label": "Shop",
+                        "button_link": "shopify://collections/all"
+                    }
+                },
+                "slide_wr6qDV": {
+                    "type": "slide",
+                    "settings": {
+                        "image": "shopify://shop_images/newallureseal.webp",
+                        "title": "20% OFF SITEWIDE!",
+                        "subtitle": "Because your hair deserves this… enjoy our Friends & Family event with code: FF20  Ends 09/29",
+                        "button_label": "Shop",
+                        "button_link": "shopify://collections/all"
+                    }
+                }
+            },
+            "block_order": ["slide_XmmBhE", "slide_wr6qDV"],
+            "settings": {
+                "section_title": "Our Hero Slides"
+            }
+        },
+        "product_carousel_NNMErw": {
+            "type": "product-carousel",
+            "blocks": {
+                "product_KNdBhe": {
+                    "type": "product",
+                    "settings": {
+                        "product": "holiroots™-hair-oil"
+                    }
+                },
+                "product_9mYAxa": {
+                    "type": "product",
+                    "settings": {
+                        "product": "holiroots™-hair-oil"
+                    }
+                },
+                "product_KYCaEJ": {
+                    "type": "product",
+                    "settings": {
+                        "product": "holiroots™-hair-oil"
+                    }
+                },
+                "product_bgJbQh": {
+                    "type": "product",
+                    "settings": {
+                        "product": "holiroots™-hair-oil"
+                    }
+                },
+                "product_MaVdkR": {
+                    "type": "product",
+                    "settings": {
+                        "product": "holiroots™-hair-oil"
+                    }
+                },
+                "product_rdXrRd": {
+                    "type": "product",
+                    "settings": {
+                        "product": "holiroots™-hair-oil"
+                    }
+                }
+            },
+            "block_order": [
+                "product_KNdBhe",
+                "product_9mYAxa",
+                "product_KYCaEJ",
+                "product_bgJbQh",
+                "product_MaVdkR",
+                "product_rdXrRd"
+            ],
+            "name": "Product Carousel",
+            "settings": {
+                "section_title": "Discover Hair Nirvana"
+            }
+        },
+        "video_section_iGPCkf": {
+            "type": "video-section",
+            "blocks": {
+                "item_EGe9Vm": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1751020258830_wid_Njg1ZTcyZGM5MWZmYmYwMDU4MGQwOGUz_h264cmobile_q10.mp4",
+                        "product_list": [
+                            "the-videographer-snowboard",
+                            "the-out-of-stock-snowboard",
+                            "the-multi-managed-snowboard",
+                            "the-multi-location-snowboard",
+                            "the-inventory-not-tracked-snowboard"
+                        ]
+                    }
+                },
+                "item_pQQmfY": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4",
+                        "product_list": [
+                            "the-3p-fulfilled-snowboard",
+                            "selling-plans-ski-wax",
+                            "gift-card"
+                        ]
+                    }
+                },
+                "item_iiAbdr": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4",
+                        "product_list": [
+                            "the-collection-snowboard-hydrogen",
+                            "the-collection-snowboard-liquid",
+                            "the-collection-snowboard-oxygen"
+                        ]
+                    }
+                },
+                "item_PdDxJV": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4",
+                        "product_list": [
+                            "selling-plans-ski-wax",
+                            "the-collection-snowboard-hydrogen",
+                            "the-collection-snowboard-oxygen",
+                            "the-collection-snowboard-liquid"
+                        ]
+                    }
+                },
+                "item_jk3Ydh": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4",
+                        "product_list": [
+                            "the-inventory-not-tracked-snowboard",
+                            "the-compare-at-price-snowboard",
+                            "the-complete-snowboard"
+                        ]
+                    }
+                },
+                "item_mjUNxf": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4",
+                        "product_list": [
+                            "gift-card",
+                            "selling-plans-ski-wax",
+                            "the-3p-fulfilled-snowboard",
+                            "the-collection-snowboard-hydrogen",
+                            "the-collection-snowboard-liquid",
+                            "the-collection-snowboard-oxygen",
+                            "the-compare-at-price-snowboard",
+                            "the-complete-snowboard"
+                        ]
+                    }
+                },
+                "item_erFFPU": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4",
+                        "product_list": [
+                            "the-inventory-not-tracked-snowboard",
+                            "the-compare-at-price-snowboard",
+                            "the-complete-snowboard",
+                            "the-collection-snowboard-oxygen",
+                            "the-collection-snowboard-liquid"
+                        ]
+                    }
+                },
+                "item_UJyEPx": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1751020258830_wid_Njg1ZTcyZGM5MWZmYmYwMDU4MGQwOGUz_h264cmobile_q10.mp4",
+                        "product_list": [
+                            "selling-plans-ski-wax",
+                            "the-3p-fulfilled-snowboard",
+                            "the-collection-snowboard-liquid"
+                        ]
+                    }
+                }
+            },
+            "block_order": [
+                "item_EGe9Vm",
+                "item_pQQmfY",
+                "item_iiAbdr",
+                "item_PdDxJV",
+                "item_jk3Ydh",
+                "item_mjUNxf",
+                "item_erFFPU",
+                "item_UJyEPx"
+            ],
+            "name": "Video Product Carousel",
+            "settings": {}
+        },
+        "feature_shop_9HDerR": {
+            "type": "feature-shop",
+            "name": "Text with image + button",
+            "settings": {
+                "heading": "Every ritual begins with the award-winning Holiroots Hair Oil",
+                "button_text": "Shop Now",
+                "button_link": "shopify://collections/all",
+                "image": "shopify://shop_images/Homepage_Banner_800_x_1120_1_2108b23c-0700-4478-9b87-4b35a0866e93_1512x_1.webp"
+            }
+        },
+        "marquee_qizEYN": {
+            "type": "marquee",
+            "blocks": {
+                "item_w4eKat": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>✨ I LET MY INNER LIGHT SHINE ✨</p>"
+                    }
+                },
+                "item_TNbzFp": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>✨ I LET MY INNER LIGHT SHINE ✨</p>"
+                    }
+                },
+                "item_t47qQM": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>✨ I LET MY INNER LIGHT SHINE ✨</p>"
+                    }
+                },
+                "item_J6q8zn": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>✨ I LET MY INNER LIGHT SHINE ✨</p>"
+                    }
+                },
+                "item_3jmQ9F": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>✨ I LET MY INNER LIGHT SHINE ✨</p>"
+                    }
+                }
+            },
+            "block_order": [
+                "item_w4eKat",
+                "item_TNbzFp",
+                "item_t47qQM",
+                "item_J6q8zn",
+                "item_3jmQ9F"
+            ],
+            "name": "Marquee text",
+            "settings": {}
+        },
+        "product_carousel_7AVPhw": {
+            "type": "product-carousel",
+            "blocks": {
+                "product_7i8hKA": {
+                    "type": "product",
+                    "settings": {
+                        "product": "holiroots™-hair-oil"
+                    }
+                },
+                "product_V6N98x": {
+                    "type": "product",
+                    "settings": {
+                        "product": "holiroots™-hair-oil"
+                    }
+                },
+                "product_6qxMNd": {
+                    "type": "product",
+                    "settings": {
+                        "product": "holiroots™-hair-oil"
+                    }
+                },
+                "product_f7iUm8": {
+                    "type": "product",
+                    "settings": {
+                        "product": "holiroots™-hair-oil"
+                    }
+                },
+                "product_RULmgi": {
+                    "type": "product",
+                    "settings": {
+                        "product": "holiroots™-hair-oil"
+                    }
+                },
+                "product_Ln4RXr": {
+                    "type": "product",
+                    "settings": {
+                        "product": "holiroots™-hair-oil"
+                    }
+                }
+            },
+            "block_order": [
+                "product_7i8hKA",
+                "product_V6N98x",
+                "product_6qxMNd",
+                "product_f7iUm8",
+                "product_RULmgi",
+                "product_Ln4RXr"
+            ],
+            "name": "Product Carousel",
+            "settings": {
+                "section_title": "Give the gift of great hair"
+            }
+        },
+        "marquee_FrnGWD": {
+            "type": "marquee",
+            "blocks": {
+                "item_YwzGM7": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>✨ I LET MY INNER LIGHT SHINE ✨</p>"
+                    }
+                },
+                "item_HFpgMM": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>✨ I LET MY INNER LIGHT SHINE ✨</p>"
+                    }
+                },
+                "item_qnEQJL": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>✨ I LET MY INNER LIGHT SHINE ✨</p>"
+                    }
+                },
+                "item_7r3wq4": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>✨ I LET MY INNER LIGHT SHINE ✨</p>"
+                    }
+                },
+                "item_3DDbKa": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>✨ I LET MY INNER LIGHT SHINE ✨</p>"
+                    }
+                }
+            },
+            "block_order": [
+                "item_YwzGM7",
+                "item_HFpgMM",
+                "item_qnEQJL",
+                "item_7r3wq4",
+                "item_3DDbKa"
+            ],
+            "name": "Marquee text",
+            "settings": {}
+        },
+        "video_single_RwkrPr": {
+            "type": "video-single",
+            "blocks": {
+                "item_DpBxVY": {
+                    "type": "item",
+                    "settings": {
+                        "video_url": "https://cdn2.videowise.com/converted/videos/1749472664738_wid_Njg0NmQ1OTg1ODU4NDkwMDU3MGExYTM5_h264c.mp4"
+                    }
+                }
+            },
+            "block_order": ["item_DpBxVY"],
+            "name": "Video Product Carousel",
+            "settings": {}
+        },
+        "blog_related_gL3bdm": {
+            "type": "blog-related",
+            "name": "Image + text with link",
+            "settings": {
+                "image": "shopify://shop_images/Copy_of_1512x_fdd55308-1282-4733-9e53-419395e2944b.webp",
+                "icon_svg": "<svg width=\"140\" height=\"78\" viewbox=\"0 0 140 78\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path d=\"M1.62012 77.0544H3.70276C3.70276 77.2908 3.70276 77.6454 3.70276 77.8817H1.62012V77.0544Z\" fill=\"#333\"></path>\n  <path d=\"M5.09082 77.8817C5.09082 77.6454 5.09082 77.2908 5.09082 77.0545L10.5288 76.9363C10.5288 77.1726 10.5288 77.5272 10.5288 77.7636L5.09082 77.8817Z\" fill=\"#333\"></path>\n  <path d=\"M12.1489 77.7636C12.1489 77.5273 12.1489 77.1727 12.1489 76.9364L46.3969 76.4636V77.2909L12.1489 77.7636Z\" fill=\"#333\"></path>\n  <path d=\"M6.36375 60.8635L20.3638 63.5817C20.248 63.8181 20.0166 64.0544 19.9009 64.409L6.24805 61.6908C6.24805 61.4544 6.36375 61.2181 6.36375 60.8635Z\" fill=\"#333\"></path>\n  <path d=\"M4.7438 61.4546L0 60.5092L0.115702 59.6819L4.8595 60.6273C4.8595 60.8637 4.7438 61.2183 4.7438 61.4546Z\" fill=\"#333\"></path>\n  <path d=\"M21.9838 63.9363L46.8598 68.7817L46.7441 69.609L21.521 64.6454C21.6367 64.409 21.7524 64.1726 21.9838 63.9363Z\" fill=\"#333\"></path>\n  <path d=\"M25.4545 51.291L48.9421 62.6365L48.595 63.3456L24.9917 52.0001C25.1074 51.7637 25.3388 51.5274 25.4545 51.291Z\" fill=\"#333\"></path>\n  <path d=\"M16.4296 46.9182L24.066 50.5818C23.9503 50.8182 23.7189 51.0546 23.6032 51.2909L15.9668 47.6273C16.0825 47.3909 16.1982 47.1546 16.4296 46.9182Z\" fill=\"#333\"></path>\n  <path d=\"M23.6034 32.6182L52.5291 57.0818L51.9505 57.7909L23.1406 33.4454C23.2563 33.0909 23.4877 32.8545 23.6034 32.6182Z\" fill=\"#333\"></path>\n  <path d=\"M20.1318 29.6636L22.4458 31.6727C22.3301 31.909 22.0987 32.1454 21.983 32.3818L19.6689 30.4908C19.7846 30.1363 19.9003 29.8999 20.1318 29.6636Z\" fill=\"#333\"></path>\n  <path d=\"M17.5863 27.5364L18.9748 28.7182C18.8591 28.9546 18.6277 29.1909 18.512 29.4273L17.1235 28.2455C17.2392 28.0091 17.3549 27.7727 17.5863 27.5364Z\" fill=\"#333\"></path>\n  <path d=\"M39.223 27.1819L57.3883 52.7092L56.6941 53.1819L38.5288 27.7728C38.7602 27.5364 38.9916 27.4182 39.223 27.1819Z\" fill=\"#333\"></path>\n  <path d=\"M37.7191 26.4727L34.3638 21.7455C34.5952 21.5091 34.7109 21.2727 34.9423 21.1545L38.2976 25.8818C38.0662 26.1182 37.8348 26.3545 37.7191 26.4727Z\" fill=\"#333\"></path>\n  <path d=\"M52.0663 21.3909L63.058 49.7545L62.2481 50.1091L51.2563 21.8636C51.6035 21.6272 51.8349 21.5091 52.0663 21.3909Z\" fill=\"#333\"></path>\n  <path d=\"M49.6366 15.1272L51.4878 19.8545C51.2564 19.9727 51.025 20.209 50.7936 20.3272L48.9424 15.5999C49.1738 15.3636 49.4052 15.2454 49.6366 15.1272Z\" fill=\"#333\"></path>\n  <path d=\"M48.2479 11.5818L49.0578 13.7091C48.8264 13.8272 48.595 14.0636 48.3636 14.1818L47.438 11.8182C47.7851 11.7 48.0165 11.7 48.2479 11.5818Z\" fill=\"#333\"></path>\n  <path d=\"M66.182 23.1636L69.306 48.0999L68.496 48.2181L65.3721 23.2818C65.7192 23.2818 65.9506 23.2818 66.182 23.1636Z\" fill=\"#333\"></path>\n  <path d=\"M63.1732 5.31818L62.479 0.118182L63.4046 0L63.9831 4.96364C63.636 5.08182 63.4046 5.2 63.1732 5.31818Z\" fill=\"#333\"></path>\n  <path d=\"M64.2152 6.61816L66.0664 21.6273C65.835 21.6273 65.4879 21.7454 65.2565 21.7454L63.4053 6.97271C63.6367 6.85453 63.8681 6.61816 64.2152 6.61816Z\" fill=\"#333\"></path>\n  <path d=\"M79.6037 17.2546L75.7855 48.3364L74.9756 48.2183L78.6781 17.2546C79.0252 17.2546 79.2566 17.2546 79.6037 17.2546Z\" fill=\"#333\"></path>\n  <path d=\"M80.8761 6.6182L79.7191 15.7182C79.4877 15.7182 79.1406 15.7182 78.9092 15.7182L80.0662 6.38184C80.2976 6.38184 80.6447 6.50002 80.8761 6.6182Z\" fill=\"#333\"></path>\n  <path d=\"M80.2979 4.84544L80.8764 0.118164L81.6863 0.236346L81.1078 5.0818C80.8764 4.96362 80.5293 4.84544 80.2979 4.84544Z\" fill=\"#333\"></path>\n  <path d=\"M93.3719 20.4453L81.9173 50.109L81.1074 49.7544L92.562 20.209C92.9091 20.3272 93.1405 20.4453 93.3719 20.4453Z\" fill=\"#333\"></path>\n  <path d=\"M96.9588 11.2273L93.9505 19.0273C93.7191 18.9091 93.4877 18.9091 93.1406 18.791L96.1489 10.991C96.496 11.1091 96.7274 11.1091 96.9588 11.2273Z\" fill=\"#333\"></path>\n  <path d=\"M103.207 31.3182L87.4716 53.4182L86.7773 52.8273L102.397 30.8455C102.744 31.0818 102.976 31.2 103.207 31.3182Z\" fill=\"#333\"></path>\n  <path d=\"M111.075 18.7908L112.579 16.7817C112.81 17.0181 113.042 17.1363 113.273 17.3726L111.769 19.3817C111.422 19.2636 111.306 19.0272 111.075 18.7908Z\" fill=\"#333\"></path>\n  <path d=\"M110.727 20.6817L104.132 30.0181C103.901 29.8999 103.554 29.7817 103.322 29.6636L110.149 20.0908C110.38 20.3272 110.612 20.4454 110.727 20.6817Z\" fill=\"#333\"></path>\n  <path d=\"M113.388 15.4817L114.777 13.5908L115.471 14.0635L114.082 16.0726C113.851 15.8363 113.62 15.7181 113.388 15.4817Z\" fill=\"#333\"></path>\n  <path d=\"M122.066 32.7364L92.0995 58.0273L91.521 57.3182L121.488 32.0273C121.719 32.2637 121.835 32.5001 122.066 32.7364Z\" fill=\"#333\"></path>\n  <path d=\"M125.306 30.0182L123.223 31.7909C122.992 31.5545 122.876 31.3182 122.76 31.0818L124.843 29.3091C124.959 29.4273 125.074 29.6636 125.306 30.0182Z\" fill=\"#333\"></path>\n  <path d=\"M134.446 44.909L125.653 49.1636C125.537 48.9272 125.306 48.6909 125.19 48.4545L134.099 44.2C134.215 44.3181 134.33 44.5545 134.446 44.909Z\" fill=\"#333\"></path>\n  <path d=\"M135.835 44.2C135.719 43.9636 135.603 43.7273 135.488 43.4909L138.149 42.1909L138.496 43.0182L135.835 44.2Z\" fill=\"#333\"></path>\n  <path d=\"M124.264 49.7545L95.4545 63.5818L95.1074 62.7545L123.802 49.0454C124.033 49.2818 124.149 49.5181 124.264 49.7545Z\" fill=\"#333\"></path>\n  <path d=\"M136.529 62.2819L97.3056 69.9637L97.1899 69.1364L136.644 61.4546C136.529 61.691 136.529 61.9273 136.529 62.2819Z\" fill=\"#333\"></path>\n  <path d=\"M140 61.5726L138.149 61.9272C138.149 61.5727 138.149 61.3363 138.149 60.9817L139.884 60.6272C139.884 60.9817 139.884 61.3363 140 61.5726Z\" fill=\"#333\"></path>\n  <path d=\"M133.058 77.9999L129.818 77.8817C129.818 77.6454 129.818 77.2908 129.818 77.0544L133.174 77.1726C133.174 77.409 133.174 77.6454 133.058 77.9999Z\" fill=\"#333\"></path>\n  <path d=\"M128.314 77.8818L97.5371 77.2909V76.4636L128.43 77.0545C128.43 77.2909 128.314 77.6454 128.314 77.8818Z\" fill=\"#333\"></path>\n</svg>",
+                "heading": "This is a family business.",
+                "description": "Sibling founders Akash & Niki Mehta are on a mission to bring Indian hair secrets to the world, inviting you to awaken your roots with wild wisdom.",
+                "link_text": "Read our story",
+                "link_url": "/",
+                "link_icon_svg": "<svg width=\"15\" height=\"15\" viewbox=\"0 0 15 15\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M0.62139 7.48508C0.62139 7.20894 0.845248 6.98509 1.12139 6.98508L13.8493 6.98508C14.1255 6.98508 14.3493 7.20894 14.3493 7.48508C14.3493 7.76123 14.1255 7.98508 13.8493 7.98508L1.12139 7.98509C0.845247 7.98508 0.62139 7.76123 0.62139 7.48508Z\" fill=\"black\"></path>\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M9.25289 12.0813C9.05763 11.886 9.05763 11.5694 9.25289 11.3742L13.142 7.48507L9.25289 3.59598C9.05763 3.40072 9.05763 3.08414 9.25289 2.88887C9.44815 2.69361 9.76474 2.69361 9.96 2.88887L14.2026 7.13151C14.3979 7.32678 14.3979 7.64336 14.2026 7.83862L9.96 12.0813C9.76474 12.2765 9.44815 12.2765 9.25289 12.0813Z\" fill=\"black\"></path>\n</svg>"
+            }
+        },
+        "feature_shop_HhVVXE": {
+            "type": "feature-shop",
+            "name": "Text with image + button",
+            "settings": {
+                "heading": "Every ritual begins with the award-winning Holiroots Hair Oil",
+                "button_text": "Shop Now",
+                "button_link": "shopify://collections/all",
+                "image": "shopify://shop_images/fund-fg_3024x_35943a95-3f68-4aa0-b1ee-a88e449f4892.webp",
+                "background_image": "shopify://shop_images/fund-bg_3024x_efd0c0b0-105a-4061-b766-117778f9ccee.webp"
+            }
+        },
+        "marquee_4DeK6t": {
+            "type": "marquee",
+            "blocks": {
+                "item_EDYpYE": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>P O S T S U G A R.</p>"
+                    }
+                },
+                "item_Q3DRiP": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>P O S T S U G A R.</p>"
+                    }
+                },
+                "item_Nn4xyk": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>NEWBEATIFUL</p>"
+                    }
+                },
+                "item_PY3FFJ": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>✨ I LET MY INNER LIGHT SHINE ✨</p>"
+                    }
+                },
+                "item_DYXAYn": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>FORBES</p>"
+                    }
+                },
+                "item_dmqrJf": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>VOGUE</p>"
+                    }
+                },
+                "item_xxedPd": {
+                    "type": "item",
+                    "settings": {
+                        "text": "<p>✨ I LET MY INNER LIGHT SHINE ✨</p>"
+                    }
+                }
+            },
+            "block_order": [
+                "item_EDYpYE",
+                "item_Q3DRiP",
+                "item_Nn4xyk",
+                "item_PY3FFJ",
+                "item_DYXAYn",
+                "item_dmqrJf",
+                "item_xxedPd"
+            ],
+            "name": "Marquee text",
+            "settings": {}
+        },
+        "footer_YWPb3K": {
+            "type": "footer",
+            "blocks": {
+                "forms_inline_twf7f7": {
+                    "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+                    "settings": {
+                        "form_id": "673166",
+                        "text_color": "#202020",
+                        "button_background_color": "#fff5ec",
+                        "button_label_color": "#0c0505",
+                        "links_color": "#1878b9",
+                        "errors_color": "#e02229",
+                        "text_alignment": "left",
+                        "form_alignment": "center",
+                        "padding_top": 0,
+                        "padding_bottom": 24,
+                        "padding_right": 0,
+                        "padding_left": 0
+                    }
+                }
+            },
+            "block_order": ["forms_inline_twf7f7"],
+            "name": "Footer",
+            "settings": {
+                "shop_all_url": "/collections/all",
+                "best_sellers_url_string": "/collections/best-sellers",
+                "gift_sets_url": "/collections/gift-sets-bundles",
+                "accessories_url": "/collections/accessories",
+                "tiger_tribe_url": "/pages/tyb",
+                "affiliates_url": "/pages/affiliates",
+                "our_journey_url": "/pages/our-story",
+                "fable_fund_url": "/pages/fable-fund",
+                "mane_monocle_url": "/blogs/mane-monocle",
+                "faq_url": "/pages/faq",
+                "shipping_url": "/policies/shipping-policy",
+                "returns_url": "/policies/refund-policy",
+                "contact_url": "/pages/contact-us",
+                "stockists_url": "/pages/find-us",
+                "tiktok_url": "https://www.tiktok.com/@fableandmane",
+                "instagram_url": "https://www.instagram.com/fableandmane",
+                "pinterest_url": "https://www.pinterest.co.uk/fableandmane",
+                "youtube_url": "https://www.youtube.com/c/fableandmane",
+                "facebook_url": "https://www.facebook.com/fableandmane",
+                "privacy_policy_url": "/policies/privacy-policy",
+                "terms_url": "/policies/terms-of-service",
+                "copyright_text": "© Akita Brands, INC 2025"
+            }
         }
-      },
-      "block_order": [
-        "slide_XmmBhE"
-      ],
-      "settings": {
-        "section_title": "Our Hero Slides"
-      }
     },
-    "product_carousel_NNMErw": {
-      "type": "product-carousel",
-      "blocks": {
-        "product_KNdBhe": {
-          "type": "product",
-          "settings": {
-            "product": "holiroots™-hair-oil"
-          }
-        },
-        "product_9mYAxa": {
-          "type": "product",
-          "settings": {
-            "product": "holiroots™-hair-oil"
-          }
-        },
-        "product_KYCaEJ": {
-          "type": "product",
-          "settings": {
-            "product": "holiroots™-hair-oil"
-          }
-        },
-        "product_bgJbQh": {
-          "type": "product",
-          "settings": {
-            "product": "holiroots™-hair-oil"
-          }
-        },
-        "product_MaVdkR": {
-          "type": "product",
-          "settings": {
-            "product": "holiroots™-hair-oil"
-          }
-        },
-        "product_rdXrRd": {
-          "type": "product",
-          "settings": {
-            "product": "holiroots™-hair-oil"
-          }
-        }
-      },
-      "block_order": [
-        "product_KNdBhe",
-        "product_9mYAxa",
-        "product_KYCaEJ",
-        "product_bgJbQh",
-        "product_MaVdkR",
-        "product_rdXrRd"
-      ],
-      "name": "Product Carousel",
-      "settings": {
-        "section_title": "Discover Hair Nirvana"
-      }
-    },
-    "video_section_iGPCkf": {
-      "type": "video-section",
-      "blocks": {
-        "item_EGe9Vm": {
-          "type": "item",
-          "settings": {
-            "video_url": "https://cdn2.videowise.com/converted/videos/1751020258830_wid_Njg1ZTcyZGM5MWZmYmYwMDU4MGQwOGUz_h264cmobile_q10.mp4",
-            "product_list": [
-              "the-videographer-snowboard",
-              "the-out-of-stock-snowboard",
-              "the-multi-managed-snowboard",
-              "the-multi-location-snowboard",
-              "the-inventory-not-tracked-snowboard"
-            ]
-          }
-        },
-        "item_pQQmfY": {
-          "type": "item",
-          "settings": {
-            "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4",
-            "product_list": [
-              "the-3p-fulfilled-snowboard",
-              "selling-plans-ski-wax",
-              "gift-card"
-            ]
-          }
-        },
-        "item_iiAbdr": {
-          "type": "item",
-          "settings": {
-            "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4",
-            "product_list": [
-              "the-collection-snowboard-hydrogen",
-              "the-collection-snowboard-liquid",
-              "the-collection-snowboard-oxygen"
-            ]
-          }
-        },
-        "item_PdDxJV": {
-          "type": "item",
-          "settings": {
-            "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4",
-            "product_list": [
-              "selling-plans-ski-wax",
-              "the-collection-snowboard-hydrogen",
-              "the-collection-snowboard-oxygen",
-              "the-collection-snowboard-liquid"
-            ]
-          }
-        },
-        "item_jk3Ydh": {
-          "type": "item",
-          "settings": {
-            "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4",
-            "product_list": [
-              "the-inventory-not-tracked-snowboard",
-              "the-compare-at-price-snowboard",
-              "the-complete-snowboard"
-            ]
-          }
-        },
-        "item_mjUNxf": {
-          "type": "item",
-          "settings": {
-            "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4",
-            "product_list": [
-              "gift-card",
-              "selling-plans-ski-wax",
-              "the-3p-fulfilled-snowboard",
-              "the-collection-snowboard-hydrogen",
-              "the-collection-snowboard-liquid",
-              "the-collection-snowboard-oxygen",
-              "the-compare-at-price-snowboard",
-              "the-complete-snowboard"
-            ]
-          }
-        },
-        "item_erFFPU": {
-          "type": "item",
-          "settings": {
-            "video_url": "https://cdn2.videowise.com/converted/videos/1755247338041_wid_Njg5ZWYyZTM2YzJjYTYwMDU4YTgwYzAz_h264cmobile_q10.mp4",
-            "product_list": [
-              "the-inventory-not-tracked-snowboard",
-              "the-compare-at-price-snowboard",
-              "the-complete-snowboard",
-              "the-collection-snowboard-oxygen",
-              "the-collection-snowboard-liquid"
-            ]
-          }
-        },
-        "item_UJyEPx": {
-          "type": "item",
-          "settings": {
-            "video_url": "https://cdn2.videowise.com/converted/videos/1751020258830_wid_Njg1ZTcyZGM5MWZmYmYwMDU4MGQwOGUz_h264cmobile_q10.mp4",
-            "product_list": [
-              "selling-plans-ski-wax",
-              "the-3p-fulfilled-snowboard",
-              "the-collection-snowboard-liquid"
-            ]
-          }
-        }
-      },
-      "block_order": [
-        "item_EGe9Vm",
-        "item_pQQmfY",
-        "item_iiAbdr",
-        "item_PdDxJV",
-        "item_jk3Ydh",
-        "item_mjUNxf",
-        "item_erFFPU",
-        "item_UJyEPx"
-      ],
-      "name": "Video Product Carousel",
-      "settings": {}
-    },
-    "feature_shop_9HDerR": {
-      "type": "feature-shop",
-      "name": "Text with image + button",
-      "settings": {
-        "heading": "Every ritual begins with the award-winning Holiroots Hair Oil",
-        "button_text": "Shop Now",
-        "button_link": "shopify://collections/all",
-        "image": "shopify://shop_images/Homepage_Banner_800_x_1120_1_2108b23c-0700-4478-9b87-4b35a0866e93_1512x_1.webp"
-      }
-    },
-    "marquee_qizEYN": {
-      "type": "marquee",
-      "blocks": {
-        "item_w4eKat": {
-          "type": "item",
-          "settings": {
-            "text": "✨ I LET MY INNER LIGHT SHINE ✨"
-          }
-        },
-        "item_TNbzFp": {
-          "type": "item",
-          "settings": {
-            "text": "✨ I LET MY INNER LIGHT SHINE ✨"
-          }
-        },
-        "item_t47qQM": {
-          "type": "item",
-          "settings": {
-            "text": "✨ I LET MY INNER LIGHT SHINE ✨"
-          }
-        },
-        "item_J6q8zn": {
-          "type": "item",
-          "settings": {
-            "text": "✨ I LET MY INNER LIGHT SHINE ✨"
-          }
-        },
-        "item_3jmQ9F": {
-          "type": "item",
-          "settings": {
-            "text": "✨ I LET MY INNER LIGHT SHINE ✨"
-          }
-        }
-      },
-      "block_order": [
-        "item_w4eKat",
-        "item_TNbzFp",
-        "item_t47qQM",
-        "item_J6q8zn",
-        "item_3jmQ9F"
-      ],
-      "name": "Marquee text",
-      "settings": {}
-    },
-    "product_carousel_7AVPhw": {
-      "type": "product-carousel",
-      "blocks": {
-        "product_7i8hKA": {
-          "type": "product",
-          "settings": {
-            "product": "holiroots™-hair-oil"
-          }
-        },
-        "product_V6N98x": {
-          "type": "product",
-          "settings": {
-            "product": "holiroots™-hair-oil"
-          }
-        },
-        "product_6qxMNd": {
-          "type": "product",
-          "settings": {
-            "product": "holiroots™-hair-oil"
-          }
-        },
-        "product_f7iUm8": {
-          "type": "product",
-          "settings": {
-            "product": "holiroots™-hair-oil"
-          }
-        },
-        "product_RULmgi": {
-          "type": "product",
-          "settings": {
-            "product": "holiroots™-hair-oil"
-          }
-        },
-        "product_Ln4RXr": {
-          "type": "product",
-          "settings": {
-            "product": "holiroots™-hair-oil"
-          }
-        }
-      },
-      "block_order": [
-        "product_7i8hKA",
-        "product_V6N98x",
-        "product_6qxMNd",
-        "product_f7iUm8",
-        "product_RULmgi",
-        "product_Ln4RXr"
-      ],
-      "name": "Product Carousel",
-      "settings": {
-        "section_title": "Give the gift of great hair"
-      }
-    },
-    "marquee_FrnGWD": {
-      "type": "marquee",
-      "blocks": {
-        "item_YwzGM7": {
-          "type": "item",
-          "settings": {
-            "text": "✨ I LET MY INNER LIGHT SHINE ✨"
-          }
-        },
-        "item_HFpgMM": {
-          "type": "item",
-          "settings": {
-            "text": "✨ I LET MY INNER LIGHT SHINE ✨"
-          }
-        },
-        "item_qnEQJL": {
-          "type": "item",
-          "settings": {
-            "text": "✨ I LET MY INNER LIGHT SHINE ✨"
-          }
-        },
-        "item_7r3wq4": {
-          "type": "item",
-          "settings": {
-            "text": "✨ I LET MY INNER LIGHT SHINE ✨"
-          }
-        },
-        "item_3DDbKa": {
-          "type": "item",
-          "settings": {
-            "text": "✨ I LET MY INNER LIGHT SHINE ✨"
-          }
-        }
-      },
-      "block_order": [
-        "item_YwzGM7",
-        "item_HFpgMM",
-        "item_qnEQJL",
-        "item_7r3wq4",
-        "item_3DDbKa"
-      ],
-      "name": "Marquee text",
-      "settings": {}
-    },
-    "video_single_RwkrPr": {
-      "type": "video-single",
-      "blocks": {
-        "item_DpBxVY": {
-          "type": "item",
-          "settings": {
-            "video_url": "https://cdn2.videowise.com/converted/videos/1749472664738_wid_Njg0NmQ1OTg1ODU4NDkwMDU3MGExYTM5_h264c.mp4"
-          }
-        }
-      },
-      "block_order": [
-        "item_DpBxVY"
-      ],
-      "name": "Video Product Carousel",
-      "settings": {}
-    },
-    "blog_related_gL3bdm": {
-      "type": "blog-related",
-      "name": "Image + text with link",
-      "settings": {
-        "image": "shopify://shop_images/Copy_of_1512x_fdd55308-1282-4733-9e53-419395e2944b.webp",
-        "icon_svg": "<svg width=\"140\" height=\"78\" viewbox=\"0 0 140 78\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path d=\"M1.62012 77.0544H3.70276C3.70276 77.2908 3.70276 77.6454 3.70276 77.8817H1.62012V77.0544Z\" fill=\"#333\"></path>\n  <path d=\"M5.09082 77.8817C5.09082 77.6454 5.09082 77.2908 5.09082 77.0545L10.5288 76.9363C10.5288 77.1726 10.5288 77.5272 10.5288 77.7636L5.09082 77.8817Z\" fill=\"#333\"></path>\n  <path d=\"M12.1489 77.7636C12.1489 77.5273 12.1489 77.1727 12.1489 76.9364L46.3969 76.4636V77.2909L12.1489 77.7636Z\" fill=\"#333\"></path>\n  <path d=\"M6.36375 60.8635L20.3638 63.5817C20.248 63.8181 20.0166 64.0544 19.9009 64.409L6.24805 61.6908C6.24805 61.4544 6.36375 61.2181 6.36375 60.8635Z\" fill=\"#333\"></path>\n  <path d=\"M4.7438 61.4546L0 60.5092L0.115702 59.6819L4.8595 60.6273C4.8595 60.8637 4.7438 61.2183 4.7438 61.4546Z\" fill=\"#333\"></path>\n  <path d=\"M21.9838 63.9363L46.8598 68.7817L46.7441 69.609L21.521 64.6454C21.6367 64.409 21.7524 64.1726 21.9838 63.9363Z\" fill=\"#333\"></path>\n  <path d=\"M25.4545 51.291L48.9421 62.6365L48.595 63.3456L24.9917 52.0001C25.1074 51.7637 25.3388 51.5274 25.4545 51.291Z\" fill=\"#333\"></path>\n  <path d=\"M16.4296 46.9182L24.066 50.5818C23.9503 50.8182 23.7189 51.0546 23.6032 51.2909L15.9668 47.6273C16.0825 47.3909 16.1982 47.1546 16.4296 46.9182Z\" fill=\"#333\"></path>\n  <path d=\"M23.6034 32.6182L52.5291 57.0818L51.9505 57.7909L23.1406 33.4454C23.2563 33.0909 23.4877 32.8545 23.6034 32.6182Z\" fill=\"#333\"></path>\n  <path d=\"M20.1318 29.6636L22.4458 31.6727C22.3301 31.909 22.0987 32.1454 21.983 32.3818L19.6689 30.4908C19.7846 30.1363 19.9003 29.8999 20.1318 29.6636Z\" fill=\"#333\"></path>\n  <path d=\"M17.5863 27.5364L18.9748 28.7182C18.8591 28.9546 18.6277 29.1909 18.512 29.4273L17.1235 28.2455C17.2392 28.0091 17.3549 27.7727 17.5863 27.5364Z\" fill=\"#333\"></path>\n  <path d=\"M39.223 27.1819L57.3883 52.7092L56.6941 53.1819L38.5288 27.7728C38.7602 27.5364 38.9916 27.4182 39.223 27.1819Z\" fill=\"#333\"></path>\n  <path d=\"M37.7191 26.4727L34.3638 21.7455C34.5952 21.5091 34.7109 21.2727 34.9423 21.1545L38.2976 25.8818C38.0662 26.1182 37.8348 26.3545 37.7191 26.4727Z\" fill=\"#333\"></path>\n  <path d=\"M52.0663 21.3909L63.058 49.7545L62.2481 50.1091L51.2563 21.8636C51.6035 21.6272 51.8349 21.5091 52.0663 21.3909Z\" fill=\"#333\"></path>\n  <path d=\"M49.6366 15.1272L51.4878 19.8545C51.2564 19.9727 51.025 20.209 50.7936 20.3272L48.9424 15.5999C49.1738 15.3636 49.4052 15.2454 49.6366 15.1272Z\" fill=\"#333\"></path>\n  <path d=\"M48.2479 11.5818L49.0578 13.7091C48.8264 13.8272 48.595 14.0636 48.3636 14.1818L47.438 11.8182C47.7851 11.7 48.0165 11.7 48.2479 11.5818Z\" fill=\"#333\"></path>\n  <path d=\"M66.182 23.1636L69.306 48.0999L68.496 48.2181L65.3721 23.2818C65.7192 23.2818 65.9506 23.2818 66.182 23.1636Z\" fill=\"#333\"></path>\n  <path d=\"M63.1732 5.31818L62.479 0.118182L63.4046 0L63.9831 4.96364C63.636 5.08182 63.4046 5.2 63.1732 5.31818Z\" fill=\"#333\"></path>\n  <path d=\"M64.2152 6.61816L66.0664 21.6273C65.835 21.6273 65.4879 21.7454 65.2565 21.7454L63.4053 6.97271C63.6367 6.85453 63.8681 6.61816 64.2152 6.61816Z\" fill=\"#333\"></path>\n  <path d=\"M79.6037 17.2546L75.7855 48.3364L74.9756 48.2183L78.6781 17.2546C79.0252 17.2546 79.2566 17.2546 79.6037 17.2546Z\" fill=\"#333\"></path>\n  <path d=\"M80.8761 6.6182L79.7191 15.7182C79.4877 15.7182 79.1406 15.7182 78.9092 15.7182L80.0662 6.38184C80.2976 6.38184 80.6447 6.50002 80.8761 6.6182Z\" fill=\"#333\"></path>\n  <path d=\"M80.2979 4.84544L80.8764 0.118164L81.6863 0.236346L81.1078 5.0818C80.8764 4.96362 80.5293 4.84544 80.2979 4.84544Z\" fill=\"#333\"></path>\n  <path d=\"M93.3719 20.4453L81.9173 50.109L81.1074 49.7544L92.562 20.209C92.9091 20.3272 93.1405 20.4453 93.3719 20.4453Z\" fill=\"#333\"></path>\n  <path d=\"M96.9588 11.2273L93.9505 19.0273C93.7191 18.9091 93.4877 18.9091 93.1406 18.791L96.1489 10.991C96.496 11.1091 96.7274 11.1091 96.9588 11.2273Z\" fill=\"#333\"></path>\n  <path d=\"M103.207 31.3182L87.4716 53.4182L86.7773 52.8273L102.397 30.8455C102.744 31.0818 102.976 31.2 103.207 31.3182Z\" fill=\"#333\"></path>\n  <path d=\"M111.075 18.7908L112.579 16.7817C112.81 17.0181 113.042 17.1363 113.273 17.3726L111.769 19.3817C111.422 19.2636 111.306 19.0272 111.075 18.7908Z\" fill=\"#333\"></path>\n  <path d=\"M110.727 20.6817L104.132 30.0181C103.901 29.8999 103.554 29.7817 103.322 29.6636L110.149 20.0908C110.38 20.3272 110.612 20.4454 110.727 20.6817Z\" fill=\"#333\"></path>\n  <path d=\"M113.388 15.4817L114.777 13.5908L115.471 14.0635L114.082 16.0726C113.851 15.8363 113.62 15.7181 113.388 15.4817Z\" fill=\"#333\"></path>\n  <path d=\"M122.066 32.7364L92.0995 58.0273L91.521 57.3182L121.488 32.0273C121.719 32.2637 121.835 32.5001 122.066 32.7364Z\" fill=\"#333\"></path>\n  <path d=\"M125.306 30.0182L123.223 31.7909C122.992 31.5545 122.876 31.3182 122.76 31.0818L124.843 29.3091C124.959 29.4273 125.074 29.6636 125.306 30.0182Z\" fill=\"#333\"></path>\n  <path d=\"M134.446 44.909L125.653 49.1636C125.537 48.9272 125.306 48.6909 125.19 48.4545L134.099 44.2C134.215 44.3181 134.33 44.5545 134.446 44.909Z\" fill=\"#333\"></path>\n  <path d=\"M135.835 44.2C135.719 43.9636 135.603 43.7273 135.488 43.4909L138.149 42.1909L138.496 43.0182L135.835 44.2Z\" fill=\"#333\"></path>\n  <path d=\"M124.264 49.7545L95.4545 63.5818L95.1074 62.7545L123.802 49.0454C124.033 49.2818 124.149 49.5181 124.264 49.7545Z\" fill=\"#333\"></path>\n  <path d=\"M136.529 62.2819L97.3056 69.9637L97.1899 69.1364L136.644 61.4546C136.529 61.691 136.529 61.9273 136.529 62.2819Z\" fill=\"#333\"></path>\n  <path d=\"M140 61.5726L138.149 61.9272C138.149 61.5727 138.149 61.3363 138.149 60.9817L139.884 60.6272C139.884 60.9817 139.884 61.3363 140 61.5726Z\" fill=\"#333\"></path>\n  <path d=\"M133.058 77.9999L129.818 77.8817C129.818 77.6454 129.818 77.2908 129.818 77.0544L133.174 77.1726C133.174 77.409 133.174 77.6454 133.058 77.9999Z\" fill=\"#333\"></path>\n  <path d=\"M128.314 77.8818L97.5371 77.2909V76.4636L128.43 77.0545C128.43 77.2909 128.314 77.6454 128.314 77.8818Z\" fill=\"#333\"></path>\n</svg>",
-        "heading": "This is a family business.",
-        "description": "Sibling founders Akash & Niki Mehta are on a mission to bring Indian hair secrets to the world, inviting you to awaken your roots with wild wisdom.",
-        "link_text": "Read our story",
-        "link_url": "/",
-        "link_icon_svg": "<svg width=\"15\" height=\"15\" viewbox=\"0 0 15 15\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M0.62139 7.48508C0.62139 7.20894 0.845248 6.98509 1.12139 6.98508L13.8493 6.98508C14.1255 6.98508 14.3493 7.20894 14.3493 7.48508C14.3493 7.76123 14.1255 7.98508 13.8493 7.98508L1.12139 7.98509C0.845247 7.98508 0.62139 7.76123 0.62139 7.48508Z\" fill=\"black\"></path>\n  <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M9.25289 12.0813C9.05763 11.886 9.05763 11.5694 9.25289 11.3742L13.142 7.48507L9.25289 3.59598C9.05763 3.40072 9.05763 3.08414 9.25289 2.88887C9.44815 2.69361 9.76474 2.69361 9.96 2.88887L14.2026 7.13151C14.3979 7.32678 14.3979 7.64336 14.2026 7.83862L9.96 12.0813C9.76474 12.2765 9.44815 12.2765 9.25289 12.0813Z\" fill=\"black\"></path>\n</svg>"
-      }
-    },
-    "feature_shop_HhVVXE": {
-      "type": "feature-shop",
-      "name": "Text with image + button",
-      "settings": {
-        "heading": "Every ritual begins with the award-winning Holiroots Hair Oil",
-        "button_text": "Shop Now",
-        "button_link": "shopify://collections/all",
-        "image": "shopify://shop_images/fund-fg_3024x_35943a95-3f68-4aa0-b1ee-a88e449f4892.webp",
-        "background_image": "shopify://shop_images/fund-bg_3024x_efd0c0b0-105a-4061-b766-117778f9ccee.webp"
-      }
-    },
-    "marquee_4DeK6t": {
-      "type": "marquee",
-      "blocks": {
-        "item_EDYpYE": {
-          "type": "item",
-          "settings": {
-            "text": "P O S T S U G A R."
-          }
-        },
-        "item_Q3DRiP": {
-          "type": "item",
-          "settings": {
-            "text": "P O S T S U G A R."
-          }
-        },
-        "item_Nn4xyk": {
-          "type": "item",
-          "settings": {
-            "text": "NEWBEATIFUL"
-          }
-        },
-        "item_PY3FFJ": {
-          "type": "item",
-          "settings": {
-            "text": "✨ I LET MY INNER LIGHT SHINE ✨"
-          }
-        },
-        "item_DYXAYn": {
-          "type": "item",
-          "settings": {
-            "text": "FORBES"
-          }
-        },
-        "item_dmqrJf": {
-          "type": "item",
-          "settings": {
-            "text": "VOGUE"
-          }
-        },
-        "item_xxedPd": {
-          "type": "item",
-          "settings": {
-            "text": "✨ I LET MY INNER LIGHT SHINE ✨"
-          }
-        }
-      },
-      "block_order": [
-        "item_EDYpYE",
-        "item_Q3DRiP",
-        "item_Nn4xyk",
-        "item_PY3FFJ",
-        "item_DYXAYn",
-        "item_dmqrJf",
-        "item_xxedPd"
-      ],
-      "name": "Marquee text",
-      "settings": {}
-    },
-    "footer_YWPb3K": {
-      "type": "footer",
-      "blocks": {
-        "forms_inline_twf7f7": {
-          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
-          "settings": {
-            "form_id": "673166",
-            "text_color": "#202020",
-            "button_background_color": "#fff5ec",
-            "button_label_color": "#0c0505",
-            "links_color": "#1878b9",
-            "errors_color": "#e02229",
-            "text_alignment": "left",
-            "form_alignment": "center",
-            "padding_top": 0,
-            "padding_bottom": 24,
-            "padding_right": 0,
-            "padding_left": 0
-          }
-        }
-      },
-      "block_order": [
-        "forms_inline_twf7f7"
-      ],
-      "name": "Footer",
-      "settings": {
-        "shop_all_url": "/collections/all",
-        "best_sellers_url_string": "/collections/best-sellers",
-        "gift_sets_url": "/collections/gift-sets-bundles",
-        "accessories_url": "/collections/accessories",
-        "tiger_tribe_url": "/pages/tyb",
-        "affiliates_url": "/pages/affiliates",
-        "our_journey_url": "/pages/our-story",
-        "fable_fund_url": "/pages/fable-fund",
-        "mane_monocle_url": "/blogs/mane-monocle",
-        "faq_url": "/pages/faq",
-        "shipping_url": "/policies/shipping-policy",
-        "returns_url": "/policies/refund-policy",
-        "contact_url": "/pages/contact-us",
-        "stockists_url": "/pages/find-us",
-        "tiktok_url": "https://www.tiktok.com/@fableandmane",
-        "instagram_url": "https://www.instagram.com/fableandmane",
-        "pinterest_url": "https://www.pinterest.co.uk/fableandmane",
-        "youtube_url": "https://www.youtube.com/c/fableandmane",
-        "facebook_url": "https://www.facebook.com/fableandmane",
-        "privacy_policy_url": "/policies/privacy-policy",
-        "terms_url": "/policies/terms-of-service",
-        "copyright_text": "© Akita Brands, INC 2025"
-      }
-    }
-  },
-  "order": [
-    "main",
-    "product_carousel_NNMErw",
-    "video_section_iGPCkf",
-    "feature_shop_9HDerR",
-    "marquee_qizEYN",
-    "product_carousel_7AVPhw",
-    "marquee_FrnGWD",
-    "video_single_RwkrPr",
-    "blog_related_gL3bdm",
-    "feature_shop_HhVVXE",
-    "marquee_4DeK6t",
-    "footer_YWPb3K"
-  ]
+    "order": [
+        "main",
+        "product_carousel_NNMErw",
+        "video_section_iGPCkf",
+        "feature_shop_9HDerR",
+        "marquee_qizEYN",
+        "product_carousel_7AVPhw",
+        "marquee_FrnGWD",
+        "video_single_RwkrPr",
+        "blog_related_gL3bdm",
+        "feature_shop_HhVVXE",
+        "marquee_4DeK6t",
+        "footer_YWPb3K"
+    ]
 }
