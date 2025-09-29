@@ -1,4 +1,4 @@
-<div class="product-card rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300 relative">
+<div class="product-card rounded-lg overflow-hidden hover-color transition-shadow duration-300 relative">
   {% if product.featured_media %}
     <div class="relative">
       <a href="{{ product.url }}">
@@ -28,9 +28,9 @@
     </div>
   {% endif %}
 
-  <div class="p-6">
-    <h3 class="text-xl font-bold text-center mb-3 leading-tight">
-      <a href="{{ product.url }}" class="hover:text-gray-700 transition-colors">
+  <div>
+    <h3 class="text-3xl font-bold text-center mb-3 leading-tight">
+      <a href="{{ product.url }}" class="hover:text-gray-700 transition-colors font-first-extrabold text-xl">
         {{ product.title }}
       </a>
     </h3>
@@ -66,11 +66,11 @@
       {% endif %}
     </div>
 
-    <form data-id="{{ product.variants.first.id }}" class="w-full">
+    <form data-id="{{ product.variants.first.id }}" class="w-full flex justify-center">
       <input type="hidden" name="id" value="{{ product.variants.first.id }}">
       <button
         type="submit"
-        class="mx-auto text-base md:text-xl text-black border cursor-pointer border-gray-600 py-2 px-3 md:py-3 md:px-6 rounded-full font-second-semibold font-semibold hover:bg-[#ffd2aa] hover:text-black transition-all duration-300 text-sm tracking-wide"
+        class="mx-auto text-sm text-black border cursor-pointer border-gray-600 py-2 px-3 md:py-3 md:px-6 rounded-full font-second-semibold font-semibold hover:bg-[#ffd2aa] hover:text-black transition-all duration-300 tracking-wide"
       >
         ADD TO BAG
       </button>

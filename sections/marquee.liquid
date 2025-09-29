@@ -1,6 +1,5 @@
 <style>
   .marquee-section {
-    background-color: #f9423a;
     width: 100%;
     overflow: hidden;
   }
@@ -24,8 +23,12 @@
     font-family: var(--font-second, inherit);
     font-size: 1.5rem;
     letter-spacing: 0.3em;
-    color: white;
+    color: {{ section.settings.text_color }};
     white-space: nowrap;
+  }
+
+  #marquee-{{ section.id }} * {
+     color: {{ section.settings.text_color }};
   }
 
   /* Fallback animation nếu jQuery không hoạt động */
@@ -52,7 +55,7 @@
   }
 </style>
 
-<div class="marquee-section">
+<div class="marquee-section" style="background-color: {{ section.settings.background_color }};">
   <div class="marquee" id="marquee-{{ section.id }}">
     <div class="marquee-content">
       {% for block in section.blocks %}
@@ -69,9 +72,9 @@
     if (typeof jQuery !== 'undefined' && jQuery.fn.marquee) {
       try {
         $('#marquee-{{ section.id }}').marquee({
-          duration: 30000,
+          duration: {{ section.settings.speed | times: 1000 }},
           delayBeforeStart: 0,
-          direction: 'right',
+          direction: '{{ section.settings.direction }}',
           duplicated: true,
           pauseOnHover: true,
           startVisible: true,
@@ -90,6 +93,18 @@
   "name": "Marquee text",
   "settings": [
     {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#f9423a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
       "type": "range",
       "id": "speed",
       "label": "Animation Speed (seconds)",
@@ -105,11 +120,11 @@
       "options": [
         {
           "value": "left",
-          "label": "Left to Right"
+          "label": "Right to Left"
         },
         {
           "value": "right",
-          "label": "Right to Left"
+          "label": "Left to Right"
         }
       ],
       "default": "left"
