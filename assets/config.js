@@ -244,3 +244,11 @@ productListInVideoSection.forEach((product) => {
         });
     }
 });
+
+const skeletonList = document.querySelectorAll('.product-card-skeleton');
+const productCardList = document.querySelectorAll('.product-card');
+
+setTimeout(() => {
+    skeletonList.forEach((skeleton) => skeleton.remove());
+    productCardList.forEach((card) => (card.style.display = 'block'));
+}, 300);

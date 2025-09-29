@@ -1,0 +1,406 @@
+<div>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <!-- Search Header -->
+    <div class="mb-8">
+      {% if search.performed %}
+        <div class="text-center">
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            {{ search.results_count }} results for "{{ search.terms | escape }}"
+          </h1>
+
+          <!-- Search Form -->
+          <div class="max-w-2xl mx-auto mb-8">
+            <form action="{{ routes.search_url }}" method="get" class="relative">
+              <input
+                type="search"
+                name="q"
+                value="{{ search.terms | escape }}"
+                placeholder="Search products..."
+                class="w-full px-6 py-4 pr-24 text-lg border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                autocomplete="off"
+              >
+              <button
+                type="submit"
+                class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black text-white px-8 py-2 rounded-full hover:bg-gray-800 transition-colors font-medium"
+              >
+                SEARCH
+              </button>
+            </form>
+          </div>
+        </div>
+      {% else %}
+        <div class="text-center">
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Search</h1>
+
+          <!-- Search Form -->
+          <div class="max-w-2xl mx-auto mb-8">
+            <form action="{{ routes.search_url }}" method="get" class="relative">
+              <input
+                type="search"
+                name="q"
+                placeholder="Search products..."
+                class="w-full px-6 py-4 pr-24 text-lg border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                autocomplete="off"
+              >
+              <button
+                type="submit"
+                class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black text-white px-8 py-2 rounded-full hover:bg-gray-800 transition-colors font-medium"
+              >
+                SEARCH
+              </button>
+            </form>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if search.performed %}
+      {% if search.results_count > 0 %}
+        <!-- Filter and Sort Bar -->
+        <div class="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div class="flex items-center gap-4">
+            <!-- Filter dropdown placeholder -->
+            <select class="border border-gray-300 rounded-md px-3 py-2 text-sm bg-white">
+              <option>All Categories</option>
+              <option>Hair Care</option>
+              <option>Hair Oils</option>
+              <option>Shampoo</option>
+              <option>Conditioner</option>
+            </select>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <span class="text-sm text-gray-600">{{ search.results_count }} products</span>
+
+            <!-- Sort dropdown -->
+            <select id="search-sort" class="border border-gray-300 rounded-md px-3 py-2 text-sm bg-white">
+              <option value="relevance">Relevance</option>
+              <option value="title-ascending">Name A-Z</option>
+              <option value="title-descending">Name Z-A</option>
+              <option value="price-ascending">Price Low to High</option>
+              <option value="price-descending">Price High to Low</option>
+              <option value="created-descending">Newest First</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Loading Grid (initially hidden) -->
+        <div id="search-loading" class="hidden">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-8">
+            {% for i in (1..8) %}
+              {% render 'product-card', loading: true %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Search Results Grid -->
+        <div id="search-results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          {% for item in search.results %}
+            {% case item.object_type %}
+              {% when 'product' %}
+                {% render 'product-card', product: item %}
+            {% endcase %}
+          {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if paginate.pages > 1 %}
+          <div class="mt-12 flex justify-center">
+            <nav class="flex items-center space-x-2">
+              {% if paginate.previous %}
+                <a
+                  href="{{ paginate.previous.url }}"
+                  class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+                >
+                  Previous
+                </a>
+              {% endif %}
+
+              {% for part in paginate.parts %}
+                {% if part.is_link %}
+                  <a
+                    href="{{ part.url }}"
+                    class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+                  >
+                    {{ part.title }}
+                  </a>
+                {% else %}
+                  {% if part.title == '&hellip;' %}
+                    <span class="px-4 py-2 text-sm font-medium text-gray-500">...</span>
+                  {% else %}
+                    <span class="px-4 py-2 text-sm font-medium text-white bg-black border border-black rounded-md">
+                      {{ part.title }}
+                    </span>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+
+              {% if paginate.next %}
+                <a
+                  href="{{ paginate.next.url }}"
+                  class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+                >
+                  Next
+                </a>
+              {% endif %}
+            </nav>
+          </div>
+        {% endif %}
+
+      {% else %}
+        <!-- No Results -->
+        <div class="text-center py-16">
+          <div class="max-w-md mx-auto">
+            <svg class="mx-auto h-24 w-24 text-gray-300 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">No results found</h2>
+            <p class="text-gray-600 mb-8">
+              Sorry, we couldn't find any products matching "{{ search.terms | escape }}". <br>
+              Try adjusting your search terms.
+            </p>
+
+            <!-- Popular searches suggestions -->
+            <div class="text-left">
+              <h3 class="text-lg font-medium text-gray-900 mb-4">Popular searches:</h3>
+              <div class="flex flex-wrap gap-2 justify-center">
+                <a
+                  href="{{ routes.search_url }}?q=hair+oil"
+                  class="inline-block bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm transition-colors"
+                >
+                  Hair Oil
+                </a>
+                <a
+                  href="{{ routes.search_url }}?q=shampoo"
+                  class="inline-block bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm transition-colors"
+                >
+                  Shampoo
+                </a>
+                <a
+                  href="{{ routes.search_url }}?q=conditioner"
+                  class="inline-block bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm transition-colors"
+                >
+                  Conditioner
+                </a>
+                <a
+                  href="{{ routes.search_url }}?q=hair+mask"
+                  class="inline-block bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-full text-sm transition-colors"
+                >
+                  Hair Mask
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+
+    {% else %}
+      <!-- Search suggestions when no search is performed -->
+      <div class="text-center py-16">
+        <div class="max-w-2xl mx-auto">
+          <h2 class="text-2xl font-semibold text-gray-900 mb-8">Popular Products</h2>
+
+          <!-- Popular searches -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <a
+              href="{{ routes.search_url }}?q=hair+oil"
+              class="group p-6 bg-white rounded-lg border hover:shadow-md transition-all duration-300"
+            >
+              <div class="text-center">
+                <div class="w-12 h-12 mx-auto mb-3 bg-amber-100 rounded-full flex items-center justify-center group-hover:bg-amber-200 transition-colors">
+                  <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 8.172V5L8 4z"></path>
+                  </svg>
+                </div>
+                <h3 class="font-medium text-gray-900">Hair Oil</h3>
+              </div>
+            </a>
+
+            <a
+              href="{{ routes.search_url }}?q=shampoo"
+              class="group p-6 bg-white rounded-lg border hover:shadow-md transition-all duration-300"
+            >
+              <div class="text-center">
+                <div class="w-12 h-12 mx-auto mb-3 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-200 transition-colors">
+                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 8.172V5L8 4z"></path>
+                  </svg>
+                </div>
+                <h3 class="font-medium text-gray-900">Shampoo</h3>
+              </div>
+            </a>
+
+            <a
+              href="{{ routes.search_url }}?q=conditioner"
+              class="group p-6 bg-white rounded-lg border hover:shadow-md transition-all duration-300"
+            >
+              <div class="text-center">
+                <div class="w-12 h-12 mx-auto mb-3 bg-green-100 rounded-full flex items-center justify-center group-hover:bg-green-200 transition-colors">
+                  <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 8.172V5L8 4z"></path>
+                  </svg>
+                </div>
+                <h3 class="font-medium text-gray-900">Conditioner</h3>
+              </div>
+            </a>
+
+            <a
+              href="{{ routes.search_url }}?q=hair+mask"
+              class="group p-6 bg-white rounded-lg border hover:shadow-md transition-all duration-300"
+            >
+              <div class="text-center">
+                <div class="w-12 h-12 mx-auto mb-3 bg-purple-100 rounded-full flex items-center justify-center group-hover:bg-purple-200 transition-colors">
+                  <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 8.172V5L8 4z"></path>
+                  </svg>
+                </div>
+                <h3 class="font-medium text-gray-900">Hair Mask</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Search page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search placeholder text",
+      "default": "Search products..."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_count",
+      "label": "Show product count",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "products_per_row_desktop",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "label": "Products per row (Desktop)",
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "products_per_row_mobile",
+      "label": "Products per row (Mobile)",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 product per row"
+        },
+        {
+          "value": "2",
+          "label": "2 products per row"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_popular_searches",
+      "label": "Show popular search suggestions",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Search page",
+      "category": "Search"
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const sortSelect = document.getElementById('search-sort');
+    const searchResults = document.getElementById('search-results');
+    const searchLoading = document.getElementById('search-loading');
+
+    if (sortSelect) {
+      // Set current sort value from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const currentSort = urlParams.get('sort_by');
+      if (currentSort) {
+        sortSelect.value = currentSort;
+      }
+
+      // Handle sort change
+      sortSelect.addEventListener('change', function () {
+        showLoading();
+
+        const url = new URL(window.location);
+        if (this.value && this.value !== 'relevance') {
+          url.searchParams.set('sort_by', this.value);
+        } else {
+          url.searchParams.delete('sort_by');
+        }
+
+        setTimeout(() => {
+          window.location.href = url.toString();
+        }, 300);
+      });
+    }
+
+    function showLoading() {
+      if (searchLoading && searchResults) {
+        searchLoading.classList.remove('hidden');
+        searchResults.style.opacity = '0.3';
+      }
+    }
+
+    // Auto-focus search input on page load
+    const searchInput = document.querySelector('input[name="q"]');
+    if (searchInput && !searchInput.value) {
+      searchInput.focus();
+    }
+
+    // Search suggestions (optional enhancement)
+    if (searchInput) {
+      let searchTimeout;
+      searchInput.addEventListener('input', function () {
+        clearTimeout(searchTimeout);
+
+        // You could add search suggestions here
+        searchTimeout = setTimeout(() => {
+          // Implement search suggestions if needed
+        }, 300);
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Search input focus styles */
+  input[type='search']:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  /* Loading transition */
+  #search-results {
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  /* Hover effects for product cards */
+  .product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Responsive grid adjustments */
+  @media (max-width: 640px) {
+    .grid {
+      gap: 1rem;
+    }
+  }
+</style>

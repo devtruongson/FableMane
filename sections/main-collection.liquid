@@ -41,7 +41,6 @@
             {% render 'product-card', product: product %}
           {% endfor %}
         </div>
-
         {% if paginate.pages > 1 %}
           <div class="pagination flex justify-center mt-12">
             {{ paginate | default_pagination }}
