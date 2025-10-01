@@ -5,6 +5,33 @@ window.formatCurrency = new Intl.NumberFormat('en-US', {
     trailingZeroDisplay: 'stripIfInteger'
 });
 const formList = document.querySelectorAll('form[data-id]');
+const cartCountBadge = document.querySelector('.cart-badge');
+
+function handleUpdateCartBadge() {
+    fetch('/cart.js', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    }).then(data => {
+        if (cartCountBadge) {
+            cartCountBadge.textContent = data.item_count;
+            if (data.item_count > 0) {
+                cartCountBadge.classList.remove('hidden');
+            } else {
+                cartCountBadge.classList.add('hidden');
+            }
+        }
+    });
+}
+handleUpdateCartBadge();
+
 formList.forEach((form) => {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -53,6 +80,8 @@ formList.forEach((form) => {
                 submitButton.style.backgroundColor = '';
             }, 1000);
 
+            handleUpdateCartBadge();
+
         } catch (error) {
             console.error('Error adding product to cart:', error);
 
@@ -68,7 +97,7 @@ formList.forEach((form) => {
                 submitButton.style.backgroundColor = '';
             }, 2000);
 
-            alert('There was an error adding the product to the cart.');
+            alert('Product is already sold out.');
         }
     });
 });
@@ -113,8 +142,10 @@ async function addToCart(event, idVariant, buttonElement) {
             buttonElement.style.backgroundColor = '';
         }, 1000);
 
+        handleUpdateCartBadge();
+
     } catch (error) {
-        console.error('Error adding product to cart:', error);
+        console.log('Error adding product to cart:', error);
 
         // Error feedback
         buttonElement.innerHTML = '<i class="fa-solid fa-times"></i>';
@@ -128,7 +159,7 @@ async function addToCart(event, idVariant, buttonElement) {
             buttonElement.style.backgroundColor = '';
         }, 2000);
 
-        alert('There was an error adding the product to the cart.');
+        alert('Product is already sold out.');
     }
 }
 

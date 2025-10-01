@@ -19,13 +19,24 @@
     white-space: nowrap;
   }
 
-  .marquee-content span {
+  .marquee-content * {
     font-family: var(--font-second, inherit);
     font-size: 1.5rem;
     letter-spacing: 0.3em;
     color: {{ section.settings.text_color }};
     white-space: nowrap;
   }
+
+  @media (max-width: 575.98px) {
+      .marquee {
+        height: 60px;
+      }
+
+    .marquee-content * {
+      font-size: 1rem;
+    }
+  }
+
 
   #marquee-{{ section.id }} * {
      color: {{ section.settings.text_color }};

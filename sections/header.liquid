@@ -120,8 +120,11 @@
           </button>
         </li>
         <li class="flex items-center gap-1 pb-[2px] relative z-index-max">
-          <button class="text-xl button-icon" onclick="redirectCart()">
+          <button class="text-xl button-icon relative cursor-pointer" onclick="redirectCart()">
             {{- 'icon-cart.svg' | inline_asset_content -}}
+            <span class="cart-badge hidden">
+              {{ cart.item_count }}
+            </span>
           </button>
         </li>
       </ul>
