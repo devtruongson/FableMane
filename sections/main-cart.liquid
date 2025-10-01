@@ -1,30 +1,31 @@
 <div>
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-10 pb-10">
     <!-- Header -->
-    <div class="mb-8">
-      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 text-center">Shopping Cart</h1>
-      <p class="text-gray-600 text-center mt-2">
+    <div class="mb-6 md:mb-8">
+      <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 text-center">Shopping Cart</h1>
+      <p class="text-gray-600 text-center mt-2 text-sm md:text-base">
         {{ cart.item_count }}
         {% if cart.item_count == 1 %}item{% else %}items{% endif %} in your cart
       </p>
     </div>
 
     {% if cart.item_count > 0 %}
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
         <!-- Cart Items -->
-        <div class="lg:col-span-2">
+        <div class="lg:col-span-2 order-2 lg:order-1">
           <div class="bg-white rounded-lg shadow-sm border">
-            <div class="p-6">
-              <h2 class="text-xl font-semibold mb-4">Cart Items</h2>
+            <div class="p-4 md:p-6">
+              <h2 class="text-lg md:text-xl font-semibold mb-4 hidden md:block">Cart Items</h2>
+
               <form action="/cart" method="post" novalidate class="cart-form">
-                <div class="space-y-4" id="cart-items">
+                <div class="space-y-3 md:space-y-4" id="cart-items">
                   {% for item in cart.items %}
                     <div
-                      class="cart-item flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 border border-gray-200 rounded-lg relative"
+                      class="cart-item border border-gray-200 rounded-lg relative overflow-hidden"
                       data-variant-id="{{ item.variant.id }}"
                       data-key="{{ item.key }}"
                     >
-                      <!-- Loading overlay cho từng item -->
+                      <!-- Loading overlay -->
                       <div class="item-loading absolute inset-0 bg-white bg-opacity-80 backdrop-blur-sm rounded-lg flex items-center justify-center z-10 hidden">
                         <div class="flex items-center space-x-2">
                           <div
@@ -34,130 +35,182 @@
                         </div>
                       </div>
 
-                      <!-- Product Image -->
-                      <div class="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24">
-                        <a href="{{ item.url }}">
-                          <img
-                            src="{{ item.image | image_url: width: 200 }}"
-                            alt="{{ item.title }}"
-                            class="w-full h-full object-cover rounded-md"
-                          >
-                        </a>
-                      </div>
-
-                      <!-- Product Info -->
-                      <div class="flex-grow">
-                        <h3 class="font-semibold text-gray-900">
-                          <a href="{{ item.url }}" class="hover:text-gray-700">{{ item.product.title }}</a>
-                        </h3>
-                        {% if item.variant.title != 'Default Title' %}
-                          <p class="text-sm text-gray-600">{{ item.variant.title }}</p>
-                        {% endif %}
-
-                        <!-- Product properties -->
-                        {% unless item.properties == empty %}
-                          <div class="text-sm text-gray-600 mt-1">
-                            {% for property in item.properties %}
-                              {% unless property.last == blank %}
-                                <p>{{ property.first }}: {{ property.last }}</p>
-                              {% endunless %}
-                            {% endfor %}
+                      <!-- Mobile Layout -->
+                      <div class="block md:hidden p-3">
+                        <div class="flex gap-3">
+                          <!-- Product Image - Mobile -->
+                          <div class="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20">
+                            <a href="{{ item.url }}">
+                              <img
+                                src="{{ item.image | image_url: width: 150 }}"
+                                alt="{{ item.title }}"
+                                class="w-full h-full object-cover rounded-md"
+                              >
+                            </a>
                           </div>
-                        {% endunless %}
 
-                        <!-- Mobile quantity and price -->
-                        <div class="sm:hidden mt-3 flex items-center justify-between">
-                          <div class="flex items-center border border-gray-300 rounded-md">
-                            <button
-                              type="button"
-                              class="quantity-btn px-3 py-1 text-gray-600 hover:text-gray-800 disabled:opacity-50"
-                              data-action="decrease"
-                              data-key="{{ item.key }}"
-                            >
-                              -
-                            </button>
-                            <input
-                              type="number"
-                              name="updates[{{ item.key }}]"
-                              value="{{ item.quantity }}"
-                              min="0"
-                              class="quantity-input w-16 text-center py-1 border-0 focus:ring-0"
-                              data-key="{{ item.key }}"
-                            >
-                            <button
-                              type="button"
-                              class="quantity-btn px-3 py-1 text-gray-600 hover:text-gray-800 disabled:opacity-50"
-                              data-action="increase"
-                              data-key="{{ item.key }}"
-                            >
-                              +
-                            </button>
-                          </div>
-                          <div class="text-right">
-                            <p class="font-semibold text-lg item-price">{{ item.line_price | money }}</p>
-                            {% if item.original_line_price != item.line_price %}
-                              <p class="text-sm text-gray-500 line-through">{{ item.original_line_price | money }}</p>
-                            {% endif %}
+                          <!-- Product Info - Mobile -->
+                          <div class="flex-1 min-w-0">
+                            <div class="flex justify-between items-start gap-2">
+                              <div class="flex-1 min-w-0">
+                                <h3 class="font-medium text-gray-900 text-sm leading-tight">
+                                  <a href="{{ item.url }}" class="hover:text-gray-700 line-clamp-2">
+                                    {{- item.product.title -}}
+                                  </a>
+                                </h3>
+                                {% if item.variant.title != 'Default Title' %}
+                                  <p class="text-xs text-gray-500 mt-1">{{ item.variant.title }}</p>
+                                {% endif %}
+                              </div>
+
+                              <!-- Remove Button - Mobile -->
+                              <button
+                                type="button"
+                                class="remove-item text-red-500 hover:text-red-700 p-1 disabled:opacity-50 flex-shrink-0"
+                                data-key="{{ item.key }}"
+                                title="Remove item"
+                              >
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                              </button>
+                            </div>
+
+                            <!-- Price - Mobile -->
+                            <div class="mt-2">
+                              <p class="font-semibold text-gray-900 text-sm item-price">
+                                {{ item.line_price | money }}
+                              </p>
+                              {% if item.original_line_price != item.line_price %}
+                                <p class="text-xs text-gray-500 line-through">{{ item.original_line_price | money }}</p>
+                              {% endif %}
+                            </div>
+
+                            <!-- Quantity Controls - Mobile -->
+                            <div class="mt-3 flex items-center justify-between">
+                              <div class="flex items-center border border-gray-300 rounded-md">
+                                <button
+                                  type="button"
+                                  class="quantity-btn px-2 py-1 text-gray-600 hover:text-gray-800 disabled:opacity-50 text-sm"
+                                  data-action="decrease"
+                                  data-key="{{ item.key }}"
+                                >
+                                  -
+                                </button>
+                                <input
+                                  type="number"
+                                  name="updates[{{ item.key }}]"
+                                  value="{{ item.quantity }}"
+                                  min="0"
+                                  class="quantity-input w-12 text-center py-1 border-0 focus:ring-0 text-sm"
+                                  data-key="{{ item.key }}"
+                                >
+                                <button
+                                  type="button"
+                                  class="quantity-btn px-2 py-1 text-gray-600 hover:text-gray-800 disabled:opacity-50 text-sm"
+                                  data-action="increase"
+                                  data-key="{{ item.key }}"
+                                >
+                                  +
+                                </button>
+                              </div>
+                              <span class="text-xs text-gray-500">Qty: {{ item.quantity }}</span>
+                            </div>
                           </div>
                         </div>
                       </div>
 
-                      <!-- Desktop quantity (hidden on mobile) -->
-                      <div class="hidden sm:flex items-center border border-gray-300 rounded-md">
+                      <!-- Desktop Layout -->
+                      <div class="hidden md:flex items-center gap-4 p-4">
+                        <!-- Product Image - Desktop -->
+                        <div class="flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24">
+                          <a href="{{ item.url }}">
+                            <img
+                              src="{{ item.image | image_url: width: 200 }}"
+                              alt="{{ item.title }}"
+                              class="w-full h-full object-cover rounded-md"
+                            >
+                          </a>
+                        </div>
+
+                        <!-- Product Info - Desktop -->
+                        <div class="flex-grow min-w-0">
+                          <h3 class="font-semibold text-gray-900">
+                            <a href="{{ item.url }}" class="hover:text-gray-700">{{ item.product.title }}</a>
+                          </h3>
+                          {% if item.variant.title != 'Default Title' %}
+                            <p class="text-sm text-gray-600">{{ item.variant.title }}</p>
+                          {% endif %}
+
+                          <!-- Product properties -->
+                          {% unless item.properties == empty %}
+                            <div class="text-sm text-gray-600 mt-1">
+                              {% for property in item.properties %}
+                                {% unless property.last == blank %}
+                                  <p>{{ property.first }}: {{ property.last }}</p>
+                                {% endunless %}
+                              {% endfor %}
+                            </div>
+                          {% endunless %}
+                        </div>
+
+                        <!-- Quantity - Desktop -->
+                        <div class="flex items-center border border-gray-300 rounded-md">
+                          <button
+                            type="button"
+                            class="quantity-btn px-3 py-2 text-gray-600 hover:text-gray-800 disabled:opacity-50"
+                            data-action="decrease"
+                            data-key="{{ item.key }}"
+                          >
+                            -
+                          </button>
+                          <input
+                            type="number"
+                            name="updates[{{ item.key }}]"
+                            value="{{ item.quantity }}"
+                            min="0"
+                            class="quantity-input w-16 text-center py-2 border-0 focus:ring-0"
+                            data-key="{{ item.key }}"
+                          >
+                          <button
+                            type="button"
+                            class="quantity-btn px-3 py-2 text-gray-600 hover:text-gray-800 disabled:opacity-50"
+                            data-action="increase"
+                            data-key="{{ item.key }}"
+                          >
+                            +
+                          </button>
+                        </div>
+
+                        <!-- Price - Desktop -->
+                        <div class="text-right w-24 lg:w-28">
+                          <p class="font-semibold text-lg item-price">{{ item.line_price | money }}</p>
+                          {% if item.original_line_price != item.line_price %}
+                            <p class="text-sm text-gray-500 line-through">{{ item.original_line_price | money }}</p>
+                          {% endif %}
+                        </div>
+
+                        <!-- Remove Button - Desktop -->
                         <button
                           type="button"
-                          class="quantity-btn px-3 py-2 text-gray-600 hover:text-gray-800 disabled:opacity-50"
-                          data-action="decrease"
+                          class="remove-item text-red-500 hover:text-red-700 p-2 disabled:opacity-50"
                           data-key="{{ item.key }}"
+                          title="Remove item"
                         >
-                          -
-                        </button>
-                        <input
-                          type="number"
-                          name="updates[{{ item.key }}]"
-                          value="{{ item.quantity }}"
-                          min="0"
-                          class="quantity-input w-16 text-center py-2 border-0 focus:ring-0"
-                          data-key="{{ item.key }}"
-                        >
-                        <button
-                          type="button"
-                          class="quantity-btn px-3 py-2 text-gray-600 hover:text-gray-800 disabled:opacity-50"
-                          data-action="increase"
-                          data-key="{{ item.key }}"
-                        >
-                          +
+                          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                          </svg>
                         </button>
                       </div>
-
-                      <!-- Desktop price (hidden on mobile) -->
-                      <div class="hidden sm:block text-right w-24">
-                        <p class="font-semibold text-lg item-price">{{ item.line_price | money }}</p>
-                        {% if item.original_line_price != item.line_price %}
-                          <p class="text-sm text-gray-500 line-through">{{ item.original_line_price | money }}</p>
-                        {% endif %}
-                      </div>
-
-                      <!-- Remove button -->
-                      <button
-                        type="button"
-                        class="remove-item text-red-500 hover:text-red-700 p-2 disabled:opacity-50"
-                        data-key="{{ item.key }}"
-                        title="Remove item"
-                      >
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                        </svg>
-                      </button>
                     </div>
                   {% endfor %}
                 </div>
 
                 <!-- Cart Actions -->
-                <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                <div class="mt-6 flex flex-col gap-3">
                   <a
                     href="/collections/all"
-                    class="flex-1 text-center bg-gray-200 text-gray-800 px-6 py-3 rounded-md hover:bg-gray-300 transition-colors font-medium"
+                    class="w-full text-center bg-gray-200 text-gray-800 px-6 py-3 rounded-md hover:bg-gray-300 transition-colors font-medium text-sm md:text-base"
                   >
                     Continue Shopping
                   </a>
@@ -168,12 +221,12 @@
         </div>
 
         <!-- Order Summary -->
-        <div class="lg:col-span-1">
-          <div class="bg-white rounded-lg shadow-sm border sticky top-4">
-            <div class="p-6">
-              <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
+        <div class="lg:col-span-1 order-1 lg:order-2">
+          <div class="bg-white rounded-lg shadow-sm border lg:sticky lg:top-4">
+            <div class="p-4 md:p-6">
+              <h2 class="text-lg md:text-xl font-semibold mb-4">Order Summary</h2>
 
-              <!-- Loading state cho order summary -->
+              <!-- Loading state -->
               <div class="order-summary-loading hidden">
                 <div class="animate-pulse space-y-3">
                   <div class="flex justify-between">
@@ -215,7 +268,7 @@
 
               <hr class="my-4">
 
-              <div class="flex justify-between text-lg font-semibold">
+              <div class="flex justify-between text-base md:text-lg font-semibold">
                 <span>Total</span>
                 <span id="final-total">{{ cart.total_price | money }}</span>
               </div>
@@ -229,7 +282,7 @@
                 type="submit"
                 name="checkout"
                 onclick="window.location.href='/checkout'"
-                class="w-full bg-black text-white px-6 py-4 rounded-md hover:bg-gray-800 transition-colors font-medium text-lg mt-6"
+                class="w-full bg-black text-white px-6 py-3 md:py-4 rounded-md hover:bg-gray-800 transition-colors font-medium text-base md:text-lg mt-6"
               >
                 Proceed to Checkout
               </button>
@@ -242,12 +295,12 @@
                     type="text"
                     id="discount-code"
                     placeholder="Enter discount code"
-                    class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    class="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
                   >
                   <button
                     type="button"
                     id="apply-discount"
-                    class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors"
+                    class="px-3 md:px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors text-sm whitespace-nowrap"
                   >
                     Apply
                   </button>
@@ -278,16 +331,23 @@
 
     {% else %}
       <!-- Empty Cart -->
-      <div class="text-center py-16">
+      <div class="text-center py-12 md:py-16">
         <div class="max-w-md mx-auto">
-          <svg class="mx-auto h-24 w-24 text-gray-300 mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg
+            class="mx-auto h-16 w-16 md:h-24 md:w-24 text-gray-300 mb-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
           </svg>
-          <h2 class="text-2xl font-semibold text-gray-900 mb-4">Your cart is empty</h2>
-          <p class="text-gray-600 mb-8">Looks like you haven't added anything to your cart yet.</p>
+          <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4">Your cart is empty</h2>
+          <p class="text-gray-600 mb-6 md:mb-8 text-sm md:text-base">
+            Looks like you haven't added anything to your cart yet.
+          </p>
           <a
             href="/collections/all"
-            class="bg-black text-white px-8 py-3 rounded-md hover:bg-gray-800 transition-colors font-medium inline-block"
+            class="bg-black text-white px-6 md:px-8 py-3 rounded-md hover:bg-gray-800 transition-colors font-medium inline-block text-sm md:text-base"
           >
             Continue Shopping
           </a>
@@ -375,21 +435,19 @@
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          id: variantId, // Use variant_id instead of key
+          id: variantId,
           quantity: quantity,
         }),
       })
         .then((response) => response.json())
         .then((data) => {
           console.log('Cart updated successfully:', data);
-          // Reload page to get fresh cart data with correct keys
           window.location.reload();
         })
         .catch((error) => {
           console.error('Error updating cart:', error);
           hideItemLoadingByVariantId(variantId);
           alert('Error updating cart. Please try again.');
-          // Revert input values on error
           revertInputValues(variantId);
         });
     }
@@ -404,14 +462,13 @@
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            id: variantId, // Use variant_id instead of key
+            id: variantId,
             quantity: 0,
           }),
         })
           .then((response) => response.json())
           .then((data) => {
             console.log('Item removed successfully:', data);
-            // Reload page to update cart
             window.location.reload();
           })
           .catch((error) => {
@@ -448,44 +505,10 @@
       const cartItem = document.querySelector(`[data-variant-id="${variantId}"]`);
       if (cartItem) {
         const inputs = cartItem.querySelectorAll('.quantity-input');
-        // Get original value from the first input's data attribute or reload
         inputs.forEach((input) => {
           input.value = input.defaultValue;
         });
       }
-    }
-
-    // Update cart form submission
-    if (cartForm) {
-      cartForm.addEventListener('submit', function (e) {
-        if (e.submitter && e.submitter.name === 'update') {
-          e.preventDefault();
-
-          const formData = new FormData(cartForm);
-
-          // Show global loading
-          document.querySelector('.order-summary-content').classList.add('hidden');
-          document.querySelector('.order-summary-loading').classList.remove('hidden');
-
-          fetch('/cart/update', {
-            method: 'POST',
-            body: formData,
-          })
-            .then((response) => {
-              if (response.ok) {
-                window.location.reload();
-              } else {
-                throw new Error('Update failed');
-              }
-            })
-            .catch((error) => {
-              console.error('Error:', error);
-              document.querySelector('.order-summary-content').classList.remove('hidden');
-              document.querySelector('.order-summary-loading').classList.add('hidden');
-              alert('Error updating cart. Please try again.');
-            });
-        }
-      });
     }
 
     // Discount code functionality
@@ -502,12 +525,20 @@
 </script>
 
 <style>
+  /* Line clamp utility for mobile */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   .cart-item {
     transition: all 0.3s ease;
   }
 
   .cart-item:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
   .quantity-input::-webkit-outer-spin-button,
@@ -529,12 +560,46 @@
   button:disabled,
   input:disabled {
     cursor: not-allowed;
+    opacity: 0.6;
   }
 
-  /* Custom scrollbar for mobile */
-  @media (max-width: 640px) {
+  /* Mobile specific styles */
+  @media (max-width: 767px) {
     .cart-item {
-      scroll-snap-align: start;
+      margin-bottom: 0.75rem;
+    }
+
+    .quantity-btn {
+      min-width: 32px;
+      min-height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quantity-input {
+      min-width: 48px;
+    }
+
+    /* Ensure text doesn't overflow on small screens */
+    .min-w-0 {
+      min-width: 0;
+    }
+  }
+
+  /* Touch targets for mobile */
+  @media (pointer: coarse) {
+    .quantity-btn,
+    .remove-item {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+
+  /* Sticky summary on mobile landscape */
+  @media (max-width: 1023px) and (orientation: landscape) {
+    .lg\:sticky {
+      position: static;
     }
   }
 </style>
