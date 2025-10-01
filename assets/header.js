@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const searchIconOpen = headerSearch?.querySelector('.search-icon-open');
     const searchIconClose = headerSearch?.querySelector('.search-icon-close');
     const headerMobile = document.querySelector(".header-search-mobile")
+    const mobileSearchForm = document.querySelector('.site-header__search-bar-mobile');
+    const mobileSearchButton = headerMobile?.querySelector('button');
+    const mobileSearchIconClose = headerMobile?.querySelector('.search-icon-close');
+    const mobileSearchIconOpen = headerMobile?.querySelector('.search-icon-open');
+
+    // Mobile menu bar elements
+    const mobileMenuContent = document.querySelector('.menu-mb');
+    const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
 
     let currentIndex = 0;
 
@@ -134,12 +142,92 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    if (headerMobile) {
-        const menu = headerMobile.querySelector('.menu-mb');
-        if (menu) {
-            headerMobile.addEventListener('click', function () {
-                menu.classList.toggle('open');
-            });
-        }
+    // Mobile menu bar toggle
+    if (mobileMenuIcon && mobileMenuContent) {
+        let isMobileMenuOpen = false;
+
+        // Initially hide mobile menu
+        mobileMenuContent.style.display = 'none';
+        mobileMenuContent.classList.remove('open');
+        mobileMenuContent.classList.add('hidden');
+
+        mobileMenuIcon.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            console.log('Mobile menu icon clicked'); // Debug log
+
+            if (isMobileMenuOpen) {
+                // Close menu
+                console.log('Closing menu'); // Debug log
+                mobileMenuContent.style.display = 'none';
+                mobileMenuContent.classList.remove('open');
+                mobileMenuContent.classList.add('hidden');
+                isMobileMenuOpen = false;
+            } else {
+                // Open menu
+                console.log('Opening menu'); // Debug log
+                mobileMenuContent.classList.remove('hidden');
+                mobileMenuContent.style.display = 'block';
+                mobileMenuContent.classList.add('open');
+                isMobileMenuOpen = true;
+            }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function (e) {
+            if (isMobileMenuOpen && !e.target.closest('.mobile-menu-icon') && !e.target.closest('.menu-mb')) {
+                console.log('Closing menu from outside click'); // Debug log
+                mobileMenuContent.style.display = 'none';
+                mobileMenuContent.classList.remove('open');
+                mobileMenuContent.classList.add('hidden');
+                isMobileMenuOpen = false;
+            }
+        });
+    } else {
+        console.log('Mobile menu elements not found:', { mobileMenuIcon, mobileMenuContent }); // Debug log
+    }
+
+    // Mobile search handling
+    if (mobileSearchButton && mobileSearchForm) {
+        let isMobileSearchOpen = false;
+
+        // Initially hide mobile search form
+        mobileSearchForm.style.display = 'none';
+
+        mobileSearchButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (isMobileSearchOpen) {
+                // Close search
+                mobileSearchForm.style.display = 'none';
+                if (mobileSearchIconClose) mobileSearchIconClose.style.display = 'block';
+                if (mobileSearchIconOpen) mobileSearchIconOpen.style.display = 'none';
+                isMobileSearchOpen = false;
+            } else {
+                // Open search
+                mobileSearchForm.style.display = 'block';
+                if (mobileSearchIconClose) mobileSearchIconClose.style.display = 'none';
+                if (mobileSearchIconOpen) mobileSearchIconOpen.style.display = 'block';
+
+                // Focus on input
+                const mobileInput = mobileSearchForm.querySelector('input');
+                if (mobileInput) {
+                    setTimeout(() => mobileInput.focus(), 100);
+                }
+                isMobileSearchOpen = true;
+            }
+        });
+
+        // Close search when clicking outside
+        document.addEventListener('click', function (e) {
+            if (isMobileSearchOpen && !mobileSearchForm.contains(e.target) && !mobileSearchButton.contains(e.target)) {
+                mobileSearchForm.style.display = 'none';
+                if (mobileSearchIconClose) mobileSearchIconClose.style.display = 'block';
+                if (mobileSearchIconOpen) mobileSearchIconOpen.style.display = 'none';
+                isMobileSearchOpen = false;
+            }
+        });
     }
 });

@@ -295,7 +295,6 @@ body {
     z-index: 1000;
 }
 
-
 .btn {
     align-items        : center;
     -webkit-appearance : none;
@@ -337,4 +336,26 @@ body {
 
 .top-custom-px {
     margin-top: 100px;
+}
+
+.site-header__search-bar-mobile {
+    border-bottom: 1px solid #eee;
+}
+
+.site-header__search-bar-mobile form {
+    padding-top     : 60px;
+    background-color: transparent;
+}
+
+
+.site-header__search-bar-mobile form div {
+    background-color: transparent;
+    border          : transparent;
+    box-shadow      : none;
+}
+
+.site-header__search-bar-mobile form input {
+    background-color: transparent;
+    border          : transparent;
+    outline         : none;
 }

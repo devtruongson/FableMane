@@ -5,11 +5,13 @@
     <div class=" container mx-auto flex items-center justify-between z-[10000]">
       <nav class="layout-three">
         <ul class="flex items-center">
-          <li class="flex items-center mb-[1px] z-index-max sm:flex xl:hidden pr-[12px]">
-            <span class="w-[20px] h-[20px]">
+          <li
+            class="flex items-center mb-[1px] z-index-max sm:flex xl:hidden pr-[12px] relative mobile-menu-container"
+          >
+            <span id="mobile-menu-toggle" class="mobile-menu-icon">
               {{- 'icon-bar.svg' | inline_asset_content -}}
             </span>
-            <div class="menu-mb hidden">
+            <div class="menu-mb hidden mobile-menu-content">
               <ul
                 class="flex items-center font-second-semibold font-semibold text-xl [&>li]:mr-[27px] [&>li]:leading-[28px] pt-[1px] hidden md:flex nav-mobile"
               >
@@ -20,6 +22,7 @@
                     <span class="relative z-index-max font-quincy font-[800] md:text-[3.2rem] md:leading-[2.8rem]">
                       {{- 'icon-menu.svg' | inline_asset_content -}}
                       Shop
+                      
                     </span>
                     {{- 'icon-down.svg' | inline_asset_content -}}
                   </span>
@@ -47,8 +50,11 @@
               </ul>
             </div>
           </li>
-          <li class="flex header-search-mobile items-center z-index-max sm:flex xl:hidden pr-[12px]">
-            <button class="text-xl button-search toggle-mobile search-icon-mb">
+          <li
+            id="mobile-search-container"
+            class="flex header-search-mobile items-center z-index-max sm:flex xl:hidden pr-[12px]"
+          >
+            <button id="mobile-search-toggle" class="text-xl button-search toggle-mobile search-icon-mb">
               <span class="search-icon-close">
                 {{- 'icon-search.svg' | inline_asset_content -}}
               </span>
@@ -129,7 +135,31 @@
       </ul>
     </div>
     <div class="header-divider width-base"></div>
-    <div class="site-header__search-bar">
+
+    <!-- Mobile Search Form -->
+    <div id="mobile-search-form" class="site-header__search-bar-mobile hidden">
+      <form
+        class="flex justify-between mx-auto container px-4 py-3"
+        action="{{ routes.search_url }}"
+        method="get"
+        role="search"
+      >
+        <div class="flex-1 flex justify-between items-center bg-white rounded-lg px-3 py-2">
+          <input
+            type="text"
+            name="q"
+            placeholder="Tìm kiếm sản phẩm..."
+            class="font-second text-base outline-none flex-1 bg-transparent placeholder-gray-500"
+          >
+          <button type="submit" class="ml-2 text-gray-600 hover:text-black transition-colors p-1 rounded">
+            {{- 'icon-search.svg' | inline_asset_content -}}
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Desktop Search Form -->
+    <div class="site-header__search-bar hidden">
       <form class="flex justify-between mx-auto container" action="{{ routes.search_url }}" method="get" role="search">
         <div class="flex-1 flex justify-between items-center">
           <input
