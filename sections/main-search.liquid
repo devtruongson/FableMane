@@ -1,4 +1,4 @@
-<div>
+<div class="top-custom-px">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <!-- Search Header -->
     <div class="mb-8">
@@ -57,30 +57,100 @@
     {% if search.performed %}
       {% if search.results_count > 0 %}
         <!-- Filter and Sort Bar -->
-        <div class="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <div class="flex items-center gap-4">
-            <!-- Filter dropdown placeholder -->
-            <select class="border border-gray-300 rounded-md px-3 py-2 text-sm bg-white">
-              <option>All Categories</option>
-              <option>Hair Care</option>
-              <option>Hair Oils</option>
-              <option>Shampoo</option>
-              <option>Conditioner</option>
-            </select>
+        <div class="mb-6">
+          <!-- Mobile Layout -->
+          <div class="block sm:hidden space-y-3">
+            <!-- Results count on top for mobile -->
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-600 font-medium">{{ search.results_count }} products</span>
+              <button
+                id="mobile-filters-toggle"
+                class="flex items-center gap-1 text-sm text-gray-700 bg-gray-100 px-3 py-2 rounded-md hover:bg-gray-200 transition-colors"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                </svg>
+                Filters & Sort
+              </button>
+            </div>
+
+            <!-- Mobile filters panel (initially hidden) -->
+            <div
+              id="mobile-filters-panel"
+              class="hidden bg-white border border-gray-200 rounded-lg p-4 space-y-4 shadow-sm"
+            >
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                <select class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                  <option>All Categories</option>
+                  <option>Hair Care</option>
+                  <option>Hair Oils</option>
+                  <option>Shampoo</option>
+                  <option>Conditioner</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Sort by</label>
+                <select
+                  id="search-sort-mobile"
+                  class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                >
+                  <option value="relevance">Relevance</option>
+                  <option value="title-ascending">Name A-Z</option>
+                  <option value="title-descending">Name Z-A</option>
+                  <option value="price-ascending">Price Low to High</option>
+                  <option value="price-descending">Price High to Low</option>
+                  <option value="created-descending">Newest First</option>
+                </select>
+              </div>
+
+              <div class="flex gap-2 pt-2">
+                <button
+                  id="apply-filters"
+                  class="flex-1 bg-black text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-gray-800 transition-colors"
+                >
+                  Apply
+                </button>
+                <button
+                  id="clear-filters"
+                  class="px-4 py-2 border border-gray-300 text-gray-700 rounded-md text-sm font-medium hover:bg-gray-50 transition-colors"
+                >
+                  Clear
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div class="flex items-center gap-4">
-            <span class="text-sm text-gray-600">{{ search.results_count }} products</span>
+          <!-- Desktop Layout -->
+          <div class="hidden sm:flex justify-between items-center gap-4">
+            <div class="flex items-center gap-4">
+              <!-- Filter dropdown -->
+              <select class="border border-gray-300 rounded-md px-3 py-2 text-sm bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-w-[140px]">
+                <option>All Categories</option>
+                <option>Hair Care</option>
+                <option>Hair Oils</option>
+                <option>Shampoo</option>
+                <option>Conditioner</option>
+              </select>
+            </div>
 
-            <!-- Sort dropdown -->
-            <select id="search-sort" class="border border-gray-300 rounded-md px-3 py-2 text-sm bg-white">
-              <option value="relevance">Relevance</option>
-              <option value="title-ascending">Name A-Z</option>
-              <option value="title-descending">Name Z-A</option>
-              <option value="price-ascending">Price Low to High</option>
-              <option value="price-descending">Price High to Low</option>
-              <option value="created-descending">Newest First</option>
-            </select>
+            <div class="flex items-center gap-4">
+              <span class="text-sm text-gray-600 whitespace-nowrap">{{ search.results_count }} products</span>
+
+              <!-- Sort dropdown -->
+              <select
+                id="search-sort"
+                class="border border-gray-300 rounded-md px-3 py-2 text-sm bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 min-w-[160px]"
+              >
+                <option value="relevance">Relevance</option>
+                <option value="title-ascending">Name A-Z</option>
+                <option value="title-descending">Name Z-A</option>
+                <option value="price-ascending">Price Low to High</option>
+                <option value="price-descending">Price High to Low</option>
+                <option value="created-descending">Newest First</option>
+              </select>
+            </div>
           </div>
         </div>
 
@@ -317,11 +387,11 @@
     const sortSelect = document.getElementById('search-sort');
     const searchResults = document.getElementById('search-results');
     const searchLoading = document.getElementById('search-loading');
+    const urlParams = new URLSearchParams(window.location.search);
 
     if (sortSelect) {
       // Set current sort value from URL
-      const urlParams = new URLSearchParams(window.location.search);
-      const currentSort = urlParams.get('sort_by');
+      const currentSort = urlParams?.get('sort_by');
       if (currentSort) {
         sortSelect.value = currentSort;
       }
@@ -344,6 +414,7 @@
     }
 
     function showLoading() {
+      mobileFiltersPanel;
       if (searchLoading && searchResults) {
         searchLoading.classList.remove('hidden');
         searchResults.style.opacity = '0.3';
@@ -365,6 +436,89 @@
         // You could add search suggestions here
         searchTimeout = setTimeout(() => {
           // Implement search suggestions if needed
+        }, 300);
+      });
+    }
+
+    // Mobile filters toggle
+    const mobileFiltersToggle = document.querySelector('#mobile-filters-toggle');
+    const mobileFiltersPanel = document.querySelector('#mobile-filters-panel');
+
+    if (mobileFiltersToggle && mobileFiltersPanel) {
+      mobileFiltersToggle.addEventListener('click', function () {
+        mobileFiltersPanel.classList.toggle('hidden');
+      });
+    }
+
+    const searchSortMobile = document.getElementById('search-sort-mobile');
+
+    if (searchSortMobile) {
+      const currentSort = urlParams.get('sort_by');
+      if (currentSort) {
+        searchSortMobile.value = currentSort;
+      }
+
+      searchSortMobile.addEventListener('change', function () {
+        showLoading();
+
+        const url = new URL(window.location);
+        if (this.value && this.value !== 'relevance') {
+          url.searchParams.set('sort_by', this.value);
+        } else {
+          url.searchParams.delete('sort_by');
+        }
+
+        setTimeout(() => {
+          window.location.href = url.toString();
+        }, 300);
+      });
+    }
+
+    // Apply filters (mobile)
+    setTimeout(() => {
+      const applyFiltersButton = document.getElementById('apply-filters');
+
+      if (applyFiltersButton) {
+        applyFiltersButton.addEventListener('click', function () {
+          showLoading();
+
+          // Get selected category and sort values
+          const selectedCategory = mobileFiltersPanel.querySelector('select:nth-child(1)').value;
+          const selectedSort = mobileFiltersPanel.querySelector('select:nth-child(2)').value;
+
+          const url = new URL(window.location);
+          if (selectedCategory && selectedCategory !== 'All Categories') {
+            url.searchParams.set('category', selectedCategory);
+          } else {
+            url.searchParams.delete('category');
+          }
+
+          if (selectedSort && selectedSort !== 'relevance') {
+            url.searchParams.set('sort_by', selectedSort);
+          } else {
+            url.searchParams.delete('sort_by');
+          }
+
+          setTimeout(() => {
+            window.location.href = url.toString();
+          }, 300);
+        });
+      }
+    }, 500);
+
+    // Clear filters (mobile)
+    const clearFiltersButton = document.getElementById('clear-filters');
+
+    if (clearFiltersButton) {
+      clearFiltersButton.addEventListener('click', function () {
+        showLoading();
+
+        const url = new URL(window.location);
+        url.searchParams.delete('category');
+        url.searchParams.delete('sort_by');
+
+        setTimeout(() => {
+          window.location.href = url.toString();
         }, 300);
       });
     }

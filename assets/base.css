@@ -408,6 +408,14 @@ body {
     .faq-container {
         gap: 0 !important;
     }
+
+    .product-title * {
+        font-family: var(--font-second-semibold);
+    }
+
+    .product-card {
+        padding: 5px;
+    }
 }
 
 [data-block-handle="reviews-widget"] * {
