@@ -13,26 +13,22 @@
             </span>
             <div class="menu-mb hidden mobile-menu-content">
               <ul
+                style="padding: 10px 20px;"
                 class="flex items-center font-second-semibold font-semibold text-xl [&>li]:mr-[27px] [&>li]:leading-[28px] pt-[1px] hidden md:flex nav-mobile"
               >
-                <li
-                  class="pb-2 mt-1 pr-1"
-                >
+                <li class="pb-2 mt-1 pr-1 relative mobile-dropdown-item">
                   <span class="flex [&>svg]:relative [&>svg]:z-index-max [&>svg]:ms-[5px] [&>svg]:top-[3px] mobile-dropdown-toggle cursor-pointer">
                     <span class="relative z-index-max font-quincy font-[800] md:text-[3.2rem] md:leading-[2.8rem]">
                       {{- 'icon-menu.svg' | inline_asset_content -}}
                       Shop
-                      
                     </span>
                     {{- 'icon-down.svg' | inline_asset_content -}}
                   </span>
-                  <div class="mobile-dropdown-content">
+                  <div class="mobile-dropdown-content hidden">
                     {% render 'dropdown-shop' %}
                   </div>
                 </li>
-                <li
-                  class="pb-2 mt-1 pr-1"
-                >
+                <li class="pb-2 mt-1 pr-1 relative mobile-dropdown-item">
                   <span class="flex [&>svg]:relative [&>svg]:z-index-max [&>svg]:ms-[5px] [&>svg]:top-[3px] mobile-dropdown-toggle cursor-pointer">
                     <span class="relative z-index-max font-quincy font-[800] md:text-[3.2rem] md:leading-[2.8rem]">
                       {{- 'icon-menu.svg' | inline_asset_content -}}
@@ -40,7 +36,7 @@
                     </span>
                     {{- 'icon-down.svg' | inline_asset_content -}}
                   </span>
-                  <div class="mobile-dropdown-content">
+                  <div class="mobile-dropdown-content hidden">
                     {% render 'dropdown-discover' %}
                   </div>
                 </li>
@@ -67,20 +63,16 @@
         <ul
           class="flex items-center font-second-semibold font-semibold xl [&>li]:mr-4 pt-1 hidden md:flex xl:flex text-xl "
         >
-          <li
-            class="nav-item flex pb-2 mt-1 pr-1 [&>svg]:relative [&>svg]:z-[50] [&>svg]:ms-1 [&>svg]:top-[0.5]"
-          >
-            <span class="relative z-index-max">
+          <li class="nav-item flex pb-2 mt-1 pr-1 [&>svg]:relative [&>svg]:z-[50] [&>svg]:ms-1 [&>svg]:top-[0.5]">
+            <span class="relative z-index-max dropdown-toggle cursor-pointer">
               {{- 'icon-menu.svg' | inline_asset_content -}}
               Shop
             </span>
             {{- 'icon-down.svg' | inline_asset_content -}}
             {% render 'dropdown-shop' %}
           </li>
-          <li
-            class="nav-item relative site-nav__simple-menu flex pb-2 mt-1 pr-1 [&>svg]:relative [&>svg]:z-[50] [&>svg]:ms-1 [&>svg]:top-[0.5]"
-          >
-            <span class="relative z-index-max">Discover</span>
+          <li class="nav-item relative site-nav__simple-menu flex pb-2 mt-1 pr-1 [&>svg]:relative [&>svg]:z-[50] [&>svg]:ms-1 [&>svg]:top-[0.5]">
+            <span class="relative z-index-max dropdown-toggle cursor-pointer">Discover</span>
             {{- 'icon-down.svg' | inline_asset_content -}}
             {% render 'dropdown-discover' %}
           </li>
@@ -178,12 +170,6 @@
 {% schema %}
 {
   "name": "Header",
-  "presets": [
-    {
-      "name": "Header",
-      "category": "Custom"
-    }
-  ],
   "settings": [
     {
       "type": "text",
@@ -206,3 +192,117 @@
   ]
 }
 {% endschema %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Desktop dropdown functionality
+    const desktopDropdownItems = document.querySelectorAll('.dropdown-item');
+
+    desktopDropdownItems.forEach((item) => {
+      const toggle = item.querySelector('.dropdown-toggle');
+      const content = item.querySelector('.dropdown-content');
+
+      if (toggle && content) {
+        toggle.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          // Close other dropdowns
+          desktopDropdownItems.forEach((otherItem) => {
+            if (otherItem !== item) {
+              const otherContent = otherItem.querySelector('.dropdown-content');
+              if (otherContent) {
+                otherContent.classList.add('hidden');
+              }
+            }
+          });
+
+          // Toggle current dropdown
+          content.classList.toggle('hidden');
+        });
+      }
+    });
+
+    // Mobile dropdown functionality
+    const mobileDropdownItems = document.querySelectorAll('.mobile-dropdown-item');
+
+    mobileDropdownItems.forEach((item) => {
+      const toggle = item.querySelector('.mobile-dropdown-toggle');
+      const content = item.querySelector('.mobile-dropdown-content');
+
+      if (toggle && content) {
+        toggle.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          // Close other mobile dropdowns
+          mobileDropdownItems.forEach((otherItem) => {
+            if (otherItem !== item) {
+              const otherContent = otherItem.querySelector('.mobile-dropdown-content');
+              if (otherContent) {
+                otherContent.classList.add('hidden');
+              }
+            }
+          });
+
+          // Toggle current mobile dropdown
+          content.classList.toggle('hidden');
+        });
+      }
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.dropdown-item') && !e.target.closest('.mobile-dropdown-item')) {
+        // Close all desktop dropdowns
+        desktopDropdownItems.forEach((item) => {
+          const content = item.querySelector('.dropdown-content');
+          if (content) {
+            content.classList.add('hidden');
+          }
+        });
+
+        // Close all mobile dropdowns
+        mobileDropdownItems.forEach((item) => {
+          const content = item.querySelector('.mobile-dropdown-content');
+          if (content) {
+            content.classList.add('hidden');
+          }
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  /* Dropdown animations */
+  .dropdown-content,
+  .mobile-dropdown-content {
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+  }
+
+  .dropdown-content.hidden,
+  .mobile-dropdown-content.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+  }
+
+  .dropdown-content:not(.hidden),
+  .mobile-dropdown-content:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Cursor pointer for clickable elements */
+  .dropdown-toggle,
+  .mobile-dropdown-toggle {
+    cursor: pointer;
+  }
+
+  /* Hover effects */
+  .dropdown-toggle:hover,
+  .mobile-dropdown-toggle:hover {
+    opacity: 0.8;
+  }
+</style>

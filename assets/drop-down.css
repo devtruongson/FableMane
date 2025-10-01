@@ -7,6 +7,14 @@
     z-index    : 5
 }
 
+@media (max-width: 575.98px) {
+
+    .site-nav__dropdown {
+        padding-top: 0;
+    }
+}
+
+
 .before::before {
     content         : "";
     position        : absolute;

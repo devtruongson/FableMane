@@ -25,6 +25,7 @@
     <script src="{{ 'config.js' | asset_url }}" defer></script>
   </head>
   <body>
+    {% sections 'header-group' %}
     {{ content_for_layout }}
   </body>
 </html>
