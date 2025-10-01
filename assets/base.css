@@ -338,23 +338,23 @@ body {
     margin-top: 100px;
 }
 
-.site-header__search-bar-mobile {
+#mobile-search-form {
     border-bottom: 1px solid #eee;
 }
 
-.site-header__search-bar-mobile form {
+#mobile-search-form form {
     padding-top     : 60px;
     background-color: transparent;
 }
 
 
-.site-header__search-bar-mobile form div {
+#mobile-search-form form div {
     background-color: transparent;
     border          : transparent;
     box-shadow      : none;
 }
 
-.site-header__search-bar-mobile form input {
+#mobile-search-form form input {
     background-color: transparent;
     border          : transparent;
     outline         : none;
