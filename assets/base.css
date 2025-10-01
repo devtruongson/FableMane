@@ -1,16 +1,28 @@
 :root {
-    --body-background-color: #fff5ec;
-    --font-second          : SofiaPro-Regular, sans-serif;
-    --font-second-semibold : SofiaPro-SemiBold, sans-serif;
-    --font-second-bold     : SofiaPro-Bold, sans-serif;
+    --body-background-color        : #fff5ec;
+    --font-second                  : SofiaPro-Regular, sans-serif;
+    --font-second-semibold         : SofiaPro-SemiBold, sans-serif;
+    --font-second-bold             : SofiaPro-Bold, sans-serif;
+    --promobar-gradient-start-color: #f9423a;
+    --promobar-gradient-end-color  : #f9423a;
+    --promobar-text-color          : #ffffff;
 }
 
 * {
     box-sizing: border-box;
 }
 
+.promobar {
+    background: linear-gradient(var(--promobar-gradient-start-color), var(--promobar-gradient-end-color));
+    color     : var(--promobar-text-color);
+}
+
 body {
     font-family: QuincyCF;
+}
+
+.top-custom-xl {
+    top: calc(100% - 24px);
 }
 
 [data-sizing="form-wrapper"] button {
@@ -27,6 +39,11 @@ body {
 
 .font-second {
     font-family: SofiaPro-Regular;
+}
+
+.search-icon-mb {
+    width : 20px;
+    height: 20px;
 }
 
 .font-second-bold {
@@ -264,4 +281,49 @@ body {
 .hover-color:hover {
     border   : 1px solid #eee;
     transform: translateY(-2px);
+}
+
+.layout-three {
+    width: calc(100% / 3);
+}
+
+.z-index-max {
+    z-index: 999999999;
+}
+
+.z-index-md {
+    z-index: 1000;
+}
+
+
+.btn {
+    align-items        : center;
+    -webkit-appearance : none;
+    -moz-appearance    : none;
+    appearance         : none;
+    background-color   : #f9423a;
+    border             : 0;
+    border-radius      : 24px;
+    color              : #000;
+    cursor             : pointer;
+    display            : inline-flex;
+    font-family        : SofiaPro, helvetica, arial, sans-serif;
+    font-size          : 1.6rem;
+    height             : 50px;
+    justify-content    : center;
+    line-height        : 2.4rem;
+    margin             : 0;
+    font-weight        : 700;
+    padding            : 0 var(--button-padding-x);
+    text-align         : center;
+    text-decoration    : none;
+    text-transform     : uppercase;
+    transition         : background-color .2s cubic-bezier(.46, .01, .32, 1);
+    -webkit-user-select: none;
+    -moz-user-select   : none;
+    user-select        : none;
+    vertical-align     : middle;
+    white-space        : nowrap;
+    width              : auto;
+    border             : 1px solid #000;
 }

@@ -19,6 +19,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     >
+    {{ 'header.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'header.js' | asset_url }}" defer="defer"></script>
     {{ 'base.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'config.js' | asset_url }}" defer></script>
   </head>

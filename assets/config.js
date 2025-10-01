@@ -245,10 +245,15 @@ productListInVideoSection.forEach((product) => {
     }
 });
 
-const skeletonList = document.querySelectorAll('.product-card-skeleton');
-const productCardList = document.querySelectorAll('.product-card');
+function redirectCart() {
+    window.location.href = "/cart";
+}
+
 
 setTimeout(() => {
+    const skeletonList = document.querySelectorAll('.product-card-skeleton');
+    const productCardList = document.querySelectorAll('.product-card');
+
     skeletonList.forEach((skeleton) => skeleton.remove());
     productCardList.forEach((card) => (card.style.display = 'block'));
 }, 300);
