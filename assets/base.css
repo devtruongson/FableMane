@@ -6,6 +6,7 @@
     --promobar-gradient-start-color: #f9423a;
     --promobar-gradient-end-color  : #f9423a;
     --promobar-text-color          : #ffffff;
+    --font-first                   : QuincyCF-Regular, sans-serif;
 }
 
 * {

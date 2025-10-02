@@ -10,13 +10,11 @@
 {
     "sections": {
         "main": {
-            "type": "main-search",
+            "type": "main-blog",
             "settings": {
-                "search_placeholder": "Search products...",
-                "show_product_count": true,
-                "products_per_row_desktop": 4,
-                "products_per_row_mobile": "1",
-                "show_popular_searches": true
+                "show_image": true,
+                "show_date": true,
+                "show_author": false
             }
         }
     },

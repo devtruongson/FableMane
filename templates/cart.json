@@ -8,89 +8,14 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "main": {
-      "type": "main-cart",
-      "settings": {
-        "show_discount_code": true,
-        "show_trust_badges": true
-      }
-    },
-    "marquee_j39AMn": {
-      "type": "marquee",
-      "blocks": {
-        "item_Adnfrg": {
-          "type": "item",
-          "settings": {
-            "text": "<p>✨ <strong>I LET MY INNER LIGHT SHINE</strong> ✨</p>"
-          }
+    "sections": {
+        "main": {
+            "type": "main-cart",
+            "settings": {
+                "show_discount_code": true,
+                "show_trust_badges": true
+            }
         }
-      },
-      "block_order": [
-        "item_Adnfrg"
-      ],
-      "name": "Marquee text",
-      "settings": {
-        "background_color": "#d9b204",
-        "text_color": "#020202",
-        "speed": 30,
-        "direction": "right"
-      }
     },
-    "footer_FNyFQy": {
-      "type": "footer",
-      "blocks": {
-        "forms_inline_t9FwpM": {
-          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
-          "settings": {
-            "form_id": "673166",
-            "text_color": "#202020",
-            "button_background_color": "#202020",
-            "button_label_color": "#FFFFFF",
-            "links_color": "#1878B9",
-            "errors_color": "#E02229",
-            "text_alignment": "center",
-            "form_alignment": "center",
-            "padding_top": 0,
-            "padding_bottom": 24,
-            "padding_right": 0,
-            "padding_left": 0
-          }
-        }
-      },
-      "block_order": [
-        "forms_inline_t9FwpM"
-      ],
-      "name": "Footer",
-      "settings": {
-        "shop_all_url": "/collections/all",
-        "best_sellers_url_string": "/collections/best-sellers",
-        "gift_sets_url": "/collections/gift-sets-bundles",
-        "accessories_url": "/collections/accessories",
-        "tiger_tribe_url": "/pages/tyb",
-        "affiliates_url": "/pages/affiliates",
-        "our_journey_url": "/pages/our-story",
-        "fable_fund_url": "/pages/fable-fund",
-        "mane_monocle_url": "/blogs/mane-monocle",
-        "faq_url": "/pages/faq",
-        "shipping_url": "/policies/shipping-policy",
-        "returns_url": "/policies/refund-policy",
-        "contact_url": "/pages/contact-us",
-        "stockists_url": "/pages/find-us",
-        "tiktok_url": "https://www.tiktok.com/@fableandmane",
-        "instagram_url": "https://www.instagram.com/fableandmane",
-        "pinterest_url": "https://www.pinterest.co.uk/fableandmane",
-        "youtube_url": "https://www.youtube.com/c/fableandmane",
-        "facebook_url": "https://www.facebook.com/fableandmane",
-        "privacy_policy_url": "/policies/privacy-policy",
-        "terms_url": "/policies/terms-of-service",
-        "copyright_text": "© Akita Brands, INC 2025"
-      }
-    }
-  },
-  "order": [
-    "main",
-    "marquee_j39AMn",
-    "footer_FNyFQy"
-  ]
+    "order": ["main"]
 }
