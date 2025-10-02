@@ -9,43 +9,6 @@
  */
 {
     "sections": {
-        "marquee_aGrBdz": {
-            "type": "marquee",
-            "blocks": {
-                "item_jztcYQ": {
-                    "type": "item",
-                    "settings": {
-                        "text": "<p>⭐ 20% OFF SITEWIDE: FF20 ⭐</p>"
-                    }
-                },
-                "item_w8UMyE": {
-                    "type": "item",
-                    "settings": {
-                        "text": "<p>⭐ 20% OFF SITEWIDE: FF20 ⭐</p>"
-                    }
-                },
-                "item_yHykYB": {
-                    "type": "item",
-                    "settings": {
-                        "text": "<p>⭐ 20% OFF SITEWIDE: FF20 ⭐</p>"
-                    }
-                },
-                "item_7G9yB6": {
-                    "type": "item",
-                    "settings": {
-                        "text": "<p>⭐ 20% OFF SITEWIDE: FF20 ⭐</p>"
-                    }
-                }
-            },
-            "block_order": [
-                "item_jztcYQ",
-                "item_w8UMyE",
-                "item_yHykYB",
-                "item_7G9yB6"
-            ],
-            "name": "Marquee text",
-            "settings": {}
-        },
         "main": {
             "type": "main-product",
             "blocks": {
@@ -241,7 +204,6 @@
         }
     },
     "order": [
-        "marquee_aGrBdz",
         "main",
         "1758880556c5879e36",
         "faq_text_image_nzwGRE",

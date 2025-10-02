@@ -7,6 +7,7 @@
     --promobar-gradient-end-color  : #f9423a;
     --promobar-text-color          : #ffffff;
     --font-first                   : QuincyCF-Regular, sans-serif;
+    --page-hero-background-color   : #f9423a;
 }
 
 * {
@@ -334,6 +335,10 @@ body {
     margin-top: 140px;
 }
 
+.top-custom-px-pd {
+    padding-top: 140px;
+}
+
 #mobile-search-form {
     border-bottom: 1px solid #eee;
 }
@@ -391,6 +396,10 @@ body {
         margin-top: 115px;
     }
 
+    .top-custom-px-pd {
+        padding-top: 115px;
+    }
+
     .product-media {
         position: unset !important;
     }
@@ -421,6 +430,10 @@ body {
 
     .product-card {
         padding: 5px;
+    }
+
+    .small--hide {
+        display: none !important
     }
 }
 
@@ -690,4 +703,22 @@ th:last-of-type {
 
 tfoot td {
     padding: 8px 16px
+}
+
+@media only screen and (min-width:1025px) {
+    .large--hide {
+        display: none !important
+    }
+}
+
+[data-oke-reviews-version] {
+    padding-top: 10px;
+}
+
+[data-oke-reviews-version] * {
+    font-family: var(--font-second-bold) !important;
+}
+
+.oke-w-reviewer-name {
+    font-size: 18px;
 }

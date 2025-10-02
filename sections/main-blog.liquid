@@ -378,6 +378,10 @@
           background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
         }
 
+        .item-wp-image.ashwagandha {
+          background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+        }
+
         .item-wp-image img {
           width: 80px;
           height: 80px;
@@ -414,149 +418,73 @@
       </style>
 
       <div class="item-side-wp">
-        <div>
-          <div class="item-wp-image bakuchi">
-            <img
-              src="https://fableandmane.com/cdn/shop/files/Bakuchi-Illustration_1_3024x.png?v=1631813248"
-              alt="Bakuchi"
-              width="80"
-              height="80"
-            >
-          </div>
-          <h3 class="item-title">Bakuchi</h3>
-        </div>
-        <div>
-          <div class="item-wp-image bakuchi">
-            <img
-              src="https://fableandmane.com/cdn/shop/files/Amla_Ingredient_Icon_95x95_8db3d115-94d1-444c-ae50-1ab40a079216_3024x.png?v=1650467528"
-              alt="Bakuchi"
-              width="80"
-              height="80"
-            >
-          </div>
-          <h3 class="item-title">Amla</h3>
-        </div>
-        <div>
-          <div class="item-wp-image bakuchi">
-            <img
-              src="https://fableandmane.com/cdn/shop/files/51N1z5LkmYL_1_3024x.png?v=1631813248"
-              alt="Bakuchi"
-              width="80"
-              height="80"
-            >
-          </div>
-          <h3 class="item-title">Dashmool</h3>
-        </div>
-        <div>
-          <div class="item-wp-image bakuchi">
-            <img
-              src="https://fableandmane.com/cdn/shop/files/castor-oil_3024x.png?v=1631813248"
-              alt="Bakuchi"
-              width="80"
-              height="80"
-            >
-          </div>
-          <h3 class="item-title">Castor Oil</h3>
-        </div>
-        <div>
-          <div class="item-wp-image bakuchi">
-            <img
-              src="https://fableandmane.com/cdn/shop/files/coco-oil_3024x.png?v=1631813248"
-              alt="Bakuchi"
-              width="80"
-              height="80"
-            >
-          </div>
-          <h3 class="item-title">Coconut</h3>
-        </div>
-        <div>
-          <div class="item-wp-image bakuchi">
-            <img
-              src="https://fableandmane.com/cdn/shop/files/Turmeric_1_3024x.png?v=1631813248"
-              alt="Bakuchi"
-              width="80"
-              height="80"
-            >
-          </div>
-          <h3 class="item-title">Turmeric</h3>
-        </div>
-        <div>
-          <div class="item-wp-image bakuchi">
-            <img
-              src="https://fableandmane.com/cdn/shop/files/Banana-e1585315068782_1_3024x.png?v=1631813248"
-              alt="Bakuchi"
-              width="80"
-              height="80"
-            >
-          </div>
-          <h3 class="item-title">Banana</h3>
-        </div>
-        <div>
-          <div class="item-wp-image bakuchi">
-            <img
-              src="https://fableandmane.com/cdn/shop/files/Ashwagandha_3024x.png?v=1631813248"
-              alt="Bakuchi"
-              width="80"
-              height="80"
-            >
-          </div>
-          <h3 class="item-title">Ashwaganda</h3>
-        </div>
-        <div>
-          <div class="item-wp-image bakuchi">
-            <img
-              src="https://fableandmane.com/cdn/shop/files/castor-oil_3024x.png?v=1631813248"
-              alt="Bakuchi"
-              width="80"
-              height="80"
-            >
-          </div>
-          <h3 class="item-title">Castor Oil</h3>
-        </div>
-        <div>
-          <div class="item-wp-image bakuchi">
-            <img
-              src="https://fableandmane.com/cdn/shop/files/coco-oil_3024x.png?v=1631813248"
-              alt="Bakuchi"
-              width="80"
-              height="80"
-            >
-          </div>
-          <h3 class="item-title">Coconut</h3>
-        </div>
-        <div>
-          <div class="item-wp-image bakuchi">
-            <img
-              src="https://fableandmane.com/cdn/shop/files/Turmeric_1_3024x.png?v=1631813248"
-              alt="Bakuchi"
-              width="80"
-              height="80"
-            >
-          </div>
-          <h3 class="item-title">Turmeric</h3>
-        </div>
-        <div>
-          <div class="item-wp-image bakuchi">
-            <img
-              src="https://fableandmane.com/cdn/shop/files/Banana-e1585315068782_1_3024x.png?v=1631813248"
-              alt="Bakuchi"
-              width="80"
-              height="80"
-            >
-          </div>
-          <h3 class="item-title">Banana</h3>
-        </div>
-        <div>
-          <div class="item-wp-image bakuchi">
-            <img
-              src="https://fableandmane.com/cdn/shop/files/Ashwagandha_3024x.png?v=1631813248"
-              alt="Bakuchi"
-              width="80"
-              height="80"
-            >
-          </div>
-          <h3 class="item-title">Ashwaganda</h3>
-        </div>
+        {% comment %} Check if there are custom ingredients from settings {% endcomment %}
+        {% if section.blocks.size > 0 %}
+          {% for block in section.blocks %}
+            {% if block.type == 'ingredient' %}
+              <div {{ block.shopify_attributes }}>
+                <div class="item-wp-image {{ block.settings.ingredient_class | default: 'bakuchi' }}">
+                  {% if block.settings.ingredient_image %}
+                    <img
+                      src="{{ block.settings.ingredient_image | image_url: width: 160 }}"
+                      alt="{{ block.settings.ingredient_name | escape }}"
+                      width="80"
+                      height="80"
+                    >
+                  {% else %}
+                    {% comment %} Default icon nếu không có image {% endcomment %}
+                    <svg width="60" height="60" fill="currentColor" viewBox="0 0 24 24" class="text-gray-400">
+                      <path d="M12 2L13.09 8.26L19 7L17.74 13.09L24 12L17.74 10.91L19 17L13.09 15.74L12 22L10.91 15.74L5 17L6.26 10.91L0 12L6.26 13.09L5 7L10.91 8.26L12 2Z"/>
+                    </svg>
+                  {% endif %}
+                </div>
+                <h3 class="item-title">{{ block.settings.ingredient_name | default: 'Ingredient' }}</h3>
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          {% comment %} Default ingredients nếu không có settings {% endcomment %}
+          {% assign default_ingredients = 'Bakuchi,Amla,Dashmool,Castor Oil,Coconut,Turmeric,Banana,Ashwagandha'
+            | split: ','
+          %}
+          {% assign default_images = 'https://fableandmane.com/cdn/shop/files/Bakuchi-Illustration_1_3024x.png?v=1631813248,https://fableandmane.com/cdn/shop/files/Amla_Ingredient_Icon_95x95_8db3d115-94d1-444c-ae50-1ab40a079216_3024x.png?v=1650467528,https://fableandmane.com/cdn/shop/files/51N1z5LkmYL_1_3024x.png?v=1631813248,https://fableandmane.com/cdn/shop/files/castor-oil_3024x.png?v=1631813248,https://fableandmane.com/cdn/shop/files/coco-oil_3024x.png?v=1631813248,https://fableandmane.com/cdn/shop/files/Turmeric_1_3024x.png?v=1631813248,https://fableandmane.com/cdn/shop/files/Banana-e1585315068782_1_3024x.png?v=1631813248,https://fableandmane.com/cdn/shop/files/Ashwagandha_3024x.png?v=1631813248'
+            | split: ','
+          %}
+          {% assign default_classes = 'bakuchi,amla,dashmool,castor-oil,coconut,turmeric,banana,ashwagandha'
+            | split: ','
+          %}
+
+          {% for ingredient in default_ingredients %}
+            {% assign index = forloop.index0 %}
+            <div>
+              <div class="item-wp-image {{ default_classes[index] }}">
+                <img
+                  src="{{ default_images[index] }}"
+                  alt="{{ ingredient }}"
+                  width="80"
+                  height="80"
+                >
+              </div>
+              <h3 class="item-title">{{ ingredient }}</h3>
+            </div>
+          {% endfor %}
+
+          {% comment %} Repeat the ingredients để tạo effect cuộn liên tục {% endcomment %}
+          {% for ingredient in default_ingredients %}
+            {% assign index = forloop.index0 %}
+            <div>
+              <div class="item-wp-image {{ default_classes[index] }}">
+                <img
+                  src="{{ default_images[index] }}"
+                  alt="{{ ingredient }}"
+                  width="80"
+                  height="80"
+                >
+              </div>
+              <h3 class="item-title">{{ ingredient }}</h3>
+            </div>
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
   </div>
