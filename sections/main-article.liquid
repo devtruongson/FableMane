@@ -1,0 +1,456 @@
+<style>
+  .article-main {
+    padding: 0 20px;
+  }
+
+  .article-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 10px 0 20px;
+  }
+
+  .article-category {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 20px;
+    font-family: var(--font-second);
+  }
+
+  .article-title {
+    color: #000;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .article-title {
+      font-size: 2rem;
+    }
+  }
+
+  .article-image-wrapper {
+    margin: 40px 0 60px;
+    text-align: center;
+  }
+
+  .article-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .article-content {
+    line-height: 1.8;
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 60px;
+  }
+
+  .article-content p {
+    margin-bottom: 24px;
+  }
+
+  .article-content p:first-child {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 40px 0;
+    font-size: 14px;
+    color: #666;
+    font-family: var(--font-second);
+  }
+
+  .article-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .article-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    transition: color 0.3s ease;
+    font-family: var(--font-second);
+  }
+
+  .article-back-link:hover {
+    color: #000;
+  }
+
+  .article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 40px 0;
+  }
+
+  .article-tag {
+    background: #f5f5f5;
+    color: #666;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .article-tag:hover {
+    background: #e0e0e0;
+    color: #333;
+  }
+
+  .article-share {
+    text-align: center;
+    margin: 60px 0;
+    padding: 30px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+
+  .share-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .share-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+
+  .share-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .share-btn.facebook {
+    background: #1877f2;
+    color: white;
+  }
+
+  .share-btn.twitter {
+    background: #1da1f2;
+    color: white;
+  }
+
+  .share-btn.pinterest {
+    background: #bd081c;
+    color: white;
+  }
+
+  .share-btn.email {
+    background: #666;
+    color: white;
+  }
+
+  /* Related Articles */
+  .related-articles {
+    margin-top: 80px;
+    padding-top: 60px;
+    border-top: 1px solid #eee;
+  }
+
+  .related-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    color: #333;
+    font-family: var(--font-first);
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .related-article {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+  }
+
+  .related-article:hover {
+    transform: translateY(-5px);
+  }
+
+  .related-article-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  .related-article-category {
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .related-article-title {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .related-article-excerpt {
+    font-size: 14px;
+    color: #666;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+  }
+
+  @media (max-width: 768px) {
+    .article-main {
+      padding: 0 15px;
+    }
+
+    .article-header {
+      padding: 40px 0 30px;
+    }
+
+    .article-meta {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .share-buttons {
+      gap: 10px;
+    }
+
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="article-main max-w-2xl mx-auto top-custom-px">
+  <!-- Back to Blog Link -->
+  <a href="{{ blog.url }}" class="article-back-link">
+    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    </svg>
+    Back to {{ blog.title }}
+  </a>
+
+  <!-- Article Header -->
+  <header class="article-header">
+    {% if article.tags.size > 0 %}
+      <div class="article-category">{{ article.tags.first }}</div>
+    {% endif %}
+
+    <h1 class="article-title text-2xl md:text-6xl">{{ article.title }}</h1>
+
+    <div class="article-meta">
+      {% if section.settings.show_date %}
+        <span>
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12,6 12,12 16,14"></polyline>
+          </svg>
+          {{ article.published_at | date: '%B %d, %Y' }}
+        </span>
+      {% endif %}
+
+      {% if section.settings.show_author and article.author %}
+        <span>
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          By {{ article.author }}
+        </span>
+      {% endif %}
+    </div>
+  </header>
+
+  <!-- Article Image -->
+  {% if article.image %}
+    <div class="article-image-wrapper">
+      <img
+        src="{{ article.image | image_url: width: 800 }}"
+        alt="{{ article.image.alt | escape }}"
+        class="article-image"
+        loading="lazy"
+      >
+    </div>
+  {% endif %}
+
+  <!-- Article Content -->
+  <div class="article-content font-second">
+    {{ article.content }}
+  </div>
+
+  <!-- Article Tags -->
+  {% if article.tags.size > 0 %}
+    <div class="article-tags">
+      {% for tag in article.tags %}
+        <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="article-tag">
+          {{ tag }}
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <!-- Share Buttons -->
+  {% if section.settings.show_share_buttons %}
+    <div class="article-share">
+      <div class="share-title">Share this article</div>
+      <div class="share-buttons">
+        <a
+          href="https://www.facebook.com/sharer/sharer.php?u={{ shop.url }}{{ article.url }}"
+          class="share-btn facebook"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+
+        <a
+          href="https://twitter.com/intent/tweet?url={{ shop.url }}{{ article.url }}&text={{ article.title | url_encode }}"
+          class="share-btn twitter"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+          </svg>
+        </a>
+
+        <a
+          href="https://pinterest.com/pin/create/button/?url={{ shop.url }}{{ article.url }}&media={{ article.image | image_url: width: 800 }}&description={{ article.title | url_encode }}"
+          class="share-btn pinterest"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.1.12.112.225.085.347-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.748-1.378 0 0-.599 2.287-.744 2.840-.269 1.041-1.007 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+          </svg>
+        </a>
+
+        <a
+          href="mailto:?subject={{ article.title | url_encode }}&body={{ shop.url }}{{ article.url }}"
+          class="share-btn email"
+        >
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.82 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  {% endif %}
+
+  <!-- Related Articles -->
+  {% if section.settings.show_related_articles %}
+    {% assign related_articles = blog.articles | where: 'id', '!=', article.id | limit: 3 %}
+    {% if related_articles.size > 0 %}
+      <div class="related-articles">
+        <h2 class="related-title">Related Articles</h2>
+        <div class="related-grid">
+          {% for related_article in related_articles %}
+            <a href="{{ related_article.url }}" class="related-article">
+              {% if related_article.image %}
+                <img
+                  src="{{ related_article.image | image_url: width: 400 }}"
+                  alt="{{ related_article.image.alt | escape }}"
+                  class="related-article-image"
+                  loading="lazy"
+                >
+              {% endif %}
+
+              {% if related_article.tags.size > 0 %}
+                <div class="related-article-category">{{ related_article.tags.first }}</div>
+              {% endif %}
+
+              <h3 class="related-article-title">{{ related_article.title }}</h3>
+
+              {% if related_article.excerpt.size > 0 %}
+                <p class="related-article-excerpt">
+                  {{ related_article.excerpt | strip_html | truncate: 120 }}
+                </p>
+              {% endif %}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Article Main",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show publication date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share_buttons",
+      "label": "Show share buttons",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_related_articles",
+      "label": "Show related articles",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Article Main"
+    }
+  ]
+}
+{% endschema %}
