@@ -319,14 +319,21 @@
     <h2 class="text-center text-3xl">Our Incredible Ingredients</h2>
     <div class="cousel overflow-x-auto mt-8 scrollbar-hide">
       <style>
+        .item-side-wp {
+          display: flex;
+          gap: 2rem;
+          padding: 0 1rem;
+          min-width: max-content;
+        }
+
         .item-side-wp > div {
-          width: calc(100% / 9);
+          width: 140px;
           flex-shrink: 0;
           display: flex;
           justify-content: center;
           align-items: center;
           flex-direction: column;
-          gap: 4px;
+          gap: 8px;
         }
 
         .scrollbar-hide {
@@ -334,304 +341,285 @@
           scrollbar-width: none;
         }
 
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+
         .item-wp-image {
-          background-color: #f5f0bb;
-          padding: 10px;
-          width: 100%;
-          flex-shrink: 0;
-          flex: 1;
-          border-bottom-left-radius: 2px;
-          border-bottom-right-radius: 2px;
-          border-top-left-radius: 50%;
-          border-top-right-radius: 50%;
-          min-height: 120px;
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
           display: flex;
           justify-content: center;
           align-items: center;
+          position: relative;
+          margin-bottom: 8px;
+        }
+
+        .item-wp-image.bakuchi {
+          background: linear-gradient(135deg, #e8d5ff 0%, #d4bfff 100%);
+        }
+
+        .item-wp-image.amla {
+          background: linear-gradient(135deg, #d1f2eb 0%, #a3e4d7 100%);
+        }
+
+        .item-wp-image.dashmool {
+          background: linear-gradient(135deg, #fdf2e9 0%, #f8c471 100%);
+        }
+
+        .item-wp-image.castor-oil {
+          background: linear-gradient(135deg, #fff9c4 0%, #f7dc6f 100%);
+        }
+
+        .item-wp-image.coconut {
+          background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .item-wp-image.turmeric {
+          background: linear-gradient(135deg, #ffe0b2 0%, #ffcc80 100%);
+        }
+
+        .item-wp-image.banana {
+          background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
         }
 
         .item-wp-image img {
-          padding-top: 6px;
+          width: 80px;
+          height: 80px;
+          object-fit: contain;
+        }
+
+        .item-title {
+          font-size: 14px;
+          font-weight: 600;
+          text-align: center;
+          color: #2c3e50;
+          letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 768px) {
+          .item-side-wp {
+            gap: 1.5rem;
+          }
+
+          .item-side-wp > div {
+            width: 120px;
+          }
+
+          .item-wp-image {
+            width: 100px;
+            height: 100px;
+          }
+
+          .item-wp-image img {
+            width: 65px;
+            height: 65px;
+          }
         }
       </style>
-      <div class="item-side-wp flex justify-center items-center gap-8">
+
+      <div class="item-side-wp">
         <div>
-          <div class="item-wp-image">
+          <div class="item-wp-image bakuchi">
             <img
               src="https://fableandmane.com/cdn/shop/files/Bakuchi-Illustration_1_3024x.png?v=1631813248"
-              alt="d"
+              alt="Bakuchi"
               width="80"
               height="80"
             >
           </div>
-          <h3 class="text-center">Bakuchi</h3>
+          <h3 class="item-title">Bakuchi</h3>
         </div>
         <div>
-          <div class="item-wp-image">
+          <div class="item-wp-image bakuchi">
             <img
-              src="https://fableandmane.com/cdn/shop/files/Bakuchi-Illustration_1_3024x.png?v=1631813248"
-              alt="d"
+              src="https://fableandmane.com/cdn/shop/files/Amla_Ingredient_Icon_95x95_8db3d115-94d1-444c-ae50-1ab40a079216_3024x.png?v=1650467528"
+              alt="Bakuchi"
               width="80"
               height="80"
             >
           </div>
-          <h3 class="text-center">Bakuchi</h3>
+          <h3 class="item-title">Amla</h3>
         </div>
         <div>
-          <div class="item-wp-image">
+          <div class="item-wp-image bakuchi">
             <img
-              src="https://fableandmane.com/cdn/shop/files/Bakuchi-Illustration_1_3024x.png?v=1631813248"
-              alt="d"
+              src="https://fableandmane.com/cdn/shop/files/51N1z5LkmYL_1_3024x.png?v=1631813248"
+              alt="Bakuchi"
               width="80"
               height="80"
             >
           </div>
-          <h3 class="text-center">Bakuchi</h3>
+          <h3 class="item-title">Dashmool</h3>
         </div>
         <div>
-          <div class="item-wp-image">
+          <div class="item-wp-image bakuchi">
             <img
-              src="https://fableandmane.com/cdn/shop/files/Bakuchi-Illustration_1_3024x.png?v=1631813248"
-              alt="d"
+              src="https://fableandmane.com/cdn/shop/files/castor-oil_3024x.png?v=1631813248"
+              alt="Bakuchi"
               width="80"
               height="80"
             >
           </div>
-          <h3 class="text-center">Bakuchi</h3>
+          <h3 class="item-title">Castor Oil</h3>
         </div>
         <div>
-          <div class="item-wp-image">
+          <div class="item-wp-image bakuchi">
             <img
-              src="https://fableandmane.com/cdn/shop/files/Bakuchi-Illustration_1_3024x.png?v=1631813248"
-              alt="d"
+              src="https://fableandmane.com/cdn/shop/files/coco-oil_3024x.png?v=1631813248"
+              alt="Bakuchi"
               width="80"
               height="80"
             >
           </div>
-          <h3 class="text-center">Bakuchi</h3>
+          <h3 class="item-title">Coconut</h3>
         </div>
         <div>
-          <div class="item-wp-image">
+          <div class="item-wp-image bakuchi">
             <img
-              src="https://fableandmane.com/cdn/shop/files/Bakuchi-Illustration_1_3024x.png?v=1631813248"
-              alt="d"
+              src="https://fableandmane.com/cdn/shop/files/Turmeric_1_3024x.png?v=1631813248"
+              alt="Bakuchi"
               width="80"
               height="80"
             >
           </div>
-          <h3 class="text-center">Bakuchi</h3>
+          <h3 class="item-title">Turmeric</h3>
         </div>
         <div>
-          <div class="item-wp-image">
+          <div class="item-wp-image bakuchi">
             <img
-              src="https://fableandmane.com/cdn/shop/files/Bakuchi-Illustration_1_3024x.png?v=1631813248"
-              alt="d"
+              src="https://fableandmane.com/cdn/shop/files/Banana-e1585315068782_1_3024x.png?v=1631813248"
+              alt="Bakuchi"
               width="80"
               height="80"
             >
           </div>
-          <h3 class="text-center">Bakuchi</h3>
+          <h3 class="item-title">Banana</h3>
         </div>
         <div>
-          <div class="item-wp-image">
+          <div class="item-wp-image bakuchi">
             <img
-              src="https://fableandmane.com/cdn/shop/files/Bakuchi-Illustration_1_3024x.png?v=1631813248"
-              alt="d"
+              src="https://fableandmane.com/cdn/shop/files/Ashwagandha_3024x.png?v=1631813248"
+              alt="Bakuchi"
               width="80"
               height="80"
             >
           </div>
-          <h3 class="text-center">Bakuchi</h3>
+          <h3 class="item-title">Ashwaganda</h3>
         </div>
         <div>
-          <div class="item-wp-image">
+          <div class="item-wp-image bakuchi">
             <img
-              src="https://fableandmane.com/cdn/shop/files/Bakuchi-Illustration_1_3024x.png?v=1631813248"
-              alt="d"
+              src="https://fableandmane.com/cdn/shop/files/castor-oil_3024x.png?v=1631813248"
+              alt="Bakuchi"
               width="80"
               height="80"
             >
           </div>
-          <h3 class="text-center">Bakuchi</h3>
+          <h3 class="item-title">Castor Oil</h3>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Our Incredible Ingredients Section -->
-  <div class="ingredients-section bg-white py-16">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl text-center mb-12 font-serif">Our Incredible Ingredients</h2>
-
-      <!-- Ingredients Slider -->
-      <div class="ingredients-slider" id="ingredients-slider">
-        <div class="flex justify-center items-center gap-8 flex-wrap">
-          <div class="ingredient-item text-center">
-            <div class="ingredient-icon w-16 h-16 mx-auto mb-3 bg-yellow-100 rounded-full flex items-center justify-center">
-              🍌
-            </div>
-            <span class="text-sm font-medium">Banana</span>
+        <div>
+          <div class="item-wp-image bakuchi">
+            <img
+              src="https://fableandmane.com/cdn/shop/files/coco-oil_3024x.png?v=1631813248"
+              alt="Bakuchi"
+              width="80"
+              height="80"
+            >
           </div>
-
-          <div class="ingredient-item text-center">
-            <div class="ingredient-icon w-16 h-16 mx-auto mb-3 bg-green-100 rounded-full flex items-center justify-center">
-              🌿
-            </div>
-            <span class="text-sm font-medium">Ashwagandha</span>
-          </div>
-
-          <div class="ingredient-item text-center">
-            <div class="ingredient-icon w-16 h-16 mx-auto mb-3 bg-red-100 rounded-full flex items-center justify-center">
-              🌺
-            </div>
-            <span class="text-sm font-medium">Hibiscus</span>
-          </div>
-
-          <div class="ingredient-item text-center">
-            <div class="ingredient-icon w-16 h-16 mx-auto mb-3 bg-purple-100 rounded-full flex items-center justify-center">
-              🟣
-            </div>
-            <span class="text-sm font-medium">Bakuchi</span>
-          </div>
-
-          <div class="ingredient-item text-center">
-            <div class="ingredient-icon w-16 h-16 mx-auto mb-3 bg-green-200 rounded-full flex items-center justify-center">
-              🌱
-            </div>
-            <span class="text-sm font-medium">Amla</span>
-          </div>
-
-          <div class="ingredient-item text-center">
-            <div class="ingredient-icon w-16 h-16 mx-auto mb-3 bg-amber-100 rounded-full flex items-center justify-center">
-              🌰
-            </div>
-            <span class="text-sm font-medium">Dashmool</span>
-          </div>
-
-          <div class="ingredient-item text-center">
-            <div class="ingredient-icon w-16 h-16 mx-auto mb-3 bg-orange-100 rounded-full flex items-center justify-center">
-              🥥
-            </div>
-            <span class="text-sm font-medium">Castor Oil</span>
-          </div>
+          <h3 class="item-title">Coconut</h3>
         </div>
-      </div>
-
-      <!-- Filter Tags -->
-      <div class="filter-tags flex justify-center gap-4 mt-12 flex-wrap">
-        <a
-          href="{{ blog.url }}"
-          class="filter-tag px-6 py-2 border border-gray-300 rounded-full text-sm hover:bg-gray-100 transition-colors {% unless current_tags.size > 0 %}bg-gray-900 text-white{% endunless %}"
-        >
-          ALL
-        </a>
-
-        <a
-          href="{{ blog.url }}/tagged/hair-secrets"
-          class="filter-tag px-6 py-2 border border-gray-300 rounded-full text-sm hover:bg-gray-100 transition-colors {% if current_tags contains 'hair-secrets' %}bg-gray-900 text-white{% endif %}"
-        >
-          HAIR SECRETS
-        </a>
-
-        <a
-          href="{{ blog.url }}/tagged/grandmas-remedies"
-          class="filter-tag px-6 py-2 border border-gray-300 rounded-full text-sm hover:bg-gray-100 transition-colors {% if current_tags contains 'grandmas-remedies' %}bg-gray-900 text-white{% endif %}"
-        >
-          GRANDMA'S REMEDIES
-        </a>
-
-        <a
-          href="{{ blog.url }}/tagged/secret-recipes"
-          class="filter-tag px-6 py-2 border border-gray-300 rounded-full text-sm hover:bg-gray-100 transition-colors {% if current_tags contains 'secret-recipes' %}bg-gray-900 text-white{% endif %}"
-        >
-          SECRET RECIPES
-        </a>
-
-        <a
-          href="{{ blog.url }}/tagged/hair-stories"
-          class="filter-tag px-6 py-2 border border-gray-300 rounded-full text-sm hover:bg-gray-100 transition-colors {% if current_tags contains 'hair-stories' %}bg-gray-900 text-white{% endif %}"
-        >
-          HAIR STORIES
-        </a>
-
-        <a
-          href="{{ blog.url }}/tagged/fable-fund"
-          class="filter-tag px-6 py-2 border border-gray-300 rounded-full text-sm hover:bg-gray-100 transition-colors {% if current_tags contains 'fable-fund' %}bg-gray-900 text-white{% endif %}"
-        >
-          FABLE FUND
-        </a>
+        <div>
+          <div class="item-wp-image bakuchi">
+            <img
+              src="https://fableandmane.com/cdn/shop/files/Turmeric_1_3024x.png?v=1631813248"
+              alt="Bakuchi"
+              width="80"
+              height="80"
+            >
+          </div>
+          <h3 class="item-title">Turmeric</h3>
+        </div>
+        <div>
+          <div class="item-wp-image bakuchi">
+            <img
+              src="https://fableandmane.com/cdn/shop/files/Banana-e1585315068782_1_3024x.png?v=1631813248"
+              alt="Bakuchi"
+              width="80"
+              height="80"
+            >
+          </div>
+          <h3 class="item-title">Banana</h3>
+        </div>
+        <div>
+          <div class="item-wp-image bakuchi">
+            <img
+              src="https://fableandmane.com/cdn/shop/files/Ashwagandha_3024x.png?v=1631813248"
+              alt="Bakuchi"
+              width="80"
+              height="80"
+            >
+          </div>
+          <h3 class="item-title">Ashwaganda</h3>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Blog Posts Section -->
-  <div class="blog-posts-section py-16 bg-gray-50">
+  <div class="blog-posts-section py-16">
     <div class="container mx-auto px-6">
       {% if blog.articles.size > 0 %}
         <!-- Blog Grid -->
-        <div class="blog-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="blog-grid grid grid-cols-1 md:grid-cols-2 gap-8">
           {% for article in blog.articles %}
-            <article class="blog-card bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <article class="blog-card transition-shadow flex justify-between items-center">
               <!-- Article Image -->
               {% if article.image and section.settings.show_image %}
-                <div class="article-image">
-                  <a href="{{ article.url }}">
-                    <img
-                      src="{{ article.image | image_url: width: 400 }}"
-                      alt="{{ article.image.alt | escape }}"
-                      class="w-full h-64 object-cover"
-                      loading="lazy"
-                    >
-                  </a>
+                <div class="blog-article__image">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 373 563" class="related-article__image">
+                    <defs>
+                      <clipPath id="clip-632685854914">
+
+                          <path d="M123.317 36.2618C179.875 9.6585 186.091 0.120726 186.149 0.000121611C186.208 -0.120482 194.489 9.6786 251.018 36.3623C296.985 58.0509 373.01 89.6291 373 153.871C373 162.102 372.834 562.658 372.591 563L0.282546 562.739C0.107173 562.739 0 202.293 0 153.248C0 88.9255 77.3592 57.8901 123.317 36.2618"></path>
+
+                        </clipPath>
+                    </defs>
+
+                      <image width="374" height="563" clip-path="url(#clip-632685854914)" xlink:href="{{ article.image | image_url }}" preserveAspectRatio="xMidYMid slice"></image>
+                  </svg>
                 </div>
               {% endif %}
 
-              <!-- Article Content -->
-              <div class="article-content p-6">
-                <!-- Article Category/Tags -->
+              <div class="article-content p-6 flex-1 text-center">
                 {% if article.tags.size > 0 %}
                   <div class="article-tags mb-3">
-                    <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-medium uppercase">
+                    <span class="text-amber-800 px-3 py-1 rounded-full text-xs font-medium uppercase font-second">
                       {{ article.tags.first }}
                     </span>
                   </div>
                 {% endif %}
 
-                <!-- Article Title -->
                 <h3 class="article-title mb-3">
                   <a
                     href="{{ article.url }}"
-                    class="text-xl font-semibold text-gray-900 hover:text-gray-700 transition-colors line-clamp-2"
+                    class="text-xl md:text-3xl font-semibold text-gray-900 hover:text-gray-700 transition-colors"
                   >
                     {{ article.title }}
                   </a>
                 </h3>
 
-                <!-- Article Excerpt -->
                 {% if article.excerpt.size > 0 %}
                   <p class="article-excerpt text-gray-600 text-sm mb-4 line-clamp-3">
                     {{ article.excerpt | strip_html | truncate: 120 }}
                   </p>
                 {% endif %}
 
-                <!-- Article Meta -->
-                <div class="article-meta flex items-center justify-between text-xs text-gray-500">
-                  {% if section.settings.show_date %}
-                    <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
-                      {{ article.published_at | date: '%B %d, %Y' }}
-                    </time>
-                  {% endif %}
-
-                  {% if section.settings.show_author and article.author %}
-                    <span>By {{ article.author }}</span>
-                  {% endif %}
-                </div>
-
-                <!-- Read More Button -->
                 <div class="article-cta mt-4">
                   <a
                     href="{{ article.url }}"
-                    class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-gray-700 transition-colors"
+                    class="btn !bg-transparent inline-flex items-center text-sm font-medium text-gray-900 hover:text-gray-700 transition-colors"
                   >
                     READ
                     <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -832,6 +820,58 @@
 
     .featured-content {
       grid-template-columns: 1fr;
+    }
+  }
+
+  .blog-article__image {
+    margin: 0 auto;
+    max-width: 202px;
+    position: relative;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 750px) {
+    .blog-article__image {
+      max-width: 302px;
+    }
+  }
+
+  @media screen and (min-width: 1025px) {
+    .blog-article__image {
+      width: 55%;
+    }
+
+    .blog-article--featured .blog-article__image {
+      margin: 0;
+      max-width: 372px;
+    }
+  }
+
+  .blog-article__image svg {
+    height: auto;
+    width: 100%;
+  }
+
+  .blog-article__image .sticker {
+    left: 38px;
+    max-width: 130px;
+    position: absolute;
+    top: 38px;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: auto;
+  }
+
+  @media screen and (min-width: 750px) {
+    .blog-article__image .sticker {
+      left: 62px;
+      top: 58px;
+    }
+  }
+
+  @media screen and (min-width: 1025px) {
+    .blog-article__image .sticker {
+      max-width: 150px;
+      transform: translate(-50%, -50%) scale(1);
     }
   }
 </style>
