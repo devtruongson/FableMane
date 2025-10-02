@@ -1,0 +1,328 @@
+<div class="top-custom-px">
+  <div class="container mx-auto py-10 pb-16">
+    <h1 class="text-5xl md:text-7xl text-center relative w-fit mx-auto">
+      {{ section.settings.page_title | default: 'Contact us' }}
+      <div class="absolute inset-0 pointer-events-none stars-field hidden md:block">
+        <!-- Star 1 - Top Left -->
+        <div class="star star-1">
+          <svg viewBox="0 0 21 28" fill="#333" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.1001 12.9001H15.6001C15.5001 12.9001 15.5001 12.9001 15.4001 12.9001H12.9001C12.8001 12.9001 12.7001 12.8001 12.6001 12.8001C11.7001 12.4001 11.4001 11.4001 11.1001 10.5001C10.9001 9.8001 10.7001 9.2001 10.6001 8.5001V0.200098C10.6001 -0.0999023 10.2001 -0.0999023 10.2001 0.200098V10.0001C10.1001 10.6001 10.0001 11.2001 9.6001 11.7001C9.5001 11.8001 9.4001 12.0001 9.3001 12.1001C8.6001 12.7001 7.5001 12.8001 6.6001 12.8001H6.5001H0.200098C-0.0999023 12.8001 -0.0999023 13.2001 0.200098 13.2001H7.3001H7.4001C9.3001 14.4001 10.0001 16.7001 10.2001 18.9001V26.9001C10.2001 27.2001 10.6001 27.2001 10.6001 26.9001V18.7001C11.0001 17.1001 11.5001 15.5001 12.6001 14.3001L12.7001 14.2001C13.2001 13.8001 13.8001 13.5001 14.5001 13.3001H20.2001C20.4001 13.3001 20.4001 12.9001 20.1001 12.9001Z" fill="#333"></path>
+          </svg>
+        </div>
+
+        <!-- Star 2 - Top Right -->
+        <div class="star star-2">
+          <svg viewBox="0 0 21 28" fill="#333" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.1001 12.9001H15.6001C15.5001 12.9001 15.5001 12.9001 15.4001 12.9001H12.9001C12.8001 12.9001 12.7001 12.8001 12.6001 12.8001C11.7001 12.4001 11.4001 11.4001 11.1001 10.5001C10.9001 9.8001 10.7001 9.2001 10.6001 8.5001V0.200098C10.6001 -0.0999023 10.2001 -0.0999023 10.2001 0.200098V10.0001C10.1001 10.6001 10.0001 11.2001 9.6001 11.7001C9.5001 11.8001 9.4001 12.0001 9.3001 12.1001C8.6001 12.7001 7.5001 12.8001 6.6001 12.8001H6.5001H0.200098C-0.0999023 12.8001 -0.0999023 13.2001 0.200098 13.2001H7.3001H7.4001C9.3001 14.4001 10.0001 16.7001 10.2001 18.9001V26.9001C10.2001 27.2001 10.6001 27.2001 10.6001 26.9001V18.7001C11.0001 17.1001 11.5001 15.5001 12.6001 14.3001L12.7001 14.2001C13.2001 13.8001 13.8001 13.5001 14.5001 13.3001H20.2001C20.4001 13.3001 20.4001 12.9001 20.1001 12.9001Z" fill="#333"></path>
+          </svg>
+        </div>
+
+        <!-- Star 3 - Bottom Left -->
+        <div class="star star-3">
+          <svg viewBox="0 0 21 28" fill="#333" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.1001 12.9001H15.6001C15.5001 12.9001 15.5001 12.9001 15.4001 12.9001H12.9001C12.8001 12.9001 12.7001 12.8001 12.6001 12.8001C11.7001 12.4001 11.4001 11.4001 11.1001 10.5001C10.9001 9.8001 10.7001 9.2001 10.6001 8.5001V0.200098C10.6001 -0.0999023 10.2001 -0.0999023 10.2001 0.200098V10.0001C10.1001 10.6001 10.0001 11.2001 9.6001 11.7001C9.5001 11.8001 9.4001 12.0001 9.3001 12.1001C8.6001 12.7001 7.5001 12.8001 6.6001 12.8001H6.5001H0.200098C-0.0999023 12.8001 -0.0999023 13.2001 0.200098 13.2001H7.3001H7.4001C9.3001 14.4001 10.0001 16.7001 10.2001 18.9001V26.9001C10.2001 27.2001 10.6001 27.2001 10.6001 26.9001V18.7001C11.0001 17.1001 11.5001 15.5001 12.6001 14.3001L12.7001 14.2001C13.2001 13.8001 13.8001 13.5001 14.5001 13.3001H20.2001C20.4001 13.3001 20.4001 12.9001 20.1001 12.9001Z" fill="#333"></path>
+          </svg>
+        </div>
+
+        <!-- Star 4 - Bottom Right -->
+        <div class="star star-4">
+          <svg viewBox="0 0 21 28" fill="#333" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.1001 12.9001H15.6001C15.5001 12.9001 15.5001 12.9001 15.4001 12.9001H12.9001C12.8001 12.9001 12.7001 12.8001 12.6001 12.8001C11.7001 12.4001 11.4001 11.4001 11.1001 10.5001C10.9001 9.8001 10.7001 9.2001 10.6001 8.5001V0.200098C10.6001 -0.0999023 10.2001 -0.0999023 10.2001 0.200098V10.0001C10.1001 10.6001 10.0001 11.2001 9.6001 11.7001C9.5001 11.8001 9.4001 12.0001 9.3001 12.1001C8.6001 12.7001 7.5001 12.8001 6.6001 12.8001H6.5001H0.200098C-0.0999023 12.8001 -0.0999023 13.2001 0.200098 13.2001H7.3001H7.4001C9.3001 14.4001 10.0001 16.7001 10.2001 18.9001V26.9001C10.2001 27.2001 10.6001 27.2001 10.6001 26.9001V18.7001C11.0001 17.1001 11.5001 15.5001 12.6001 14.3001L12.7001 14.2001C13.2001 13.8001 13.8001 13.5001 14.5001 13.3001H20.2001C20.4001 13.3001 20.4001 12.9001 20.1001 12.9001Z" fill="#333"></path>
+          </svg>
+        </div>
+
+        <!-- Star 5 - Middle Left (Optional) -->
+        <div class="star star-5">
+          <svg viewBox="0 0 21 28" fill="#333" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.1001 12.9001H15.6001C15.5001 12.9001 15.5001 12.9001 15.4001 12.9001H12.9001C12.8001 12.9001 12.7001 12.8001 12.6001 12.8001C11.7001 12.4001 11.4001 11.4001 11.1001 10.5001C10.9001 9.8001 10.7001 9.2001 10.6001 8.5001V0.200098C10.6001 -0.0999023 10.2001 -0.0999023 10.2001 0.200098V10.0001C10.1001 10.6001 10.0001 11.2001 9.6001 11.7001C9.5001 11.8001 9.4001 12.0001 9.3001 12.1001C8.6001 12.7001 7.5001 12.8001 6.6001 12.8001H6.5001H0.200098C-0.0999023 12.8001 -0.0999023 13.2001 0.200098 13.2001H7.3001H7.4001C9.3001 14.4001 10.0001 16.7001 10.2001 18.9001V26.9001C10.2001 27.2001 10.6001 27.2001 10.6001 26.9001V18.7001C11.0001 17.1001 11.5001 15.5001 12.6001 14.3001L12.7001 14.2001C13.2001 13.8001 13.8001 13.5001 14.5001 13.3001H20.2001C20.4001 13.3001 20.4001 12.9001 20.1001 12.9001Z" fill="#333"></path>
+          </svg>
+        </div>
+      </div>
+    </h1>
+
+    <div class="mt-4 md:mt-10 max-w-2xl mx-auto px-4 md-px-0">
+      {% if section.settings.subtitle %}
+        <h3 class="text-3xl">{{ section.settings.subtitle }}</h3>
+      {% endif %}
+
+      <div class="mt-4">
+        {% if section.settings.contact_content %}
+          <div class="font-second text-sm contact-content">
+            {{ section.settings.contact_content }}
+          </div>
+        {% else %}
+          <!-- Default content nếu không có content từ schema -->
+          <p class="font-second text-sm">
+            If you have any queries about an order, want to know more about our products, or our brand, please get in
+            touch. Have you had a look at our <strong><a href="/pages/faq">FAQ</a></strong
+            >? We are constantly updating it, so your answer might be there already!
+            <br>
+            <br>
+            You can also email us at <strong> support@fableandmane.com </strong>
+            <br>
+            <br>
+            <div class="font-second">
+              <div>Namaste,</div>
+              <div>The Fable & Mane family</div>
+            </div>
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Page",
+  "tag": "section",
+  "class": "contact-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Page Content"
+    },
+    {
+      "type": "text",
+      "id": "page_title",
+      "label": "Page Title",
+      "default": "Contact us",
+      "info": "Main heading for the contact page"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Have a question? We would love to help!",
+      "info": "Subtitle below the main heading"
+    },
+    {
+      "type": "richtext",
+      "id": "contact_content",
+      "label": "Contact Content",
+      "default": "<p>If you have any queries about an order, want to know more about our products, or our brand, please get in touch. Have you had a look at our <strong><a href=\"/pages/faq\">FAQ</a></strong>? We are constantly updating it, so your answer might be there already!</p><p>You can also email us at <strong>support@fableandmane.com</strong></p><p>Namaste,</p><p>The Fable &amp; Mane family</p>",
+      "info": "Main contact page content. You can use HTML tags for formatting."
+    },
+    {
+      "type": "header",
+      "content": "Stars Animation Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stars",
+      "label": "Show decorative stars",
+      "default": true,
+      "info": "Toggle animated stars around the title"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star Color",
+      "default": "#333333",
+      "info": "Color of the decorative stars"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "min": 400,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Content Max Width",
+      "default": 500,
+      "info": "Maximum width of the content area"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Section Padding Top",
+      "default": 40,
+      "info": "Top padding for the section"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Section Padding Bottom",
+      "default": 65,
+      "info": "Bottom padding for the section"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Page",
+      "category": "Contact"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .contact-section {
+    padding-top: {{ section.settings.section_padding_top | default: 40 }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom | default: 64 }}px;
+  }
+
+  .contact-content {
+    max-width: {{ section.settings.content_width | default: 512 }}px;
+  }
+
+  .contact-content a{
+    color: currentColor;
+  }
+
+  {% if section.settings.show_stars %}
+  .star {
+    position: absolute;
+    width: 16px;
+    height: 20px;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .star svg {
+    fill: {{ section.settings.star_color | default: '#333333' }};
+  }
+
+  /* Vị trí cố định cho từng ngôi sao */
+  .star-1 {
+    top: -19%;
+    left: 15%;
+    animation: starTwinkle 3s ease-in-out infinite;
+    animation-delay: 0s;
+  }
+
+  .star-2 {
+    top: -6%;
+    right: 20%;
+    animation: starFloat 4s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  .star-3 {
+    bottom: -15%;
+    left: 20%;
+    animation: starPulse 3.5s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .star-4 {
+    bottom: -15%;
+    right: 15%;
+    animation: starTwinkle 4s ease-in-out infinite;
+    animation-delay: 0.5s;
+  }
+
+  .star-5 {
+    top: 50%;
+    left: -12%;
+    animation: starFloat 3s ease-in-out infinite;
+    animation-delay: 1.5s;
+  }
+
+  /* Animations */
+  @keyframes starFloat {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(-8px) rotate(180deg);
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes starTwinkle {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes starPulse {
+    0%, 100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.15);
+    }
+  }
+  {% else %}
+  .stars-field {
+    display: none;
+  }
+  {% endif %}
+
+  /* Contact content styling */
+  .contact-content p {
+    margin-bottom: 1rem;
+  }
+
+  .contact-content strong {
+    font-weight: 600;
+  }
+
+  .contact-content a {
+    color: #0066cc;
+    text-decoration: underline;
+  }
+
+  .contact-content a:hover {
+    color: #004499;
+  }
+
+  /* Responsive cho mobile */
+  @media (max-width: 768px) {
+    .star {
+      width: 24px;
+      height: 30px;
+    }
+
+    .star-1 {
+      top: 8%;
+      left: 10%;
+    }
+
+    .star-2 {
+      top: 12%;
+      right: 15%;
+    }
+
+    .star-3 {
+      bottom: 25%;
+      left: 15%;
+    }
+
+    .star-4 {
+      bottom: 20%;
+      right: 10%;
+    }
+
+    .star-5 {
+      top: 45%;
+      left: 2%;
+    }
+
+    .contact-section {
+      padding-top: {{ section.settings.section_padding_top | divided_by: 2 | default: 20 }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom | divided_by: 2 | default: 32 }}px;
+    }
+  }
+</style>

@@ -37,6 +37,7 @@ formList.forEach((form) => {
         e.preventDefault();
         const formData = new FormData(form);
         const productId = formData.get('id');
+        const quantity = form.querySelector("input[name='quantity']")?.value || 1;
 
         if (!productId) return;
 
@@ -59,7 +60,7 @@ formList.forEach((form) => {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify({ id: productId, quantity: 1 })
+                body: JSON.stringify({ id: productId, quantity: quantity })
             });
 
             if (!response.ok) {
@@ -288,3 +289,24 @@ setTimeout(() => {
     skeletonList.forEach((skeleton) => skeleton.remove());
     productCardList.forEach((card) => (card.style.display = 'block'));
 }, 300);
+
+const policies = document.querySelector(".shopify-policy__container");
+if (policies) {
+    policies.classList.add("top-custom-px", '!max-w-3xl', '!mx-auto');
+    const h1Policy = policies.querySelector("h1");
+    if (h1Policy) {
+        h1Policy.classList.add("text-4xl", "md:text-8xl", "mb-8", "md:mb-12", "pt-4", "md:pt-16");
+    }
+    const strongPolicy = policies.querySelectorAll("strong");
+    if (strongPolicy) {
+        strongPolicy.forEach((el) => {
+            el.classList.add("font-second-semibold", "text-3xl", "md:text-5xl");
+        });
+    }
+    const divList = policies.querySelectorAll("div");
+    if (divList) {
+        divList.forEach((el) => {
+            el.classList.add("text-sm", "md:text-base");
+        });
+    }
+}

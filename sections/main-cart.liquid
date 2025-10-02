@@ -59,7 +59,7 @@
                                   </a>
                                 </h3>
                                 {% if item.variant.title != 'Default Title' %}
-                                  <p class="text-xs text-gray-500 mt-1">{{ item.variant.title }}</p>
+                                  <p class="text-xs text-gray-500 mt-1 font-second">{{ item.variant.title }}</p>
                                 {% endif %}
                               </div>
 
@@ -77,7 +77,7 @@
                             </div>
 
                             <!-- Price - Mobile -->
-                            <div class="mt-2">
+                            <div class="mt-2 font-second-semibold">
                               <p class="font-semibold text-gray-900 text-sm item-price">
                                 {{ item.line_price | money }}
                               </p>
@@ -114,7 +114,7 @@
                                   +
                                 </button>
                               </div>
-                              <span class="text-xs text-gray-500">Qty: {{ item.quantity }}</span>
+                              <span class="text-xs text-gray-500 font-second-semibold">Qty: {{ item.quantity }}</span>
                             </div>
                           </div>
                         </div>
@@ -240,7 +240,7 @@
                 </div>
               </div>
 
-              <div class="order-summary-content space-y-3 text-sm">
+              <div class="order-summary-content space-y-3 text-sm font-second-semibold">
                 <div class="flex justify-between">
                   <span
                     >Subtotal (<span id="item-count">{{ cart.item_count }}</span> items)</span
